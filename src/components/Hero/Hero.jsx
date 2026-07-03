@@ -122,7 +122,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-2xl font-body text-base sm:text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-10"
         >
-          Building transactional ledger engines, modular ERP software, and AI workflow integrations with clean architecture and calm, thoughtful designs.
+          Building transactional ERP applications and high-performance backends. Lead architect of BillKar, delivering a 35% API latency reduction while processing 500+ daily financial operations.
         </motion.p>
 
         {/* Action Buttons */}

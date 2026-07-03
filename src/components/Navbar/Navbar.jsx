@@ -98,7 +98,7 @@ export default function Navbar({ theme, toggleTheme }) {
         >
           <Compass className="w-5 h-5 text-[#84CC16] group-hover:rotate-45 transition-transform duration-500" />
           <span>
-            ISMAIL<span className="text-[#84CC16]">.</span>M
+            ISMAIL MAINAL<span className="text-[#84CC16]">.</span>
           </span>
         </button>
 

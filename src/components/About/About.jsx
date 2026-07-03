@@ -105,9 +105,22 @@ export default function About() {
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
                 I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript development, relational database schemas, and client-side interfaces.
               </p>
-              <p className="font-body text-base text-[#94A3B8] leading-relaxed">
+              <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
                 Whether architecting core transaction modules for the BillKar ERP system or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.
               </p>
+
+              {/* HR Value Highlights */}
+              <div className="border-l-2 border-[#2D6A4F] pl-4 flex flex-col gap-3.5 mt-8 mb-2">
+                <div className="text-sm text-[#94A3B8] leading-relaxed">
+                  <strong className="text-[#F8FAFC]">🚀 Direct Business Value:</strong> Optimized database indexes and React rendering cycles, achieving a <span className="text-[#84CC16] font-semibold">30% faster page load</span> and <span className="text-[#84CC16] font-semibold">35% latency drop</span>.
+                </div>
+                <div className="text-sm text-[#94A3B8] leading-relaxed">
+                  <strong className="text-[#F8FAFC]">🛡️ Transactional Integrity:</strong> Programmed relational schema constraints to safely process <span className="text-[#84CC16] font-semibold">500+ daily business orders</span> with zero discrepancy drift.
+                </div>
+                <div className="text-sm text-[#94A3B8] leading-relaxed">
+                  <strong className="text-[#F8FAFC]">⚡ Automation & Speed:</strong> Delivered document lifecycle state-automations that cut manual accounting errors by <span className="text-[#84CC16] font-semibold">50%</span>.
+                </div>
+              </div>
             </div>
 
             {/* Metrics cards grid */}
