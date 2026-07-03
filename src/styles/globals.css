@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #0B1120;
+  --color-bg-surface: #111827;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-accent: #2D6A4F;
+  --color-accent-hover: #1B4332;
+  --color-highlight: #84CC16;
+  --color-border-custom: rgba(255, 255, 255, 0.08);
+
+  --font-heading-sora: "Sora", sans-serif;
+  --font-heading-space: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 12s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Base style extensions */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: auto; /* Managed by Lenis */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading-sora);
+  }
+
+  /* Selection styles */
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-text-primary);
+  }
+
+  /* Scrollbar customization */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-light {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .glass-hover:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(132, 204, 22, 0.4); /* Highlight color glow */
+    box-shadow: 0 10px 30px -10px rgba(132, 204, 22, 0.15);
+    transform: translateY(-4px) scale(1.01);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(248, 250, 252, 0.4);
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 15px rgba(45, 106, 79, 0.5);
+  }
+
+  .accent-gradient {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .accent-gradient-bg {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-highlight) 100%);
+  }
+
+  .card-glow-green {
+    box-shadow: 0 0 40px -10px rgba(45, 106, 79, 0.2);
+  }
+
+  .card-glow-lime {
+    box-shadow: 0 0 40px -10px rgba(132, 204, 22, 0.15);
+  }
+
+  /* Custom styles for Journey hiking path */
+  .journey-trail-svg {
+    pointer-events: none;
+  }
+
+  /* Lenis smooth scroll adjustments */
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overflow: clip;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
+/* Light Mode Variables overrides (for Light Theme transition support) */
+body.light-theme {
+  --color-bg-primary: #F8FAFC;
+  --color-bg-surface: #FFFFFF;
+  --color-text-primary: #0B1120;
+  --color-text-secondary: #475569;
+  --color-accent: #1B4332;
+  --color-accent-hover: #2D6A4F;
+  --color-highlight: #65A30D;
+  --color-border-custom: rgba(0, 0, 0, 0.08);
+
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
+}
+
+body.light-theme .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme .glass-light {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+body.light-theme .glass-hover:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(101, 163, 13, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(101, 163, 13, 0.1);
+}

@@ -1,0 +1,146 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Code2, Target, Calendar, CheckSquare } from 'lucide-react';
+import SectionTitle from '../Common/SectionTitle';
+import GlassCard from '../Common/GlassCard';
+import avatarImage from '../../assets/profile_avatar.png';
+
+/**
+ * About Section containing biography, professional avatar, and metric highlight cards.
+ */
+export default function About() {
+  const cards = [
+    {
+      id: 'metric-experience',
+      icon: Calendar,
+      title: '4+ Years',
+      subtitle: 'Experience',
+      description: 'Writing mission-critical full stack logic.',
+      glowColor: 'card-glow-green',
+    },
+    {
+      id: 'metric-projects',
+      icon: CheckSquare,
+      title: '18+ Built',
+      subtitle: 'Projects Completed',
+      description: 'ERP modules, ledgers, and SaaS integrations.',
+      glowColor: 'card-glow-lime',
+    },
+    {
+      id: 'metric-skills',
+      icon: Code2,
+      title: '30+ Techs',
+      subtitle: 'Modern Stack',
+      description: 'Carefully styled across the database, server, & client.',
+      glowColor: 'card-glow-green',
+    },
+    {
+      id: 'metric-focus',
+      icon: Target,
+      title: 'AI & ERP',
+      subtitle: 'Current Focus',
+      description: 'Automating enterprise flows and ledgers.',
+      glowColor: 'card-glow-lime',
+    },
+  ];
+
+  return (
+    <section id="about" className="relative py-24 bg-[#0B1120] overflow-hidden">
+      {/* Background soft lighting */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#2D6A4F]/5 blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
+        <SectionTitle
+          subtitle="Biography"
+          title="Engineering with Intention"
+          description="Crafting high-integrity backends and elegant web systems inspired by nature’s robust architectures."
+        />
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Profile Photo Holder */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative group"
+          >
+            {/* Outer Glow frame */}
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#2D6A4F]/30 to-[#84CC16]/20 blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+            
+            {/* Main Picture Wrapper */}
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 aspect-square bg-[#111827]">
+              <motion.img
+                src={avatarImage}
+                alt="Ismail Mainal Avatar Placeholder"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-transparent to-transparent opacity-80" />
+              
+              {/* Bottom text overlay */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <span className="font-heading-space text-xs font-semibold uppercase tracking-wider text-[#84CC16]">
+                  Full Stack Engineer
+                </span>
+                <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC]">
+                  Ismail Mainal
+                </h3>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Bio Details & Metric Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col gap-8"
+          >
+            <div>
+              <h3 className="font-heading-sora text-2xl font-bold text-[#F8FAFC] mb-4">
+                Hi, I&apos;m Ismail.
+              </h3>
+              <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
+                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in high-performance node systems, transactional database controls, and client-side interfaces.
+              </p>
+              <p className="font-body text-base text-[#94A3B8] leading-relaxed">
+                Whether creating double-entry accounting ledgers from scratch with strict isolation constraints or automating accounts-payable pipelines using optical scanning and LLMs, my designs remain calm, structural, and performance-first.
+              </p>
+            </div>
+
+            {/* Metrics cards grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {cards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <GlassCard
+                    key={card.id}
+                    className="p-5 flex gap-4 items-start border-white/5 hover:border-[#2D6A4F]/40"
+                    glow={false}
+                  >
+                    <div className="p-2 rounded-lg bg-[#2D6A4F]/10 border border-[#2D6A4F]/20 text-[#84CC16]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-heading-sora text-lg font-bold text-[#F8FAFC]">
+                        {card.title}
+                      </h4>
+                      <div className="font-heading-space text-xs font-semibold tracking-wider text-[#94A3B8] uppercase mt-0.5">
+                        {card.subtitle}
+                      </div>
+                      <p className="font-body text-xs text-[#94A3B8]/80 mt-1">
+                        {card.description}
+                      </p>
+                    </div>
+                  </GlassCard>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
