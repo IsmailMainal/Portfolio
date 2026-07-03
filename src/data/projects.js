@@ -37,7 +37,7 @@ export const projectsData = [
   },
   {
     id: 'sms-student-mgmt',
-    title: 'Student Management System (SMS)',
+    title: 'Secure Management System (SMS)',
     category: 'Full Stack',
     shortDescription: 'A premium management platform with real-time verification and automated mail service.',
     description: 'A premium, full-stack student and system management platform featuring a secure authentication framework, dynamic role checking, live Socket.io integrations, and Nodemailer email dispatch services.',
