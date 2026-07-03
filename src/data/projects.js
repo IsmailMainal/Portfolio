@@ -66,5 +66,21 @@ export const projectsData = [
     architecture: 'Single Page Application layout communicating with a JSON REST API service, managing stage updates asynchronously.',
     challenges: 'Designing clean UI elements to present multi-stage candidate information without visual clutter.',
     learnings: 'Gained solid expertise in asynchronous JavaScript, component-driven layouts, and REST integration workflows.',
+  },
+  {
+    id: 'sms-student-mgmt',
+    title: 'Student Management System (SMS)',
+    category: 'Full Stack',
+    shortDescription: 'A premium management platform with real-time verification and automated mail service.',
+    description: 'A premium, full-stack student and system management platform featuring a secure authentication framework, dynamic role checking, live Socket.io integrations, and Nodemailer email dispatch services.',
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
+    tags: ['React 19', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Socket.io', 'Nodemailer', 'JWT'],
+    githubUrl: 'https://github.com/IsmailMainal/sms',
+    liveUrl: 'https://github.com/IsmailMainal/sms',
+    problem: 'School administrations lack a unified dashboard to track student statuses in real-time, resulting in delayed notifications and security vulnerabilities in role separation.',
+    solution: 'Engineered a unified student/system workspace. Configured Sequelize ORM schemas on MySQL, role validation filters using JWT, a live Socket.io notification stream, and automated transactional emails via SMTP.',
+    architecture: 'Client-server layout using React 19 SPA for responsive presentation and Node/Express server for RESTful endpoint routing, session caching, and live messaging sockets.',
+    challenges: 'Enforcing instant email verification alerts during rapid applicant sign-up spikes without locking the main thread.',
+    learnings: 'Mastered React 19 lifecycle hooks, bidirectional messaging with Socket.io, Sequelize transaction rolls, and securing cookies with CORS middleware.',
   }
 ];

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, ArrowRight, Download } from 'lucide-react';
+import { ChevronDown, ArrowRight, Download, Linkedin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -137,6 +137,9 @@ export default function Hero() {
           </Button>
           <Button variant="secondary" onClick={() => window.open('/Ismail_Mainal_Resume_ATS.pdf', '_blank')}>
             Download Resume <Download className="w-4 h-4" />
+          </Button>
+          <Button variant="outline" onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}>
+            LinkedIn <Linkedin className="w-4 h-4 text-[#84CC16]" />
           </Button>
         </motion.div>
       </div>

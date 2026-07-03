@@ -14,6 +14,13 @@ import contactLakeBg from '../../assets/contact_lake.png';
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success'
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('ismailmanyal3@gmail.com');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -111,6 +118,18 @@ export default function Contact() {
                   exit={{ opacity: 0 }}
                   className="flex flex-col gap-6 text-left"
                 >
+                  {/* Copy Email directly shortcut */}
+                  <div className="flex justify-between items-center p-3.5 rounded-lg bg-[#0B1120]/40 border border-white/5 font-body">
+                    <span className="text-xs text-[#94A3B8] font-mono">ismailmanyal3@gmail.com</span>
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      className="font-heading-space text-xs font-semibold text-[#84CC16] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1.5"
+                    >
+                      {copied ? 'Copied! 🌲' : 'Copy Email'}
+                    </button>
+                  </div>
+
                   {/* Name field */}
                   <div>
                     <label
