@@ -13,33 +13,33 @@ export default function About() {
     {
       id: 'metric-experience',
       icon: Calendar,
-      title: '4+ Years',
+      title: '1+ Year',
       subtitle: 'Experience',
-      description: 'Writing mission-critical full stack logic.',
+      description: 'Designing and deploying production-grade web apps.',
       glowColor: 'card-glow-green',
     },
     {
       id: 'metric-projects',
       icon: CheckSquare,
-      title: '18+ Built',
-      subtitle: 'Projects Completed',
-      description: 'ERP modules, ledgers, and SaaS integrations.',
+      title: '4 Complete',
+      subtitle: 'Projects Built',
+      description: 'Full stack software and database architectures.',
       glowColor: 'card-glow-lime',
     },
     {
       id: 'metric-skills',
       icon: Code2,
-      title: '30+ Techs',
+      title: '15+ Techs',
       subtitle: 'Modern Stack',
-      description: 'Carefully styled across the database, server, & client.',
+      description: 'Proficient across React, Node, Express, and MySQL.',
       glowColor: 'card-glow-green',
     },
     {
       id: 'metric-focus',
       icon: Target,
-      title: 'AI & ERP',
+      title: 'ERP Software',
       subtitle: 'Current Focus',
-      description: 'Automating enterprise flows and ledgers.',
+      description: 'Scaling BillKar invoicing and stock operations.',
       glowColor: 'card-glow-lime',
     },
   ];
@@ -103,10 +103,10 @@ export default function About() {
                 Hi, I&apos;m Ismail.
               </h3>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in high-performance node systems, transactional database controls, and client-side interfaces.
+                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript development, relational database schemas, and client-side interfaces.
               </p>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed">
-                Whether creating double-entry accounting ledgers from scratch with strict isolation constraints or automating accounts-payable pipelines using optical scanning and LLMs, my designs remain calm, structural, and performance-first.
+                Whether architecting core transaction modules for the BillKar ERP system or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.
               </p>
             </div>
 
