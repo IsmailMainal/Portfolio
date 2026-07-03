@@ -71,9 +71,13 @@ export default function Navbar({ theme, toggleTheme }) {
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // Offset for sticky navbar
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(element, { offset: -80 });
+      } else {
+        const yOffset = -80; // Offset for sticky navbar
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 
@@ -126,10 +130,8 @@ export default function Navbar({ theme, toggleTheme }) {
           </ul>
         </nav>
 
-        {/* Toolbar (Ctrl+K palette, Theme Toggle, Mobile Burger) */}
+        {/* Toolbar (Mobile Burger) */}
         <div className="flex items-center gap-3">
-          <CommandPalette theme={theme} toggleTheme={toggleTheme} />
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
           {/* Hamburger button */}
           <button

@@ -48,11 +48,15 @@ export default function Hero() {
   }, []);
 
   const handleScrollClick = () => {
-    const nextSection = document.getElementById('about');
+    const nextSection = document.getElementById('projects');
     if (nextSection) {
-      const yOffset = -80;
-      const y = nextSection.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      if (window.lenis) {
+        window.lenis.scrollTo(nextSection, { offset: -80 });
+      } else {
+        const yOffset = -80;
+        const y = nextSection.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 
