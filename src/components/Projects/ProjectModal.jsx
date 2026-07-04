@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { X, Github, ExternalLink, ShieldCheck, Database, Settings } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { X, Github, ExternalLink, ShieldCheck, Database, Settings, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Badge from '../Common/Badge';
 
@@ -11,6 +11,8 @@ import Badge from '../Common/Badge';
  * @param {function} props.onClose - Modal close callback
  */
 export default function ProjectModal({ project, onClose }) {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   // Prevent body scrolling when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -26,6 +28,18 @@ export default function ProjectModal({ project, onClose }) {
   }, [onClose]);
 
   if (!project) return null;
+
+  const images = project.images && project.images.length > 0 ? project.images : [project.image];
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   return (
     <AnimatePresence>
@@ -51,23 +65,72 @@ export default function ProjectModal({ project, onClose }) {
           {/* Header Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-20 flex items-center justify-center w-10 h-10 rounded-full border border-white/8 glass text-[#F8FAFC] hover:border-white/20 transition-all cursor-pointer"
+            className="absolute top-6 right-6 z-30 flex items-center justify-center w-10 h-10 rounded-full border border-white/8 glass text-[#F8FAFC] hover:border-white/20 transition-all cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
 
-          {/* Banner Image */}
-          <div className="relative aspect-video w-full max-h-[350px] bg-slate-950 overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/40 to-transparent" />
-            
+          {/* Banner Image / Carousel */}
+          <div className="relative aspect-video w-full max-h-[420px] bg-slate-950 overflow-hidden flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentImageIndex}
+                src={images[currentImageIndex]}
+                alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                initial={{ opacity: 0, scale: 1.02 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                className="w-full h-full object-cover"
+              />
+            </AnimatePresence>
+
+            {/* Gradient bottom-shadow overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#111827] via-[#111827]/30 to-transparent pointer-events-none z-10" />
+
+            {/* Navigation Controls */}
+            {images.length > 1 && (
+              <>
+                {/* Left Arrow */}
+                <button
+                  onClick={handlePrevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={handleNextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-sm text-white hover:bg-black/60 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+
+                {/* Dots indicator at the top-left */}
+                <div className="absolute top-8 left-8 z-20 flex gap-2">
+                  {images.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(idx);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        idx === currentImageIndex ? 'w-6 bg-[#84CC16]' : 'w-1.5 bg-white/40 hover:bg-white/60'
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+
             {/* Banner Metadata overlay */}
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none">
               <span className="bg-[#0B1120]/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full font-heading-space text-xs font-bold tracking-wider uppercase text-[#84CC16]">
                 {project.category}
               </span>

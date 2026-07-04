@@ -1,3 +1,7 @@
+import billkarHero from '../assets/billkar-hero.png';
+import billkarSandbox from '../assets/billkar-sandbox.png';
+import billkarFeatures from '../assets/billkar-features.png';
+
 /**
  * Detailed Projects data for Ismail Mainal.
  * Richly populated with technical specifics (ACID, Sequelize, Socket.io, JDBC, Cryptography) to attract technical recruiters and HR.
@@ -9,7 +13,8 @@ export const projectsData = [
     category: 'Full Stack',
     shortDescription: 'A live production ERP platform processing 500+ daily business transactions.',
     description: 'Lead developer of BillKar — a live ERP ecosystem handling invoice management, dynamic inventories, cost tracking, and double-entry financial ledger operations. Features granular Role-Based Access Control (RBAC) middleware guarding API routes.',
-    image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
+    image: billkarHero,
+    images: [billkarHero, billkarSandbox, billkarFeatures],
     tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Tailwind CSS'],
     githubUrl: 'https://github.com/IsmailMainal',
     liveUrl: 'https://github.com/IsmailMainal',
