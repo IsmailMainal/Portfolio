@@ -5,7 +5,7 @@
 export const journeyData = [
   {
     id: 'trail-vtu',
-    icon: '🎓',
+    icon: 'GraduationCap',
     title: 'Bachelor of Technology (B.Tech)',
     subtitle: 'Computer Science & Engineering',
     date: 'Dec 2020 – May 2024',
@@ -14,7 +14,7 @@ export const journeyData = [
   },
   {
     id: 'trail-salesforce',
-    icon: '⚡',
+    icon: 'Zap',
     title: 'Salesforce Certified Training',
     subtitle: 'Besant Technologies',
     date: '2024',
@@ -23,7 +23,7 @@ export const journeyData = [
   },
   {
     id: 'trail-besant',
-    icon: '🌲',
+    icon: 'Laptop',
     title: 'Junior Web Application Developer',
     subtitle: 'Aanirids Technologies — Bengaluru, India',
     date: 'Jul 2024 – Dec 2025',
@@ -32,7 +32,7 @@ export const journeyData = [
   },
   {
     id: 'trail-aanirids',
-    icon: '⛰',
+    icon: 'Rocket',
     title: 'Software Developer',
     subtitle: 'Aanirids Technologies — Bengaluru, India',
     date: 'Jan 2026 – Present',

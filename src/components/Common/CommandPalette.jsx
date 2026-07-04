@@ -96,17 +96,6 @@ export default function CommandPalette({ theme, toggleTheme }) {
 
   return (
     <>
-      {/* Keyboard Hint Floating Button on large screen */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/8 glass hover:border-white/15 text-xs text-white/60 hover:text-white/90 transition-all font-mono shadow-md cursor-pointer"
-        aria-label="Open command palette"
-      >
-        <Terminal className="w-3.5 h-3.5" />
-        <span>Menu</span>
-        <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] font-sans">Ctrl K</kbd>
-      </button>
-
       {/* Actual Palette Modal */}
       <AnimatePresence>
         {isOpen && (

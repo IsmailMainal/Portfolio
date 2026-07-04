@@ -52,7 +52,7 @@ export const skillsData = [
     description: 'Writing clean code across diverse development frameworks and CRM clouds.',
     technologies: [
       { name: 'JavaScript (ES6+)', level: 'Expert' },
-      { name: 'Java', level: 'Intermediate' },
+      { name: 'Java', level: 'Advanced' },
       { name: 'Apex (Salesforce)', level: 'Intermediate' }
     ]
   },

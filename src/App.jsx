@@ -56,7 +56,7 @@ function App() {
 
         {/* Dynamic Page Router */}
         <main className="flex-grow">
-          <Suspense fallback={<div className="min-h-screen bg-[#0B1120]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[var(--color-bg-primary)]" />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="*" element={<NotFound />} />

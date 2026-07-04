@@ -32,7 +32,7 @@ export default function About() {
       icon: Code2,
       title: '15+ Techs',
       subtitle: 'Modern Stack',
-      description: 'Proficient across React, Node, Express, and MySQL.',
+      description: 'Proficient across React, Node, Express, Java, and MySQL.',
       glowColor: 'card-glow-green',
     },
     {
@@ -46,7 +46,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-24 bg-[#0B1120] overflow-hidden">
+    <section id="about" className="relative py-16 bg-[var(--color-bg-primary)] overflow-hidden transition-all duration-1000">
       {/* Background soft lighting */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#2D6A4F]/5 blur-[120px] pointer-events-none" />
 
@@ -104,7 +104,7 @@ export default function About() {
                 Hi, I&apos;m Ismail.
               </h3>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript development, relational database schemas, and client-side interfaces.
+                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript and Java development, relational database schemas, and client-side interfaces.
               </p>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
                 Whether architecting core transaction modules for the BillKar ERP system or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.

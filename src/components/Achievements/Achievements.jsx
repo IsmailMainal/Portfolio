@@ -22,7 +22,7 @@ export default function Achievements() {
     <section
       ref={ref}
       id="achievements"
-      className="relative py-20 bg-[#0B1120] border-t border-b border-white/5 overflow-hidden"
+      className="relative py-14 bg-[var(--color-bg-primary)] border-t border-b border-[var(--color-border-custom)] overflow-hidden transition-all duration-1000"
     >
       {/* Background Soft gradient light */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2D6A4F]/3 rounded-full blur-[100px] pointer-events-none" />

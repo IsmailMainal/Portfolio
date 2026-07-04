@@ -24,7 +24,7 @@ export const projectsData = [
     images: [billkarHero, billkarSandbox, billkarFeatures],
     tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Tailwind CSS'],
     githubUrl: 'https://github.com/IsmailMainal',
-    liveUrl: 'https://github.com/IsmailMainal',
+    liveUrl: 'https://billkar.aanirids.com',
     problem: 'SMEs face manual bookkeeping errors and stock-out discrepancy drifts. Concurrent write requests on inventories and ledger journals without transactional locks cause record collisions and balance misalignment.',
     solution: 'Designed and deployed atomic ledger transaction modules. Engineered 15+ REST endpoints with schema validators using express-validator. Configured MySQL InnoDB indexing on key foreign keys, reducing response latencies by 35% and cutting accounting record discrepancy rates to zero.',
     architecture: 'Features a clean MVC separation. Express backend routers layer validation pipelines and JSON Web Token (JWT) verification. Sequelize transactions enforce ACID compliance on ledger entries, auto-rolling back database states if invoice writes fail. Frontend is a responsive React SPA using React Hooks and Context API for global state.',

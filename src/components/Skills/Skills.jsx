@@ -24,7 +24,7 @@ export default function Skills() {
   const totalTechs = skillsData.reduce((acc, cat) => acc + cat.technologies.length, 0);
 
   return (
-    <section id="skills" className="relative py-24 bg-[#111827] overflow-hidden">
+    <section id="skills" className="relative py-16 bg-[var(--color-bg-surface)] overflow-hidden transition-all duration-1000">
       {/* Background Soft lighting */}
       <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#84CC16]/5 blur-[120px] pointer-events-none" />
 

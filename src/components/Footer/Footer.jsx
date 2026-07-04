@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, Compass } from 'lucide-react';
+import { Github, Linkedin, Mail, Terminal } from 'lucide-react';
 
 /**
  * Footer Section.
@@ -73,17 +73,17 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#0B1120] text-[#94A3B8] pt-24 pb-12 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-[var(--color-bg-primary)] text-[#94A3B8] pt-16 pb-10 overflow-hidden border-t border-[var(--color-border-custom)] transition-all duration-1000">
       {/* Stars Canvas Backdrop Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
         <canvas ref={canvasRef} className="w-full h-full" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
-        {/* Brand Compass Symbol */}
+        {/* Brand Terminal Symbol */}
         <div className="flex flex-col items-center gap-3 mb-8">
           <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/8 glass text-[#84CC16]">
-            <Compass className="w-6 h-6 animate-pulse-slow" />
+            <Terminal className="w-6 h-6 animate-pulse-slow" />
           </div>
           <span className="font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC]">
             ISMAIL MAINAL
@@ -114,7 +114,7 @@ export default function Footer() {
             <Linkedin className="w-4.5 h-4.5" />
           </a>
           <a
-            href="mailto:ismail.mainal@gmail.com" // Placeholder email link
+            href="mailto:ismailmanyal3@gmail.com"
             className="flex items-center justify-center w-10 h-10 rounded-full border border-white/8 glass text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/20 transition-all"
             aria-label="Email contact"
           >

@@ -25,6 +25,29 @@
   }
 }
 
+:root {
+  --hero-bg-filter: brightness(0.6) contrast(1.1) saturate(0.9);
+  --hero-overlay-color: rgba(11, 17, 32, 0.55);
+  --hero-bottom-fog: #0B1120;
+  
+  --contact-bg-filter: brightness(0.6) saturate(0.85);
+  --contact-overlay-color: rgba(11, 17, 32, 0.65);
+  --contact-bottom-fog: #0B1120;
+  
+  --global-transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  transition: var(--global-transition);
+}
+
+/* Apply slow transition to layout components for theme change without conflicting with GSAP/Framer Motion */
+body, header, section, footer, .glass, .glass-hover, h1, h2, h3, h4, h5, h6, p, a, strong, label, input, textarea {
+  transition-property: background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 1500ms;
+}
+
 /* Base style extensions */
 @layer base {
   html {
@@ -142,8 +165,8 @@
 
 /* Light Mode Variables overrides (for Light Theme transition support) */
 body.light-theme {
-  --color-bg-primary: #F8FAFC;
-  --color-bg-surface: #FFFFFF;
+  --color-bg-primary: #FAF6EE;
+  --color-bg-surface: #FCFAF2;
   --color-text-primary: #0B1120;
   --color-text-secondary: #475569;
   --color-accent: #1B4332;
@@ -151,14 +174,105 @@ body.light-theme {
   --color-highlight: #65A30D;
   --color-border-custom: rgba(0, 0, 0, 0.08);
 
+  --hero-bg-filter: brightness(1.2) sepia(0.18) saturate(1.25) contrast(0.95);
+  --hero-overlay-color: rgba(254, 243, 199, 0.22); /* Warm amber sunlight overlay */
+  --hero-bottom-fog: #FAF6EE;
+  
+  --contact-bg-filter: brightness(1.15) sepia(0.15) saturate(1.2);
+  --contact-overlay-color: rgba(254, 243, 199, 0.28);
+  --contact-bottom-fog: #FAF6EE;
+
   ::-webkit-scrollbar-track {
-    background: #F1F5F9;
+    background: #FAF6EE;
   }
   ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.15);
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-accent);
+  }
+
+  /* Hardcoded text overrides for Light Mode */
+  & .text-\[\#F8FAFC\] {
+    color: var(--color-text-primary) !important;
+  }
+  & .text-\[\#94A3B8\] {
+    color: var(--color-text-secondary) !important;
+  }
+  & .text-white {
+    color: var(--color-text-primary) !important;
+  }
+  & .text-white\/90 {
+    color: rgba(11, 17, 32, 0.9) !important;
+  }
+  & .text-white\/80 {
+    color: rgba(11, 17, 32, 0.8) !important;
+  }
+  & .text-white\/60 {
+    color: rgba(11, 17, 32, 0.6) !important;
+  }
+  & .text-white\/50 {
+    color: rgba(11, 17, 32, 0.5) !important;
+  }
+  & .text-white\/45 {
+    color: rgba(11, 17, 32, 0.45) !important;
+  }
+  & .text-white\/40 {
+    color: rgba(11, 17, 32, 0.4) !important;
+  }
+  & .text-white\/35 {
+    color: rgba(11, 17, 32, 0.35) !important;
+  }
+  & .text-white\/30 {
+    color: rgba(11, 17, 32, 0.3) !important;
+  }
+
+  /* Placeholder overrides */
+  & .placeholder-white\/35::placeholder {
+    color: rgba(11, 17, 32, 0.4) !important;
+  }
+  & .placeholder-white\/20::placeholder {
+    color: rgba(11, 17, 32, 0.3) !important;
+  }
+
+  /* Hardcoded border overrides for Light Mode */
+  & .border-white\/5 {
+    border-color: rgba(0, 0, 0, 0.05) !important;
+  }
+  & .border-white\/8 {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+  & .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+  }
+  & .border-white\/15 {
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+  & .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* Background overrides */
+  & .bg-\[\#111827\]\/50 {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+  }
+  & .bg-\[\#111827\]\/40 {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  & .bg-\[\#111827\] {
+    background-color: var(--color-bg-surface) !important;
+  }
+  & .bg-\[\#0B1120\]\/60 {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+  }
+  & .bg-slate-950 {
+    background-color: #FAF6EE !important;
+  }
+  & .bg-black\/40 {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+  }
+  & .bg-black\/20 {
+    background-color: rgba(0, 0, 0, 0.05) !important;
   }
 }
 

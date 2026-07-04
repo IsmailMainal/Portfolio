@@ -1,11 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { GraduationCap, Zap, Laptop, Rocket } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
 import Badge from '../Common/Badge';
 import { journeyData } from '../../data/journey';
+
+const iconMap = {
+  GraduationCap,
+  Zap,
+  Laptop,
+  Rocket
+};
 
 /**
  * Journey Section — Interactive Hiking Trail Timeline.
@@ -66,7 +74,7 @@ export default function Journey() {
   }, []);
 
   return (
-    <section ref={containerRef} id="journey" className="relative py-24 bg-[#111827] overflow-hidden">
+    <section ref={containerRef} id="journey" className="relative py-16 bg-[var(--color-bg-surface)] overflow-hidden transition-all duration-1000">
       {/* Visual Accent lighting */}
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#84CC16]/5 blur-[120px] pointer-events-none" />
 
@@ -145,11 +153,14 @@ export default function Journey() {
  */
 function JourneyCard({ milestone, align }) {
   const isRight = align === 'right';
+  const IconComponent = iconMap[milestone.icon] || Laptop;
 
   return (
     <GlassCard className="border-white/5 hover:border-[#84CC16]/30 text-left">
-      <div className={`flex items-center gap-2 mb-2 ${isRight ? 'md:justify-end' : 'justify-start'}`}>
-        <span className="text-2xl">{milestone.icon}</span>
+      <div className={`flex items-center gap-3 mb-3 ${isRight ? 'md:justify-end md:flex-row-reverse' : 'justify-start'}`}>
+        <div className="p-2.5 rounded-xl bg-[#2D6A4F]/10 border border-[#2D6A4F]/20 text-[#84CC16] flex items-center justify-center shrink-0">
+          <IconComponent className="w-5 h-5" />
+        </div>
         <span className="font-heading-space text-xs font-bold text-[#84CC16] bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
           {milestone.date}
         </span>

@@ -7,7 +7,7 @@ import petsmartServices from './petsmart-services.png';
 import petsmartReports from './petsmart-reports.png';
 import heroMountainImage from './hero_mountain.png';
 import contactLakeBg from './contact_lake.png';
-import avatarImage from './profile_avatar.png';
+import avatarImage from './profile_avatar.jpg';
 
 export {
   billkarHero,

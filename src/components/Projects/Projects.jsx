@@ -29,16 +29,16 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="relative py-24 bg-[#0B1120] overflow-hidden">
+    <section id="projects" className="relative py-16 bg-[var(--color-bg-primary)] overflow-hidden transition-all duration-1000">
       {/* Background Soft lighting */}
       <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#2D6A4F]/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#84CC16]/3 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
-          subtitle="Selected Works"
-          title="Engineered Environments"
-          description="A selection of commercial modules, transactional ledger engines, and smart automation pipelines."
+          subtitle="Works"
+          title="Projects I've Built"
+          description="A selection of real-world management systems, databases, and client interfaces."
         />
 
         {/* Filters and Search Bar row */}

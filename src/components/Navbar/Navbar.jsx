@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal, Compass } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeToggle from '../Common/ThemeToggle';
 import CommandPalette from '../Common/CommandPalette';
@@ -96,7 +96,7 @@ export default function Navbar({ theme, toggleTheme }) {
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-2 group font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC] cursor-pointer"
         >
-          <Compass className="w-5 h-5 text-[#84CC16] group-hover:rotate-45 transition-transform duration-500" />
+          <Terminal className="w-5 h-5 text-[#84CC16] group-hover:translate-x-0.5 transition-transform duration-300" />
           <span>
             ISMAIL MAINAL<span className="text-[#84CC16]">.</span>
           </span>
@@ -130,8 +130,10 @@ export default function Navbar({ theme, toggleTheme }) {
           </ul>
         </nav>
 
-        {/* Toolbar (Mobile Burger) */}
+        {/* Toolbar (Theme Toggle, Command Palette & Hamburger) */}
         <div className="flex items-center gap-3">
+          <CommandPalette theme={theme} toggleTheme={toggleTheme} />
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
 
           {/* Hamburger button */}
           <button

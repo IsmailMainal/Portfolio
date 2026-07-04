@@ -56,21 +56,28 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-28 overflow-hidden bg-[#0B1120] flex items-center justify-center min-h-screen"
+      className="relative py-16 overflow-hidden bg-[var(--color-bg-primary)] flex items-center justify-center min-h-screen transition-all duration-1000"
     >
       {/* Sunset Lake Parallax Backdrop */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 opacity-40 mix-blend-lighten"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 opacity-40 mix-blend-lighten transition-all duration-1000"
         style={{
           backgroundImage: `url(${contactLakeBg})`,
+          filter: 'var(--contact-bg-filter)',
         }}
       />
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-[#0B1120] via-[#0B1120]/75 to-[#0B1120] pointer-events-none" />
+      <div 
+        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000" 
+        style={{
+          backgroundColor: 'var(--contact-overlay-color)',
+        }}
+      />
+      <div className="absolute inset-0 z-1 bg-gradient-to-b from-[var(--contact-bottom-fog)] via-transparent to-[var(--contact-bottom-fog)] pointer-events-none transition-all duration-1000" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
         <SectionTitle
-          subtitle="Connection"
-          title="Reach the Summit"
+          subtitle="Get in Touch"
+          title="Let's Collaborate"
           description="Have an ERP module, a database query bottleneck, or an AI pipeline project? Let&apos;s build together."
         />
 

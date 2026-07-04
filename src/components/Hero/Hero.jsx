@@ -70,14 +70,20 @@ export default function Hero() {
       {/* Background Image Layer with Parallax */}
       <div
         ref={bgRef}
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 transition-all duration-1000"
         style={{
           backgroundImage: `url(${heroMountainImage})`,
+          filter: 'var(--hero-bg-filter)',
         }}
       />
 
-      {/* Dark & Soft Fog Overlays */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-[#0B1120]/40 via-[#0B1120]/65 to-[#0B1120] pointer-events-none" />
+      {/* Warm/Dark Ambient Overlays */}
+      <div 
+        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000" 
+        style={{
+          backgroundColor: 'var(--hero-overlay-color)',
+        }}
+      />
       
       {/* Floating Cloud 1 (Left to Right, subtle blur) */}
       <div
@@ -92,7 +98,7 @@ export default function Hero() {
       />
 
       {/* Bottom fog gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B1120] to-transparent pointer-events-none z-2" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[var(--hero-bottom-fog)] to-transparent pointer-events-none z-2 transition-all duration-1000" />
 
       {/* Content Layer */}
       <div
