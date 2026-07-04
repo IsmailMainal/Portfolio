@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Code2, Target, Calendar, CheckSquare } from 'lucide-react';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
-import avatarImage from '../../assets/profile_avatar.png';
+import { avatarImage } from '../../assets';
+
 
 /**
  * About Section containing biography, professional avatar, and metric highlight cards.

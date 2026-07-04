@@ -4,7 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
 import Button from '../Common/Button';
-import contactLakeBg from '../../assets/contact_lake.png';
+import { contactLakeBg } from '../../assets';
+
 
 /**
  * Contact Section.

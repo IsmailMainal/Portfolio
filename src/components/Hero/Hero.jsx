@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from '../Common/Button';
-import heroMountainImage from '../../assets/hero_mountain.png';
+import { heroMountainImage } from '../../assets';
+
 
 /**
  * 100vh Premium Hero Section.

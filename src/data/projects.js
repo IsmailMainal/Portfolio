@@ -1,6 +1,13 @@
-import billkarHero from '../assets/billkar-hero.png';
-import billkarSandbox from '../assets/billkar-sandbox.png';
-import billkarFeatures from '../assets/billkar-features.png';
+import {
+  billkarHero,
+  billkarSandbox,
+  billkarFeatures,
+  petsmartHero,
+  petsmartProducts,
+  petsmartServices,
+  petsmartReports
+} from '../assets';
+
 
 /**
  * Detailed Projects data for Ismail Mainal.
@@ -30,7 +37,8 @@ export const projectsData = [
     category: 'Full Stack',
     shortDescription: 'Multi-role enterprise dashboard managing retail inventory, scheduling, and invoice transactions.',
     description: 'A multi-role business management ERP platform for a pet clinic and retail shop featuring dynamic inventory tracking, appointment bookings, coupon configurations, UPI transaction receipts, and system audit logs.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    image: petsmartHero,
+    images: [petsmartHero, petsmartProducts, petsmartServices, petsmartReports],
     tags: ['React', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Zod', 'Multer', 'JWT'],
     githubUrl: 'https://github.com/IsmailMainal/Pet-mart',
     liveUrl: 'https://github.com/IsmailMainal/Pet-mart',
