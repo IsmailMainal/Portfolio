@@ -40,7 +40,7 @@ export default function About() {
       icon: Target,
       title: 'ERP Software',
       subtitle: 'Current Focus',
-      description: 'Scaling BillKar invoicing and stock operations.',
+      description: 'Scaling ERP System invoicing and stock operations.',
       glowColor: 'card-glow-lime',
     },
   ];
@@ -107,7 +107,7 @@ export default function About() {
                 I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript and Java development, relational database schemas, and client-side interfaces.
               </p>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                Whether architecting core transaction modules for the BillKar ERP system or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.
+                Whether architecting core transaction modules for the ERP System or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.
               </p>
 
               {/* HR Value Highlights */}
@@ -120,6 +120,9 @@ export default function About() {
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
                   <strong className="text-[#F8FAFC]">⚡ Automation & Speed:</strong> Delivered document lifecycle state-automations that cut manual accounting errors by <span className="text-[#84CC16] font-semibold">50%</span>.
+                </div>
+                <div className="text-sm text-[#94A3B8] leading-relaxed">
+                  <strong className="text-[#F8FAFC]">🛠️ Scalable Architecture & CI/CD:</strong> Implemented Agile workflows and CI/CD best practices to ensure rapid, reliable feature rollouts and cross-functional team synchronization.
                 </div>
               </div>
             </div>

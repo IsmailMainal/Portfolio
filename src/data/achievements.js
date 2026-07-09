@@ -15,7 +15,7 @@ export const achievementsData = [
     value: 500,
     suffix: '+ Daily',
     label: 'Business Transactions',
-    description: 'Processed reliably across invoicing & ledgers in BillKar.'
+    description: 'Processed reliably across invoicing & ledgers in ERP System.'
   },
   {
     id: 'stat-errors',

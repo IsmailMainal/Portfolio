@@ -1,7 +1,7 @@
 import {
-  billkarHero,
-  billkarSandbox,
-  billkarFeatures,
+  erpHero,
+  erpSandbox,
+  erpFeatures,
   petsmartHero,
   petsmartProducts,
   petsmartServices,
@@ -15,16 +15,16 @@ import {
  */
 export const projectsData = [
   {
-    id: 'billkar-erp',
-    title: 'BillKar ERP System',
+    id: 'erp-system',
+    title: 'ERP System',
     category: 'Full Stack',
     shortDescription: 'A live production ERP platform processing 500+ daily business transactions.',
-    description: 'Lead developer of BillKar — a live ERP ecosystem handling invoice management, dynamic inventories, cost tracking, and double-entry financial ledger operations. Features granular Role-Based Access Control (RBAC) middleware guarding API routes.',
-    image: billkarHero,
-    images: [billkarHero, billkarSandbox, billkarFeatures],
+    description: 'Lead developer of ERP System — a live ERP ecosystem handling invoice management, dynamic inventories, cost tracking, and double-entry financial ledger operations. Features granular Role-Based Access Control (RBAC) middleware guarding API routes.',
+    image: erpHero,
+    images: [erpHero, erpSandbox, erpFeatures],
     tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Tailwind CSS'],
     githubUrl: 'https://github.com/IsmailMainal',
-    liveUrl: 'https://billkar.aanirids.com',
+
     problem: 'SMEs face manual bookkeeping errors and stock-out discrepancy drifts. Concurrent write requests on inventories and ledger journals without transactional locks cause record collisions and balance misalignment.',
     solution: 'Designed and deployed atomic ledger transaction modules. Engineered 15+ REST endpoints with schema validators using express-validator. Configured MySQL InnoDB indexing on key foreign keys, reducing response latencies by 35% and cutting accounting record discrepancy rates to zero.',
     architecture: 'Features a clean MVC separation. Express backend routers layer validation pipelines and JSON Web Token (JWT) verification. Sequelize transactions enforce ACID compliance on ledger entries, auto-rolling back database states if invoice writes fail. Frontend is a responsive React SPA using React Hooks and Context API for global state.',

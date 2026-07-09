@@ -1,6 +1,6 @@
-import billkarHero from './billkar-hero.png';
-import billkarSandbox from './billkar-sandbox.png';
-import billkarFeatures from './billkar-features.png';
+import erpHero from './erp-hero.png';
+import erpSandbox from './erp-sandbox.png';
+import erpFeatures from './erp-features.png';
 import petsmartHero from './petsmart-hero.png';
 import petsmartProducts from './petsmart-products.png';
 import petsmartServices from './petsmart-services.png';
@@ -10,9 +10,9 @@ import contactLakeBg from './contact_lake.png';
 import avatarImage from './profile_avatar.jpg';
 
 export {
-  billkarHero,
-  billkarSandbox,
-  billkarFeatures,
+  erpHero,
+  erpSandbox,
+  erpFeatures,
   petsmartHero,
   petsmartProducts,
   petsmartServices,

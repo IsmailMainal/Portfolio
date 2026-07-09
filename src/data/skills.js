@@ -25,10 +25,10 @@ export const skillsData = [
     technologies: [
       { name: 'Node.js', level: 'Expert' },
       { name: 'Express.js', level: 'Expert' },
+      { name: 'System Design Architecture', level: 'Expert' },
       { name: 'RESTful API Design', level: 'Expert' },
       { name: 'JWT Authentication', level: 'Expert' },
-      { name: 'RBAC Access Control', level: 'Expert' },
-      { name: 'Input Validation', level: 'Expert' }
+      { name: 'RBAC Access Control', level: 'Expert' }
     ]
   },
   {
@@ -63,11 +63,11 @@ export const skillsData = [
     description: 'Utilizing modern tooling to build, test, debug, and version control software assets.',
     technologies: [
       { name: 'Git & GitHub', level: 'Expert' },
-      { name: 'Postman', level: 'Expert' },
-      { name: 'VS Code', level: 'Expert' },
-      { name: 'npm', level: 'Expert' },
-      { name: 'Chrome DevTools', level: 'Expert' },
-      { name: 'REST API Testing', level: 'Expert' }
+      { name: 'CI/CD Pipelines', level: 'Expert' },
+      { name: 'Agile Methodologies', level: 'Expert' },
+      { name: 'Postman & REST API Testing', level: 'Expert' },
+      { name: 'VS Code & DevTools', level: 'Expert' },
+      { name: 'npm', level: 'Expert' }
     ]
   }
 ];

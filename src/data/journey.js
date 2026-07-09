@@ -36,7 +36,7 @@ export const journeyData = [
     title: 'Software Developer',
     subtitle: 'Aanirids Technologies — Bengaluru, India',
     date: 'Jan 2026 – Present',
-    description: 'Architect and lead developer of BillKar — a live production ERP platform processing 500+ daily business transactions. Responsible for invoicing, stock tracking, and financial ledgers.',
-    skills: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT', 'RBAC']
+    description: 'Architect and lead developer of ERP System — a live production ERP platform processing 500+ daily business transactions. Championed Agile methodologies, system design architecture, and cross-functional collaboration for invoicing, stock tracking, and financial ledgers.',
+    skills: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'System Design', 'Agile', 'CI/CD']
   }
 ];
