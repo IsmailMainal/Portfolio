@@ -14,7 +14,7 @@ export default function About() {
     {
       id: 'metric-experience',
       icon: Calendar,
-      title: '1+ Year',
+      title: '2+ Years',
       subtitle: 'Experience',
       description: 'Designing and deploying production-grade web apps.',
       glowColor: 'card-glow-green',
@@ -30,17 +30,17 @@ export default function About() {
     {
       id: 'metric-skills',
       icon: Code2,
-      title: '15+ Techs',
-      subtitle: 'Modern Stack',
-      description: 'Proficient across React, Node, Express, Java, and MySQL.',
+      title: 'Java Stack',
+      subtitle: 'Backend Focus',
+      description: 'Proficient across Core Java, Spring Boot, Microservices, and MySQL.',
       glowColor: 'card-glow-green',
     },
     {
       id: 'metric-focus',
       icon: Target,
-      title: 'ERP Software',
+      title: 'Backend Systems',
       subtitle: 'Current Focus',
-      description: 'Scaling ERP System invoicing and stock operations.',
+      description: 'Scaling backend services, REST APIs, and database structures.',
       glowColor: 'card-glow-lime',
     },
   ];
@@ -82,7 +82,7 @@ export default function About() {
               {/* Bottom text overlay */}
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="font-heading-space text-xs font-semibold uppercase tracking-wider text-[#84CC16]">
-                  Full Stack Engineer
+                  Java Developer
                 </span>
                 <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC]">
                   Ismail Mainal
@@ -104,10 +104,10 @@ export default function About() {
                 Hi, I&apos;m Ismail.
               </h3>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                I am a software engineer based in Bengaluru, India, focused on developing modular backends and clean architectures. My technical background is rooted heavily in full stack JavaScript and Java development, relational database schemas, and client-side interfaces.
+                I am a Java Developer based in Bengaluru, India, focused on developing modular backend services and scalable architectures. My technical background is rooted heavily in Core Java, Spring Boot, microservices, and relational database schemas.
               </p>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                Whether architecting core transaction modules for the ERP System or delivering document lifecycle automation (Submit, Cancel, Convert to Invoice), my designs remain calm, structural, and performance-first.
+                Whether architecting core transaction modules or delivering robust RESTful APIs, my designs remain clean, structural, and performance-first, applying OOP principles and Java design patterns.
               </p>
 
               {/* HR Value Highlights */}

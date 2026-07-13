@@ -78,13 +78,13 @@ export default function Hero() {
       />
 
       {/* Warm/Dark Ambient Overlays */}
-      <div 
-        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000" 
+      <div
+        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000"
         style={{
           backgroundColor: 'var(--hero-overlay-color)',
         }}
       />
-      
+
       {/* Floating Cloud 1 (Left to Right, subtle blur) */}
       <div
         ref={cloud1Ref}
@@ -129,7 +129,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-2xl font-body text-base sm:text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-10"
         >
-          Building scalable, cloud-ready ERP applications and high-performance backends. Lead architect of ERP System, delivering a 35% API latency reduction while processing 500+ daily financial operations. Dedicated to Agile methodologies, cross-functional collaboration, and CI/CD deployment pipelines.
+          Software Developer with 2+ years of professional experience designing and developing backend services, REST APIs, and database-driven applications. Experienced in Core Java, Spring Boot, Microservices, and Agile methodologies.
         </motion.p>
 
         {/* Action Buttons */}
@@ -142,7 +142,7 @@ export default function Hero() {
           <Button onClick={() => handleScrollClick()} variant="primary">
             View Projects <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button variant="secondary" onClick={() => window.open('/Ismail_Mainal_Resume_ATS.pdf', '_blank')}>
+          <Button variant="secondary" onClick={() => window.open('/Ismail Mainal.pdf', '_blank')}>
             Download Resume <Download className="w-4 h-4" />
           </Button>
           <Button variant="outline" onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}>
