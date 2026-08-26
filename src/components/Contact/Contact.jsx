@@ -39,7 +39,8 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const text = `Hi Ismail,\n\nMy name is *${formData.name}* (${formData.email}).\n\n*Project Details:*\n${formData.message}`;
+    const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const text = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n${formData.message}\n\n-----------------------------------\nSent via Ismail Mainal Portfolio`;
     const whatsappUrl = `https://wa.me/917899120229?text=${encodeURIComponent(text)}`;
     
     window.open(whatsappUrl, '_blank');
@@ -51,8 +52,9 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const subject = `Portfolio Inquiry from ${formData.name}`;
-    const body = `Hi Ismail,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nProject Description:\n${formData.message}`;
+    const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const subject = `Portfolio Project Inquiry: ${formData.name}`;
+    const body = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n-----------------------------------\n${formData.message}\n-----------------------------------\n\nSent via Ismail Mainal Portfolio`;
     const mailtoUrl = `mailto:ismailmanyal3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoUrl;
