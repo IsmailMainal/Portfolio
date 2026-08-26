@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, Terminal, ArrowRight, Eye, RefreshCw, Github, Linkedin, FileText } from 'lucide-react';
+import { Search, ArrowRight, Eye, RefreshCw, Github, Linkedin, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
@@ -25,7 +25,7 @@ export default function CommandPalette({ theme, toggleTheme }) {
     { id: 'nav-skills', title: 'Go to Skills', subtitle: 'Analyze technical competencies', icon: ArrowRight, action: () => scrollToSection('skills') },
     { id: 'nav-contact', title: 'Go to Contact', subtitle: 'Send a message', icon: ArrowRight, action: () => scrollToSection('contact') },
     { id: 'cmd-theme', title: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`, subtitle: 'Toggle color palette', icon: RefreshCw, action: () => { toggleTheme(); setIsOpen(false); } },
-    { id: 'cmd-resume', title: 'View Resume', subtitle: 'Open developer CV (PDF)', icon: FileText, action: () => { window.open('/Ismail_Mainal_Resume_ATS.pdf', '_blank'); setIsOpen(false); } },
+    { id: 'cmd-resume', title: 'View Resume', subtitle: 'Open developer CV (PDF)', icon: FileText, action: () => { window.open(encodeURI('/Ismail Mainal — Full Stack Developer.pdf'), '_blank'); setIsOpen(false); } },
     { id: 'link-github', title: 'Open GitHub Profile', subtitle: 'View source code & activity', icon: Github, action: () => { window.open('https://github.com/IsmailMainal', '_blank'); setIsOpen(false); } },
     { id: 'link-linkedin', title: 'Open LinkedIn', subtitle: 'Connect on professional network', icon: Linkedin, action: () => { window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank'); setIsOpen(false); } },
   ];

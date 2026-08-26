@@ -14,9 +14,9 @@ export default function About() {
     {
       id: 'metric-experience',
       icon: Calendar,
-      title: '2+ Years',
+      title: '1+ Year',
       subtitle: 'Experience',
-      description: 'Designing and deploying production-grade web apps.',
+      description: 'Building & maintaining production-grade web applications.',
       glowColor: 'card-glow-green',
     },
     {
@@ -24,23 +24,23 @@ export default function About() {
       icon: CheckSquare,
       title: '4 Complete',
       subtitle: 'Projects Built',
-      description: 'Full stack software and database architectures.',
+      description: 'Full stack web and database architectures.',
       glowColor: 'card-glow-lime',
     },
     {
       id: 'metric-skills',
       icon: Code2,
-      title: 'Java Stack',
-      subtitle: 'Backend Focus',
-      description: 'Proficient across Core Java, Spring Boot, Microservices, and MySQL.',
+      title: 'Full Stack',
+      subtitle: 'Core Tech',
+      description: 'Proficient across React.js, Node.js, Express.js, and MySQL.',
       glowColor: 'card-glow-green',
     },
     {
       id: 'metric-focus',
       icon: Target,
-      title: 'Backend Systems',
-      subtitle: 'Current Focus',
-      description: 'Scaling backend services, REST APIs, and database structures.',
+      title: 'ERP Platform',
+      subtitle: 'Current Role',
+      description: 'Developing live ERP modules at Aanirids Technologies.',
       glowColor: 'card-glow-lime',
     },
   ];
@@ -82,7 +82,7 @@ export default function About() {
               {/* Bottom text overlay */}
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="font-heading-space text-xs font-semibold uppercase tracking-wider text-[#84CC16]">
-                  Java Developer
+                  Full Stack Developer
                 </span>
                 <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC]">
                   Ismail Mainal
@@ -104,25 +104,25 @@ export default function About() {
                 Hi, I&apos;m Ismail.
               </h3>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                I am a Java Developer based in Bengaluru, India, focused on developing modular backend services and scalable architectures. My technical background is rooted heavily in Core Java, Spring Boot, microservices, and relational database schemas.
+                I am a Full Stack Developer based in Bengaluru, India, with 1+ year of professional experience building, deploying, and maintaining production-grade web applications. Currently, I work as a Full Stack Developer at Aanirids Technologies Private Limited, contributing to a live production ERP platform.
               </p>
               <p className="font-body text-base text-[#94A3B8] leading-relaxed mb-6">
-                Whether architecting core transaction modules or delivering robust RESTful APIs, my designs remain clean, structural, and performance-first, applying OOP principles and Java design patterns.
+                My technical expertise spans component-based React.js frontend architecture, RESTful API design using Express.js and Node.js, JWT authentication, role-based access control (RBAC), MySQL query optimization, and Agile delivery.
               </p>
 
               {/* HR Value Highlights */}
               <div className="border-l-2 border-[#2D6A4F] pl-4 flex flex-col gap-3.5 mt-8 mb-2">
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🚀 Direct Business Value:</strong> Optimized database indexes and React rendering cycles, achieving a <span className="text-[#84CC16] font-semibold">30% faster page load</span> and <span className="text-[#84CC16] font-semibold">35% latency drop</span>.
+                  <strong className="text-[#F8FAFC]">🚀 REST API Design:</strong> Built 15+ RESTful API endpoints with Express.js and real-time sync, improving response time by <span className="text-[#84CC16] font-semibold">35%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🛡️ Transactional Integrity:</strong> Programmed relational schema constraints to safely process <span className="text-[#84CC16] font-semibold">500+ daily business orders</span> with zero discrepancy drift.
+                  <strong className="text-[#F8FAFC]">⚡ Frontend Efficiency:</strong> Developed responsive React.js SPA modules using Hooks, Context API, and Tailwind CSS, boosting user task efficiency by <span className="text-[#84CC16] font-semibold">40%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">⚡ Automation & Speed:</strong> Delivered document lifecycle state-automations that cut manual accounting errors by <span className="text-[#84CC16] font-semibold">50%</span>.
+                  <strong className="text-[#F8FAFC]">🛡️ Production Reliability:</strong> Implemented JWT authentication, RBAC, and MySQL indexing to reduce critical production errors by <span className="text-[#84CC16] font-semibold">50%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🛠️ Scalable Architecture & CI/CD:</strong> Implemented Agile workflows and CI/CD best practices to ensure rapid, reliable feature rollouts and cross-functional team synchronization.
+                  <strong className="text-[#F8FAFC]">🛠️ Performance Tuning:</strong> Eliminated bottlenecks across frontend and backend, achieving a <span className="text-[#84CC16] font-semibold">45% reduction</span> in React re-renders and MySQL execution time.
                 </div>
               </div>
             </div>

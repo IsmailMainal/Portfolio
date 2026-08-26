@@ -111,7 +111,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="font-heading-space text-sm font-semibold tracking-[0.2em] text-[#84CC16] uppercase mb-4"
         >
-          🌲 Full Stack Software Engineer • Bengaluru, India
+          🌲 Full Stack Developer • Bengaluru, India
         </motion.span>
 
         <motion.h1
@@ -129,7 +129,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-2xl font-body text-base sm:text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-10"
         >
-          Software Developer with 2+ years of professional experience designing and developing backend services, REST APIs, and database-driven applications. Experienced in Core Java, Spring Boot, Microservices, and Agile methodologies.
+          Full Stack Developer with 1+ year of professional experience building, deploying, and maintaining production-grade web applications using React.js, Node.js, Express.js, JavaScript (ES6+), MySQL, and REST APIs.
         </motion.p>
 
         {/* Action Buttons */}
@@ -142,7 +142,7 @@ export default function Hero() {
           <Button onClick={() => handleScrollClick()} variant="primary">
             View Projects <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button variant="secondary" onClick={() => window.open('/Ismail Mainal.pdf', '_blank')}>
+          <Button variant="secondary" onClick={() => window.open(encodeURI('/Ismail Mainal — Full Stack Developer.pdf'), '_blank')}>
             Download Resume <Download className="w-4 h-4" />
           </Button>
           <Button variant="outline" onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}>

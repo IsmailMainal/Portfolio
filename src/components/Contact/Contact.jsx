@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, SendToBack } from 'lucide-react';
+import { Send, CheckCircle2, MessageSquare, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
@@ -10,11 +10,11 @@ import { contactLakeBg } from '../../assets';
 /**
  * Contact Section.
  * Features a glassmorphism contact form set against a sunset lake backdrop.
- * Includes a simulated paper plane send action on form submission.
+ * Direct dispatch to WhatsApp (+91 7899120229) and Email (ismailmanyal3@gmail.com).
  */
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success'
+  const [status, setStatus] = useState('idle'); // 'idle' | 'success'
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
 
@@ -35,22 +35,29 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    setStatus('submitting');
+    const text = `Hi Ismail,\n\nMy name is *${formData.name}* (${formData.email}).\n\n*Project Details:*\n${formData.message}`;
+    const whatsappUrl = `https://wa.me/917899120229?text=${encodeURIComponent(text)}`;
     
-    // Simulate sending email
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+    window.open(whatsappUrl, '_blank');
+    setStatus('success');
+    setTimeout(() => setStatus('idle'), 5000);
+  };
 
-      // Reset back to idle after showing success message
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
-    }, 1800);
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+
+    const subject = `Portfolio Inquiry from ${formData.name}`;
+    const body = `Hi Ismail,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nProject Description:\n${formData.message}`;
+    const mailtoUrl = `mailto:ismailmanyal3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoUrl;
+    setStatus('success');
+    setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
@@ -117,10 +124,10 @@ export default function Contact() {
                     transition={{ delay: 0.4 }}
                   >
                     <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC] mb-2 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#84CC16]" /> Message Sent
+                      <CheckCircle2 className="w-5 h-5 text-[#84CC16]" /> App Launched
                     </h3>
                     <p className="font-body text-sm text-[#94A3B8] leading-relaxed">
-                      Thank you! Your transmission has launched successfully. I will get back to you shortly.
+                      Your message payload has been formatted and opened in your selected app (WhatsApp / Email Client).
                     </p>
                   </motion.div>
                 </motion.div>
@@ -128,7 +135,6 @@ export default function Contact() {
                 /* Interactive Form Fields */
                 <motion.form
                   key="form"
-                  onSubmit={handleSubmit}
                   initial={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   className="flex flex-col gap-6 text-left"
@@ -175,9 +181,8 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      disabled={status === 'submitting'}
                       placeholder="John Muir"
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16] disabled:opacity-50"
+                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16]"
                     />
                   </div>
 
@@ -196,9 +201,8 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      disabled={status === 'submitting'}
                       placeholder="john.muir@parks.org"
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16] disabled:opacity-50"
+                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16]"
                     />
                   </div>
 
@@ -217,31 +221,32 @@ export default function Contact() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      disabled={status === 'submitting'}
                       placeholder="Briefly describe what you're working on..."
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16] disabled:opacity-50 resize-none"
+                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16] resize-none"
                     />
                   </div>
 
-                  {/* Form Submit Button */}
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    disabled={status === 'submitting'}
-                    className="w-full mt-2"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <span className="w-4 h-4 rounded-full border-2 border-t-transparent border-[#0B1120] animate-spin inline-block mr-2" />
-                        <span>Sending Transmission...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>Submit Message</span>
-                        <SendToBack className="w-4 h-4" />
-                      </>
-                    )}
-                  </Button>
+                  {/* Dual Channel Action Buttons */}
+                  <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+                    <Button
+                      type="button"
+                      onClick={handleWhatsAppSubmit}
+                      variant="primary"
+                      className="w-full sm:w-1/2 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-black border-none font-bold"
+                    >
+                      <MessageSquare className="w-4 h-4 fill-current" />
+                      <span>WhatsApp Chat</span>
+                    </Button>
+                    <Button
+                      type="button"
+                      onClick={handleEmailSubmit}
+                      variant="secondary"
+                      className="w-full sm:w-1/2 flex items-center justify-center gap-2"
+                    >
+                      <Mail className="w-4 h-4 text-[#84CC16]" />
+                      <span>Send via Email</span>
+                    </Button>
+                  </div>
                 </motion.form>
               )}
             </AnimatePresence>

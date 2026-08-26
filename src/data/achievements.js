@@ -8,27 +8,27 @@ export const achievementsData = [
     value: 1,
     suffix: '+ Year',
     label: 'Professional Experience',
-    description: 'Developing production-grade web systems.'
+    description: 'Building, deploying & maintaining production web apps.'
   },
   {
-    id: 'stat-transactions',
-    value: 500,
-    suffix: '+ Daily',
-    label: 'Business Transactions',
-    description: 'Processed reliably across invoicing & ledgers in ERP System.'
+    id: 'stat-endpoints',
+    value: 15,
+    suffix: '+',
+    label: 'RESTful API Endpoints',
+    description: 'Designed & built with Express.js & real-time data sync.'
   },
   {
     id: 'stat-errors',
     value: 50,
     suffix: '%',
     label: 'Error Reduction',
-    description: 'Achieved through automated workflows and validations.'
+    description: 'Reduced critical production errors via JWT & indexing.'
   },
   {
     id: 'stat-performance',
-    value: 35,
+    value: 45,
     suffix: '%',
-    label: 'Faster API Latency',
-    description: 'Gained via database indexing and query refactoring.'
+    label: 'Query & Render Speed',
+    description: 'Gained via MySQL query tuning & React memoization.'
   }
 ];
