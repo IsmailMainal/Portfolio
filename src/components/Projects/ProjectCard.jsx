@@ -1,6 +1,5 @@
 import React from 'react';
 import { ExternalLink, Github, Plus } from 'lucide-react';
-import { motion } from 'framer-motion';
 import GlassCard from '../Common/GlassCard';
 import Badge from '../Common/Badge';
 
@@ -10,19 +9,14 @@ import Badge from '../Common/Badge';
  */
 export default function ProjectCard({ project, index = 0, onOpenDetails }) {
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 35, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: '-50px' }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{
-        duration: 0.6,
-        delay: (index % 3) * 0.1,
-        ease: [0.16, 1, 0.3, 1],
+    <div
+      className="sticky md:static transition-all duration-300"
+      style={{
+        top: `calc(76px + ${Math.min(index, 5) * 26}px)`,
+        zIndex: 10 + index,
       }}
     >
-      <GlassCard className="p-0 border-white/5 overflow-hidden group hover:border-[#F97316]/35 flex flex-col h-full transition-all duration-300">
+      <GlassCard className="p-0 border-white/10 md:border-white/5 overflow-hidden group hover:border-[#F97316]/35 flex flex-col h-full bg-[#0C0D12] md:bg-[#0C0D12]/85 shadow-[0_-14px_32px_rgba(0,0,0,0.85)] md:shadow-none transition-all duration-300">
         {/* Project Thumbnail Image */}
         <div className="relative overflow-hidden aspect-video w-full bg-slate-950">
           <img
@@ -45,6 +39,13 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
           <div className="absolute top-4 left-4 z-10">
             <span className="bg-[#050507]/90 backdrop-blur-md border border-[#F97316]/30 px-3 py-1 rounded-full font-heading-space text-[10px] font-bold tracking-wider uppercase text-[#FB923C] shadow-[0_0_15px_rgba(249,115,22,0.2)]">
               {project.category}
+            </span>
+          </div>
+
+          {/* Mobile Index Counter */}
+          <div className="absolute top-4 right-4 z-10 md:hidden">
+            <span className="bg-[#050507]/90 backdrop-blur-md border border-white/10 px-2.5 py-0.5 rounded-full font-mono text-[10px] font-bold text-[#F97316] tracking-widest shadow-md">
+              0{index + 1}
             </span>
           </div>
         </div>
@@ -106,6 +107,6 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
           </div>
         </div>
       </GlassCard>
-    </motion.div>
+    </div>
   );
 }

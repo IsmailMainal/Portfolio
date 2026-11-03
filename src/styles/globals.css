@@ -54,12 +54,12 @@ body, header, section, footer, .glass, .glass-hover, h1, h2, h3, h4, h5, h6, p, 
   html {
     font-family: var(--font-body);
     scroll-behavior: auto; /* Managed by Lenis */
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
   }
 
   body {
-    overflow-x: hidden;
+    overflow-x: clip;
     max-width: 100vw;
   }
 

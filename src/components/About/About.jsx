@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Target, Calendar, CheckSquare } from 'lucide-react';
 import SectionTitle from '../Common/SectionTitle';
@@ -11,6 +11,8 @@ import { avatarImage } from '../../assets';
  * About Section containing biography, professional avatar, and metric highlight cards.
  */
 export default function About() {
+  const [activeCard, setActiveCard] = useState(null);
+
   const cards = [
     {
       id: 'metric-experience',
@@ -47,13 +49,13 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
-      {/* Bespoke Architectural Synapse Lattice Canvas */}
-      <SynapseLatticeCanvas />
-
-      {/* Background soft atmospheric lighting */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#FACC15]/6 blur-[150px] pointer-events-none" />
+    <section id="about" className="relative py-20 bg-[#050507] transition-all duration-1000">
+      {/* Bespoke Architectural Synapse Lattice Canvas & Atmospheric Glow (contained safely) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <SynapseLatticeCanvas />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#F97316]/5 blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#FACC15]/6 blur-[150px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -62,14 +64,14 @@ export default function About() {
           description="Crafting high-integrity backends and elegant web systems inspired by robust production architectures."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Profile Photo Holder */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative group max-w-sm mx-auto lg:max-w-none w-full"
+            className="lg:col-span-5 relative group max-w-sm mx-auto lg:max-w-none w-full lg:sticky lg:top-28"
           >
             {/* Vesper Holographic Frame Glow */}
             <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#F97316]/25 via-[#FBBF24]/15 to-[#FACC15]/25 blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
@@ -97,14 +99,13 @@ export default function About() {
           </motion.div>
 
           {/* Right Column: Bio Details & Metric Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 flex flex-col gap-8"
-          >
-            <div>
+          <div className="lg:col-span-7 flex flex-col gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            >
               <h3 className="font-heading-sora text-2xl font-bold text-[#F8FAFC] mb-4">
                 Hi, I&apos;m Ismail.
               </h3>
@@ -130,53 +131,64 @@ export default function About() {
                   <strong className="text-[#F8FAFC]">🛠️ Performance Tuning:</strong> Eliminated bottlenecks across frontend and backend, achieving a <span className="text-[#F97316] font-semibold">45% reduction</span> in React re-renders and MySQL execution time.
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Metrics cards grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Metrics cards: Sticky overlapping deck on mobile | 2x2 grid on desktop */}
+            <div className="relative flex flex-col gap-5 pb-8 sm:grid sm:grid-cols-2 sm:gap-4 sm:pb-0">
               {cards.map((card, i) => {
                 const Icon = card.icon;
                 const isEven = i % 2 === 0;
+                const isExpanded = activeCard === card.id;
+
                 return (
-                  <motion.div
+                  <div
                     key={card.id}
-                    initial={{ opacity: 0, y: 25, scale: 0.96 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{
-                      duration: 0.55,
-                      delay: i * 0.1,
-                      ease: [0.16, 1, 0.3, 1],
+                    onClick={() => setActiveCard(activeCard === card.id ? null : card.id)}
+                    className="sticky sm:static transition-all duration-300"
+                    style={{
+                      top: `calc(76px + ${i * 32}px)`,
+                      zIndex: isExpanded ? 40 : 10 + i,
                     }}
                   >
                     <GlassCard
-                      className="p-5 flex gap-4 items-start h-full"
+                      className={`p-5 flex gap-4 items-start h-full cursor-pointer sm:cursor-default transition-all duration-300 ${
+                        isExpanded
+                          ? 'border-[#F97316] ring-1 ring-[#F97316]/60 shadow-[0_0_35px_rgba(249,115,22,0.35)] bg-[#0C0D12]'
+                          : 'border-white/10 bg-[#0C0D12] sm:bg-[#0C0D12]/85 shadow-[0_-12px_28px_rgba(0,0,0,0.85)] sm:shadow-none'
+                      }`}
                       glow={false}
                     >
-                      <div className={`p-2.5 rounded-xl border ${
-                        isEven 
-                          ? 'bg-[#F97316]/10 border-[#F97316]/25 text-[#F97316]' 
-                          : 'bg-[#FACC15]/10 border-[#FACC15]/25 text-[#FACC15]'
-                      }`}>
+                      <div
+                        className={`p-2.5 rounded-xl border shrink-0 transition-transform duration-300 ${
+                          isEven
+                            ? 'bg-[#F97316]/10 border-[#F97316]/25 text-[#F97316]'
+                            : 'bg-[#FACC15]/10 border-[#FACC15]/25 text-[#FACC15]'
+                        }`}
+                      >
                         <Icon className="w-5 h-5" />
                       </div>
-                      <div>
-                        <h4 className="font-heading-sora text-lg font-bold text-[#F8FAFC]">
-                          {card.title}
-                        </h4>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2">
+                          <h4 className="font-heading-sora text-base sm:text-lg font-bold text-[#F8FAFC]">
+                            {card.title}
+                          </h4>
+                          <span className="sm:hidden font-mono text-[10px] text-[#F97316]/70 tracking-widest uppercase font-semibold">
+                            0{i + 1}
+                          </span>
+                        </div>
                         <div className="font-heading-space text-xs font-semibold tracking-wider text-[#94A3B8] uppercase mt-0.5">
                           {card.subtitle}
                         </div>
-                        <p className="font-body text-xs text-[#94A3B8]/80 mt-1">
+                        <p className="font-body text-xs text-[#94A3B8]/80 mt-1 leading-relaxed">
                           {card.description}
                         </p>
                       </div>
                     </GlassCard>
-                  </motion.div>
+                  </div>
                 );
               })}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

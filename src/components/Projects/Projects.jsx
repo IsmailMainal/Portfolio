@@ -33,13 +33,13 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
-      {/* Interactive Cyber Warp Matrix Canvas */}
-      <QuantumMatrixCanvas />
-
-      {/* Background Soft lighting */}
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[150px] pointer-events-none" />
+    <section id="projects" className="relative py-20 bg-[#050507] transition-all duration-1000">
+      {/* Interactive Cyber Warp Matrix Canvas & Atmospheric Lights (safely isolated) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <QuantumMatrixCanvas />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#F97316]/5 blur-[140px]" />
+        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[150px]" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -80,11 +80,8 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Project responsive grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        {/* Project responsive grid (Sticky overlapping deck on mobile | Multi-col grid on desktop) */}
+        <div className="flex flex-col gap-6 pb-12 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:pb-0">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, idx) => (
               <ProjectCard
@@ -95,7 +92,7 @@ export default function Projects() {
               />
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {filteredProjects.length === 0 && (
           <motion.div
