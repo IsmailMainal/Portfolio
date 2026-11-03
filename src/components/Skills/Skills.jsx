@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
 import Badge from '../Common/Badge';
+import OrbitalRingsCanvas from './OrbitalRingsCanvas';
 import { skillsData } from '../../data/skills';
 
 // Dynamic icon lookup map
@@ -24,9 +25,13 @@ export default function Skills() {
   const totalTechs = skillsData.reduce((acc, cat) => acc + cat.technologies.length, 0);
 
   return (
-    <section id="skills" className="relative py-16 bg-[var(--color-bg-surface)] overflow-hidden transition-all duration-1000">
-      {/* Background Soft lighting */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#84CC16]/5 blur-[120px] pointer-events-none" />
+    <section id="skills" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+      {/* 3D Atomic Orbital Gyroscope Canvas */}
+      <OrbitalRingsCanvas />
+
+      {/* Background Soft Vesper lighting */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -41,11 +46,11 @@ export default function Skills() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-3 glass px-6 py-2.5 rounded-full border-white/5 font-heading-space text-xs font-semibold text-[#84CC16]"
+            className="inline-flex items-center gap-2 sm:gap-3 glass px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border border-white/[0.08] font-heading-space text-xs font-semibold text-[#10B981] shadow-[0_0_20px_rgba(16,185,129,0.15)] text-center"
           >
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#84CC16] opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#84CC16]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-80"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
             </span>
             <span>Deploying {totalTechs} core full-stack technologies</span>
           </motion.div>
@@ -59,10 +64,10 @@ export default function Skills() {
             return (
               <motion.div
                 key={categoryData.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 35, scale: 0.96 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                transition={{ duration: 0.6, delay: (idx % 3) * 0.12, ease: [0.16, 1, 0.3, 1] }}
               >
                 <GlassCard
                   className="group h-full border-white/5 hover:border-white/10 flex flex-col justify-between"

@@ -1,52 +1,17 @@
-import React, { useEffect, useRef } from 'react';
-import { ChevronDown, ArrowRight, Download, Linkedin } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { ChevronDown, ArrowRight, Download, Linkedin, Sparkles, Orbit, Brain } from 'lucide-react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from '../Common/Button';
-import { heroMountainImage } from '../../assets';
-
+import VesperOrbCanvas from './VesperOrbCanvas';
 
 /**
- * 100vh Premium Hero Section.
- * Implements GSAP ScrollTrigger Parallax, floating cloud arrays, and interactive CTAs.
+ * Vesper Living Hero Section.
+ * Implements GetLayers' signature breathing mint & violet reactive particle mind,
+ * multi-mode canvas transformations (Orb -> Galaxy -> Brain), and high-end SaaS typography.
  */
 export default function Hero() {
   const containerRef = useRef(null);
-  const bgRef = useRef(null);
-  const cloud1Ref = useRef(null);
-  const cloud2Ref = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-      },
-    });
-
-    // Mountain moves slower than content (Parallax)
-    tl.to(bgRef.current, { yPercent: 20, ease: 'none' }, 0);
-    // Cloud 1 moves right and faster
-    tl.to(cloud1Ref.current, { xPercent: 30, yPercent: -10, ease: 'none' }, 0);
-    // Cloud 2 moves left
-    tl.to(cloud2Ref.current, { xPercent: -20, yPercent: 5, ease: 'none' }, 0);
-    // Content fades out and moves up
-    tl.to(contentRef.current, { opacity: 0.3, yPercent: -15, ease: 'none' }, 0);
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.trigger === containerRef.current) {
-          trigger.kill();
-        }
-      });
-    };
-  }, []);
+  const [activeMode, setActiveMode] = useState('orb'); // 'orb' | 'galaxy' | 'brain'
 
   const handleScrollClick = () => {
     const nextSection = document.getElementById('projects');
@@ -61,93 +26,130 @@ export default function Hero() {
     }
   };
 
+  const modeOptions = [
+    { id: 'orb', label: 'Living Orb', icon: Sparkles },
+    { id: 'galaxy', label: 'Spiral Galaxy', icon: Orbit },
+    { id: 'brain', label: 'Neural Mind', icon: Brain },
+  ];
+
   return (
     <section
       ref={containerRef}
       id="home"
-      className="relative w-full h-screen overflow-hidden flex items-center justify-center bg-[#0B1120]"
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-[#030712] vesper-grid-bg pt-20 pb-16"
     >
-      {/* Background Image Layer with Parallax */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 transition-all duration-1000"
-        style={{
-          backgroundImage: `url(${heroMountainImage})`,
-          filter: 'var(--hero-bg-filter)',
-        }}
-      />
+      {/* 3D Living Mind Canvas Layer (Mint & Violet Particles) */}
+      <VesperOrbCanvas currentMode={activeMode} />
 
-      {/* Warm/Dark Ambient Overlays */}
-      <div
-        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000"
-        style={{
-          backgroundColor: 'var(--hero-overlay-color)',
-        }}
-      />
+      {/* Atmospheric Radial Shimmer Overlays */}
+      <div className="absolute inset-0 bg-radial from-transparent via-[#030712]/50 to-[#030712] pointer-events-none z-1" />
 
-      {/* Floating Cloud 1 (Left to Right, subtle blur) */}
-      <div
-        ref={cloud1Ref}
-        className="absolute top-1/4 left-[-10%] w-[50%] h-32 bg-white/5 rounded-full blur-[70px] pointer-events-none z-1 animate-float"
-      />
+      {/* Bottom Fog Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030712] via-[#030712]/80 to-transparent pointer-events-none z-2" />
 
-      {/* Floating Cloud 2 (Right to Left, slower float) */}
-      <div
-        ref={cloud2Ref}
-        className="absolute top-1/2 right-[-10%] w-[60%] h-40 bg-white/4 rounded-full blur-[90px] pointer-events-none z-1 animate-float-slow"
-      />
-
-      {/* Bottom fog gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[var(--hero-bottom-fog)] to-transparent pointer-events-none z-2 transition-all duration-1000" />
-
-      {/* Content Layer */}
-      <div
-        ref={contentRef}
-        className="relative z-10 w-full max-w-5xl mx-auto px-6 md:px-8 text-center flex flex-col items-center mt-12"
-      >
-        <motion.span
-          initial={{ opacity: 0, y: 15 }}
+      {/* Hero Content Container */}
+      <div className="relative z-10 w-full max-w-5xl lg:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center">
+        {/* Vesper Status Pill */}
+        <motion.div
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-heading-space text-sm font-semibold tracking-[0.2em] text-[#84CC16] uppercase mb-4"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl mb-4 sm:mb-6 shadow-[0_0_25px_-5px_rgba(16,185,129,0.2)] max-w-full"
         >
-          🌲 Full Stack Developer • Bengaluru, India
-        </motion.span>
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-80" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+          </span>
+          <span className="font-heading-space text-[10px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-[#10B981] uppercase truncate">
+            Full Stack Developer • Bengaluru
+          </span>
+        </motion.div>
 
+        {/* Hero Name with Holographic Glow */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-heading-sora text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-[#F8FAFC] leading-none mb-6"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          className="font-heading-sora text-4xl sm:text-7xl md:text-8xl lg:text-9xl 2xl:text-[9.5rem] font-black tracking-tight leading-tight sm:leading-none mb-4 sm:mb-6"
         >
-          Ismail Mainal
+          <span className="text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]">
+            Ismail
+          </span>{' '}
+          <span className="bg-gradient-to-r from-[#10B981] via-[#38BDF8] to-[#6366F1] bg-clip-text text-transparent drop-shadow-[0_0_50px_rgba(16,185,129,0.4)]">
+            Mainal
+          </span>
         </motion.h1>
 
+        {/* Hero Value Proposition */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="max-w-2xl font-body text-base sm:text-lg md:text-xl text-[#94A3B8] leading-relaxed mb-10"
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="max-w-2xl lg:max-w-3xl font-body text-sm sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] leading-relaxed mb-6 sm:mb-8 px-2"
         >
-          Full Stack Developer with 1+ year of professional experience building, deploying, and maintaining production-grade web applications using React.js, Node.js, Express.js, JavaScript (ES6+), MySQL, and REST APIs.
+          Engineering high-performance, production-grade applications with{' '}
+          <span className="text-white font-medium">React.js</span>,{' '}
+          <span className="text-white font-medium">Node.js</span>,{' '}
+          <span className="text-white font-medium">Express.js</span>, and{' '}
+          <span className="text-[#10B981] font-medium">MySQL</span>.
         </motion.p>
 
         {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto px-4 sm:px-0"
         >
-          <Button onClick={() => handleScrollClick()} variant="primary">
-            View Projects <ArrowRight className="w-4 h-4" />
+          <Button onClick={handleScrollClick} variant="primary" className="w-full sm:w-auto">
+            Explore Works <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button variant="secondary" onClick={() => window.open(encodeURI('/Ismail Mainal — Full Stack Developer.pdf'), '_blank')}>
+
+          <Button
+            variant="secondary"
+            onClick={() => window.open(encodeURI('/Ismail Mainal — Full Stack Developer.pdf'), '_blank')}
+            className="w-full sm:w-auto"
+          >
             Download Resume <Download className="w-4 h-4" />
           </Button>
-          <Button variant="outline" onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}>
-            LinkedIn <Linkedin className="w-4 h-4 text-[#84CC16]" />
+
+          <Button
+            variant="outline"
+            onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}
+            className="w-full sm:w-auto"
+          >
+            LinkedIn <Linkedin className="w-4 h-4 text-[#6366F1]" />
           </Button>
+        </motion.div>
+
+        {/* Interactive Vesper Core Controller (Switch between Orb, Galaxy, Brain) */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-[#070B18]/80 border border-white/[0.08] backdrop-blur-xl max-w-full"
+        >
+          <span className="hidden sm:inline-block px-3 py-1 font-heading-space text-[11px] font-bold uppercase tracking-wider text-white/40">
+            Vesper Core:
+          </span>
+          {modeOptions.map((opt) => {
+            const Icon = opt.icon;
+            const isActive = activeMode === opt.id;
+            return (
+              <button
+                key={opt.id}
+                onClick={() => setActiveMode(opt.id)}
+                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-heading-space font-medium transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? 'bg-gradient-to-r from-[#10B981]/20 to-[#6366F1]/20 border border-[#10B981]/40 text-[#10B981] shadow-[0_0_15px_rgba(16,185,129,0.25)]'
+                    : 'text-[#94A3B8] hover:text-white hover:bg-white/5 border border-transparent'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#10B981]' : 'text-white/40'}`} />
+                <span>{opt.label}</span>
+              </button>
+            );
+          })}
         </motion.div>
       </div>
 
@@ -156,15 +158,15 @@ export default function Hero() {
         onClick={handleScrollClick}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer text-white/50 hover:text-[#84CC16] transition-colors focus:outline-none"
+        transition={{ delay: 1.4, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer text-white/40 hover:text-[#10B981] transition-colors focus:outline-none"
       >
-        <span className="font-heading-space text-[10px] uppercase tracking-[0.2em]">Explore</span>
+        <span className="font-heading-space text-[10px] uppercase tracking-[0.25em]">Scroll</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-5 h-5" />
+          <ChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.button>
     </section>

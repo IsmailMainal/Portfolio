@@ -14,9 +14,9 @@ export default function Badge({
   className = '',
 }) {
   const styles = {
-    default: 'bg-white/5 border border-white/8 text-[#94A3B8]',
-    accent: 'bg-[#2D6A4F]/10 border border-[#2D6A4F]/30 text-[#84CC16]',
-    highlight: 'bg-[#84CC16]/10 border border-[#84CC16]/30 text-[#84CC16]',
+    default: 'bg-white/[0.04] border border-white/[0.08] text-[#94A3B8] hover:border-[#10B981]/30 hover:text-white transition-colors',
+    accent: 'bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981]',
+    highlight: 'bg-[#6366F1]/10 border border-[#6366F1]/30 text-[#6366F1]',
   };
 
   return (

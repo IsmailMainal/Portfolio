@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
 import Badge from '../Common/Badge';
+import TopographicWaveCanvas from './TopographicWaveCanvas';
 import { journeyData } from '../../data/journey';
 
 const iconMap = {
@@ -48,12 +49,12 @@ export default function Journey() {
     milestones.forEach((node) => {
       gsap.fromTo(
         node.querySelector('.milestone-circle'),
-        { scale: 0.6, borderColor: 'rgba(255, 255, 255, 0.1)', backgroundColor: '#111827' },
+        { scale: 0.6, borderColor: 'rgba(255, 255, 255, 0.1)', backgroundColor: '#070B18' },
         {
-          scale: 1.2,
-          borderColor: '#84CC16',
-          backgroundColor: '#2D6A4F',
-          boxShadow: '0 0 20px rgba(132, 204, 22, 0.6)',
+          scale: 1.25,
+          borderColor: '#10B981',
+          backgroundColor: '#070B18',
+          boxShadow: '0 0 25px rgba(16, 185, 129, 0.6)',
           scrollTrigger: {
             trigger: node,
             start: 'top center+=100',
@@ -74,9 +75,13 @@ export default function Journey() {
   }, []);
 
   return (
-    <section ref={containerRef} id="journey" className="relative py-16 bg-[var(--color-bg-surface)] overflow-hidden transition-all duration-1000">
-      {/* Visual Accent lighting */}
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#84CC16]/5 blur-[120px] pointer-events-none" />
+    <section ref={containerRef} id="journey" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+      {/* 3D Topographic Contour Waves Canvas */}
+      <TopographicWaveCanvas />
+
+      {/* Visual Vesper Accent lighting */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -90,10 +95,10 @@ export default function Journey() {
           {/* Base Trail Line (Gray) */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 -translate-x-[1px]" />
 
-          {/* Active Trail Line (Green, scaled on scroll) */}
+          {/* Active Trail Line (Vesper Gradient, scaled on scroll) */}
           <div
             ref={lineRef}
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#2D6A4F] to-[#84CC16] -translate-x-[1px] origin-top transform"
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#10B981] via-[#38BDF8] to-[#6366F1] -translate-x-[1px] origin-top transform shadow-[0_0_15px_rgba(16,185,129,0.5)]"
           />
 
           {/* Timeline Milestones */}
@@ -115,10 +120,10 @@ export default function Journey() {
                   <div className={`w-full md:w-1/2 pl-12 md:pl-0 md:pr-12 ${isEven ? 'md:text-right' : 'md:opacity-0 md:pointer-events-none md:h-0 overflow-hidden'}`}>
                     {isEven && (
                       <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: -30, scale: 0.96 }}
+                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       >
                         <JourneyCard milestone={milestone} align="right" />
                       </motion.div>
@@ -129,10 +134,10 @@ export default function Journey() {
                   <div className={`w-full md:w-1/2 pl-12 md:pl-12 ${!isEven ? 'md:text-left' : 'md:opacity-0 md:pointer-events-none md:h-0 overflow-hidden'}`}>
                     {!isEven && (
                       <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, x: 30, scale: 0.96 }}
+                        whileInView={{ opacity: 1, x: 0, scale: 1 }}
                         viewport={{ once: true, margin: '-50px' }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       >
                         <JourneyCard milestone={milestone} align="left" />
                       </motion.div>
@@ -156,12 +161,12 @@ function JourneyCard({ milestone, align }) {
   const IconComponent = iconMap[milestone.icon] || Laptop;
 
   return (
-    <GlassCard className="border-white/5 hover:border-[#84CC16]/30 text-left">
+    <GlassCard className="border-white/[0.08] text-left">
       <div className={`flex items-center gap-3 mb-3 ${isRight ? 'md:justify-end md:flex-row-reverse' : 'justify-start'}`}>
-        <div className="p-2.5 rounded-xl bg-[#2D6A4F]/10 border border-[#2D6A4F]/20 text-[#84CC16] flex items-center justify-center shrink-0">
+        <div className="p-2.5 rounded-xl bg-[#10B981]/10 border border-[#10B981]/25 text-[#10B981] flex items-center justify-center shrink-0">
           <IconComponent className="w-5 h-5" />
         </div>
-        <span className="font-heading-space text-xs font-bold text-[#84CC16] bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
+        <span className="font-heading-space text-xs font-bold text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded-full border border-[#10B981]/20">
           {milestone.date}
         </span>
       </div>

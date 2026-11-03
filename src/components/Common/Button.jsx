@@ -4,14 +4,8 @@ import { useMagneticButton } from '../../hooks/useMagneticButton';
 import { cn } from '../../utils/cn';
 
 /**
- * Premium Magnetic Button with custom ripple click effect.
- * @param {Object} props
- * @param {React.ReactNode} props.children - Button label / elements
- * @param {string} props.className - Custom styles
- * @param {string} props.variant - 'primary' | 'secondary' | 'outline' | 'ghost'
- * @param {boolean} props.magnetic - Enable magnetic pull
- * @param {function} props.onClick - Click handler
- * @param {Object} props.rest - Other standard button props
+ * Vesper Magnetic Shimmer Button.
+ * Features an illuminated gradient border, frosted glass body, and spring micro-interactions.
  */
 export default function Button({
   children,
@@ -41,7 +35,6 @@ export default function Button({
 
     setRipples((prev) => [...prev, newRipple]);
 
-    // Clean up ripple after animation
     setTimeout(() => {
       setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
     }, 600);
@@ -50,10 +43,14 @@ export default function Button({
   };
 
   const variants = {
-    primary: 'bg-[#2D6A4F] text-[#F8FAFC] hover:bg-[#1B4332] shadow-lg shadow-[#2D6A4F]/10 border border-[#2D6A4F]/20',
-    secondary: 'bg-[#111827] text-[#F8FAFC] hover:bg-white/5 border border-white/8',
-    outline: 'bg-transparent border border-white/10 hover:border-white/20 text-[#F8FAFC]',
-    ghost: 'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5',
+    primary:
+      'relative bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white font-bold shadow-lg shadow-[#10B981]/20 hover:shadow-[#10B981]/35 border-0 hover:scale-[1.02]',
+    secondary:
+      'bg-[#070B18]/80 text-[#F8FAFC] hover:bg-[#0F172A] border border-white/10 hover:border-[#6366F1]/50 shadow-md shadow-[#6366F1]/10',
+    outline:
+      'bg-transparent border border-white/15 hover:border-[#10B981]/60 text-[#F8FAFC] hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]',
+    ghost:
+      'bg-transparent text-[#94A3B8] hover:text-[#10B981] hover:bg-white/5',
   };
 
   return (
@@ -63,18 +60,23 @@ export default function Button({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={cn(
-        'relative overflow-hidden rounded-full px-6 py-3 font-heading-space text-sm font-medium tracking-wide transition-all focus:outline-none focus:ring-2 focus:ring-[#84CC16] focus:ring-offset-2 focus:ring-offset-[#0B1120] cursor-pointer inline-flex items-center justify-center gap-2',
+        'group relative overflow-hidden rounded-full px-6 py-3 font-heading-space text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#030712] cursor-pointer inline-flex items-center justify-center gap-2 backdrop-blur-md',
         variants[variant],
         className
       )}
       {...rest}
     >
+      {/* Subtle Inner Glow on Hover for primary */}
+      {variant === 'primary' && (
+        <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      )}
+
       {/* Ripples container */}
       <span className="absolute inset-0 pointer-events-none overflow-hidden">
         {ripples.map((ripple) => (
           <span
             key={ripple.id}
-            className="absolute bg-white/25 rounded-full animate-ping pointer-events-none"
+            className="absolute bg-white/30 rounded-full animate-ping pointer-events-none"
             style={{
               width: ripple.size,
               height: ripple.size,
@@ -90,7 +92,6 @@ export default function Button({
       {/* Button content */}
       <span className="relative z-10 flex items-center gap-2">{children}</span>
 
-      {/* CSS style injected directly for ripples */}
       <style>{`
         @keyframes ripple {
           to {

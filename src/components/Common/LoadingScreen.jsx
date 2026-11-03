@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
- * Premium loading screen with a custom mountain outline drawing and progress percentage.
- * @param {Object} props
- * @param {boolean} props.isLoading - Whether application is loading
+ * Vesper Living Core Initializer Loader.
+ * Features a glowing mint & violet orbital ring and progress telemetry.
  */
 export default function LoadingScreen({ isLoading }) {
   const [progress, setProgress] = useState(0);
@@ -15,7 +14,7 @@ export default function LoadingScreen({ isLoading }) {
       return;
     }
 
-    const duration = 1500; // 1.5s simulated loading
+    const duration = 1200;
     const interval = 20;
     const increment = 100 / (duration / interval);
 
@@ -40,50 +39,39 @@ export default function LoadingScreen({ isLoading }) {
           key="loader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] } }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0B1120] text-[#F8FAFC]"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#030712] text-[#F8FAFC]"
         >
-          {/* Logo / Silhouette */}
-          <div className="relative mb-8 w-40 h-40 flex items-center justify-center">
-            {/* SVG Mountain Outline */}
-            <svg
-              viewBox="0 0 100 100"
-              className="w-full h-full text-glow-accent stroke-current fill-none"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <motion.path
-                d="M10 80 L35 40 L50 60 L75 25 L90 80 Z"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: progress / 100 }}
-                transition={{ duration: 0.1, ease: 'easeInOut' }}
-                className="stroke-[#2D6A4F]"
-              />
-              <motion.path
-                d="M30 80 L50 45 L65 65"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: progress / 100 }}
-                transition={{ duration: 0.1, ease: 'easeInOut', delay: 0.1 }}
-                className="stroke-[#84CC16]"
-              />
-            </svg>
+          {/* Vesper Orbital Synaptic Ring */}
+          <div className="relative mb-8 w-28 h-28 flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full border border-white/10" />
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: 'linear' }}
+              className="absolute inset-0 rounded-full border-t-2 border-r-2 border-[#00F5A0] shadow-[0_0_20px_rgba(0,245,160,0.4)]"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
+              className="absolute inset-2 rounded-full border-b-2 border-l-2 border-[#8B5CF6] shadow-[0_0_20px_rgba(139,92,246,0.4)]"
+            />
+            <div className="w-3 h-3 rounded-full bg-white shadow-[0_0_15px_#fff] animate-pulse" />
           </div>
 
           {/* Progress Percentage */}
           <div className="flex flex-col items-center gap-2">
-            <span className="font-heading-space text-lg font-medium tracking-widest text-[#94A3B8]">
+            <span className="font-heading-space text-lg font-bold tracking-widest bg-gradient-to-r from-[#00F5A0] to-[#8B5CF6] bg-clip-text text-transparent">
               {Math.round(progress)}%
             </span>
-            <div className="h-[2px] w-48 overflow-hidden rounded-full bg-white/5">
+            <div className="h-[2px] w-52 overflow-hidden rounded-full bg-white/10">
               <motion.div
-                className="h-full bg-gradient-to-r from-[#2D6A4F] to-[#84CC16]"
+                className="h-full bg-gradient-to-r from-[#00F5A0] via-[#38BDF8] to-[#8B5CF6]"
                 initial={{ width: '0%' }}
                 animate={{ width: `${progress}%` }}
                 transition={{ ease: 'easeInOut', duration: 0.1 }}
               />
             </div>
-            <span className="mt-4 text-xs font-mono tracking-wider uppercase text-white/40">
-              Initializing Ecosystem
+            <span className="mt-4 text-xs font-mono tracking-widest uppercase text-white/40">
+              Activating Vesper Interface
             </span>
           </div>
         </motion.div>

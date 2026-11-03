@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion as m } from 'framer-motion';
 

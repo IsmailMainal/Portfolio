@@ -1,25 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
 /**
- * Interactive cursor glow follower.
- * Tracks pointer coordinates and moves a blurry accent spotlight behind content.
- * Disabled on touch screens for accessibility and performance.
+ * Vesper Interactive Cursor Glow.
+ * Casts a soft, breathing mint and violet chromatic aura that smoothly follows the cursor.
  */
 export default function CursorGlow() {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
+  const [position, setPosition] = useState({ x: -200, y: -200 });
   const [isVisible, setIsVisible] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(true);
 
   useEffect(() => {
-    // Detect touch device
     const touchCheck = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     setIsTouchDevice(touchCheck);
-
     if (touchCheck) return;
 
+    let rafId;
     const handleMouseMove = (e) => {
-      // Use requestAnimationFrame for smooth drawing
-      window.requestAnimationFrame(() => {
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
         setPosition({ x: e.clientX, y: e.clientY });
         if (!isVisible) setIsVisible(true);
       });
@@ -33,6 +31,7 @@ export default function CursorGlow() {
     document.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
     };
@@ -42,13 +41,14 @@ export default function CursorGlow() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-40 overflow-hidden"
+      className="pointer-events-none fixed inset-0 z-30 overflow-hidden"
       aria-hidden="true"
     >
+      {/* Vesper Dual Emerald & Indigo chromatic aura */}
       <div
-        className="absolute w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#2D6A4F]/10 to-[#84CC16]/5 blur-[80px] transition-opacity duration-500 ease-out"
+        className="absolute w-[460px] h-[460px] rounded-full bg-gradient-to-tr from-[#10B981]/10 via-[#6366F1]/10 to-transparent blur-[100px] transition-opacity duration-500 ease-out will-change-transform"
         style={{
-          transform: `translate3d(${position.x - 200}px, ${position.y - 200}px, 0)`,
+          transform: `translate3d(${position.x - 230}px, ${position.y - 230}px, 0)`,
           opacity: isVisible ? 1 : 0,
         }}
       />

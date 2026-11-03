@@ -50,13 +50,13 @@ function App() {
       <LoadingScreen isLoading={isLoading} />
 
       {/* Main Container Layout */}
-      <div className="flex flex-col min-h-screen selection:bg-[#2D6A4F] selection:text-[#F8FAFC]">
+      <div className="flex flex-col min-h-screen selection:bg-[#00F5A0] selection:text-[#030712]">
         {/* Sticky blur header */}
         <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         {/* Dynamic Page Router */}
         <main className="flex-grow">
-          <Suspense fallback={<div className="min-h-screen bg-[var(--color-bg-primary)]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#030712]" />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="*" element={<NotFound />} />

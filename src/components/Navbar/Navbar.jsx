@@ -37,7 +37,6 @@ export default function Navbar({ theme, toggleTheme }) {
 
   // Track active section using IntersectionObserver
   useEffect(() => {
-    const observers = [];
     const elements = navItems.map((item) => document.getElementById(item.id));
 
     const observerCallback = (entries) => {
@@ -86,7 +85,7 @@ export default function Navbar({ theme, toggleTheme }) {
       className={cn(
         'fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 border-b border-transparent',
         isScrolled
-          ? 'bg-[#0B1120]/75 dark:bg-[#0B1120]/75 backdrop-blur-md border-white/5 py-4'
+          ? 'bg-[#030712]/80 backdrop-blur-xl border-white/[0.08] py-3.5 shadow-2xl shadow-black/60'
           : 'bg-transparent py-6'
       )}
     >
@@ -94,11 +93,13 @@ export default function Navbar({ theme, toggleTheme }) {
         {/* Brand Logo */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2 group font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC] cursor-pointer"
+          className="flex items-center gap-2.5 group font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC] cursor-pointer"
         >
-          <Terminal className="w-5 h-5 text-[#84CC16] group-hover:translate-x-0.5 transition-transform duration-300" />
+          <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:border-[#10B981]/50 transition-colors">
+            <Terminal className="w-4 h-4 text-[#10B981] group-hover:scale-110 transition-transform duration-300" />
+          </div>
           <span>
-            ISMAIL MAINAL<span className="text-[#84CC16]">.</span>
+            ISMAIL MAINAL<span className="text-[#10B981]">.</span>
           </span>
         </button>
 
@@ -112,7 +113,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   className={cn(
                     'relative py-1 text-sm font-heading-space font-medium tracking-wider transition-colors cursor-pointer',
                     activeSection === item.id
-                      ? 'text-[#84CC16]'
+                      ? 'text-[#10B981]'
                       : 'text-[#94A3B8] hover:text-[#F8FAFC]'
                   )}
                 >
@@ -120,7 +121,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#2D6A4F] to-[#84CC16]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#10B981] to-[#6366F1] shadow-[0_0_12px_rgba(16,185,129,0.7)]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -154,7 +155,7 @@ export default function Navbar({ theme, toggleTheme }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 w-full glass border-b border-white/10 overflow-hidden"
+            className="lg:hidden absolute top-full left-0 right-0 w-full bg-[#030712]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/80 overflow-hidden"
           >
             <nav className="px-6 py-8 flex flex-col gap-6">
               <ul className="flex flex-col gap-4">
@@ -169,7 +170,7 @@ export default function Navbar({ theme, toggleTheme }) {
                       onClick={() => handleNavClick(item.id)}
                       className={cn(
                         'w-full text-left py-2 font-heading-space text-lg font-semibold tracking-wider',
-                        activeSection === item.id ? 'text-[#84CC16]' : 'text-[#94A3B8]'
+                        activeSection === item.id ? 'text-[#10B981]' : 'text-[#94A3B8]'
                       )}
                     >
                       {item.label}

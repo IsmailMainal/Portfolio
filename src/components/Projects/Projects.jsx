@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
+import QuantumMatrixCanvas from './QuantumMatrixCanvas';
 import { projectsData } from '../../data/projects';
 
 /**
@@ -29,10 +30,13 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="relative py-16 bg-[var(--color-bg-primary)] overflow-hidden transition-all duration-1000">
-      {/* Background Soft lighting */}
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#2D6A4F]/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#84CC16]/3 blur-[140px] pointer-events-none" />
+    <section id="projects" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+      {/* Interactive Cyber Warp Matrix Canvas */}
+      <QuantumMatrixCanvas />
+
+      {/* Background Soft Vesper lighting */}
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -42,17 +46,17 @@ export default function Projects() {
         />
 
         {/* Filters and Search Bar row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 p-4 rounded-xl border border-white/5 bg-white/2">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 p-3 sm:p-3.5 rounded-2xl border border-white/[0.08] bg-[#070B18]/70 backdrop-blur-xl">
           {/* Tabs Filter */}
-          <div className="flex flex-wrap items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 rounded-full font-heading-space text-xs font-semibold tracking-wider transition-all cursor-pointer ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-heading-space text-xs font-semibold tracking-wider transition-all cursor-pointer ${
                   filter === cat
-                    ? 'bg-[#2D6A4F] text-[#F8FAFC] border border-[#2D6A4F]/20'
-                    : 'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] border border-transparent'
+                    ? 'bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white shadow-lg shadow-[#10B981]/20'
+                    : 'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 border border-transparent'
                 }`}
               >
                 {cat}
@@ -68,17 +72,21 @@ export default function Projects() {
               placeholder="Search technologies or titles..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#111827] border border-white/8 rounded-full pl-9 pr-4 py-2 font-body text-xs text-[#F8FAFC] placeholder-white/35 focus:outline-none focus:border-[#84CC16]"
+              className="w-full bg-[#0B1120] border border-white/10 rounded-full pl-9 pr-4 py-2 font-body text-xs text-[#F8FAFC] placeholder-white/35 focus:outline-none focus:border-[#10B981] transition-colors"
             />
           </div>
         </div>
 
         {/* Project responsive grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, idx) => (
               <ProjectCard
                 key={project.id}
+                index={idx}
                 project={project}
                 onOpenDetails={setSelectedProject}
               />

@@ -4,13 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
 import Button from '../Common/Button';
-import { contactLakeBg } from '../../assets';
-
+import AuroraNebulaCanvas from './AuroraNebulaCanvas';
 
 /**
- * Contact Section.
- * Features a glassmorphism contact form set against a sunset lake backdrop.
- * Direct dispatch to WhatsApp (+91 7899120229) and Email (ismailmanyal3@gmail.com).
+ * Vesper Contact Section.
+ * Implements cosmic obsidian aesthetics, glowing mint & violet spotlights,
+ * fast clipboard copy, and direct WhatsApp / Email integrations.
  */
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -42,7 +41,7 @@ export default function Contact() {
     const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     const text = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n${formData.message}\n\n-----------------------------------\nSent via Ismail Mainal Portfolio`;
     const whatsappUrl = `https://wa.me/917899120229?text=${encodeURIComponent(text)}`;
-    
+
     window.open(whatsappUrl, '_blank');
     setStatus('success');
     setTimeout(() => setStatus('idle'), 5000);
@@ -56,7 +55,7 @@ export default function Contact() {
     const subject = `Portfolio Project Inquiry: ${formData.name}`;
     const body = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n-----------------------------------\n${formData.message}\n-----------------------------------\n\nSent via Ismail Mainal Portfolio`;
     const mailtoUrl = `mailto:ismailmanyal3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
+
     window.location.href = mailtoUrl;
     setStatus('success');
     setTimeout(() => setStatus('idle'), 5000);
@@ -65,34 +64,31 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-16 overflow-hidden bg-[var(--color-bg-primary)] flex items-center justify-center min-h-screen transition-all duration-1000"
+      className="relative py-20 overflow-hidden bg-[#030712] flex items-center justify-center min-h-screen transition-all duration-1000 vesper-grid-bg"
     >
-      {/* Sunset Lake Parallax Backdrop */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat scale-105 opacity-40 mix-blend-lighten transition-all duration-1000"
-        style={{
-          backgroundImage: `url(${contactLakeBg})`,
-          filter: 'var(--contact-bg-filter)',
-        }}
-      />
-      <div 
-        className="absolute inset-0 z-1 pointer-events-none transition-all duration-1000" 
-        style={{
-          backgroundColor: 'var(--contact-overlay-color)',
-        }}
-      />
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-[var(--contact-bottom-fog)] via-transparent to-[var(--contact-bottom-fog)] pointer-events-none transition-all duration-1000" />
+      {/* Fluid Aurora Borealis Nebula Canvas */}
+      <AuroraNebulaCanvas />
+
+      {/* Vesper Ambient Volumetric Lighting */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-[#10B981]/5 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
         <SectionTitle
           subtitle="Get in Touch"
           title="Let's Collaborate"
-          description="Have an ERP module, a database query bottleneck, or an AI pipeline project? Let&apos;s build together."
+          description="Have an ERP module, a database query bottleneck, or an AI & web project? Let's build together."
         />
 
         {/* Glass Form Wrapper */}
-        <div className="w-full max-w-lg">
-          <GlassCard className="relative overflow-hidden p-8 border-white/5 bg-[#111827]/50 hover:border-white/10 card-glow-green">
+        <motion.div
+          initial={{ opacity: 0, y: 35, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full max-w-lg"
+        >
+          <GlassCard className="relative overflow-hidden p-8 border-white/[0.08] bg-[#070B18]/75 shadow-2xl">
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 /* Success Screen Overlay */
@@ -103,7 +99,6 @@ export default function Contact() {
                   exit={{ opacity: 0, scale: 0.95 }}
                   className="flex flex-col items-center justify-center py-12 text-center"
                 >
-                  {/* Custom Paper Plane animation frame */}
                   <div className="relative mb-6">
                     <motion.div
                       initial={{ x: 0, y: 0, scale: 1, opacity: 1 }}
@@ -114,7 +109,7 @@ export default function Contact() {
                         opacity: [1, 1, 0.8, 0],
                       }}
                       transition={{ duration: 1.8, ease: 'easeOut' }}
-                      className="text-[#84CC16]"
+                      className="text-[#10B981]"
                     >
                       <Send className="w-12 h-12" />
                     </motion.div>
@@ -126,7 +121,7 @@ export default function Contact() {
                     transition={{ delay: 0.4 }}
                   >
                     <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC] mb-2 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#84CC16]" /> App Launched
+                      <CheckCircle2 className="w-5 h-5 text-[#10B981]" /> App Launched
                     </h3>
                     <p className="font-body text-sm text-[#94A3B8] leading-relaxed">
                       Your message payload has been formatted and opened in your selected app (WhatsApp / Email Client).
@@ -144,26 +139,28 @@ export default function Contact() {
                   {/* Quick Copy Shortcuts Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Copy Email */}
-                    <div className="flex justify-between items-center p-3 rounded-lg bg-[#0B1120]/40 border border-white/5 font-body">
-                      <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight">ismailmanyal3@gmail.com</span>
+                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#030712]/60 border border-white/5 font-body">
+                      <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight truncate max-w-[140px]">
+                        ismailmanyal3@gmail.com
+                      </span>
                       <button
                         type="button"
                         onClick={handleCopyEmail}
-                        className="font-heading-space text-[11px] font-semibold text-[#84CC16] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
+                        className="font-heading-space text-[11px] font-semibold text-[#10B981] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
                       >
-                        {copiedEmail ? 'Copied! 🌲' : 'Copy Email'}
+                        {copiedEmail ? 'Copied! ✦' : 'Copy Email'}
                       </button>
                     </div>
 
                     {/* Copy Phone */}
-                    <div className="flex justify-between items-center p-3 rounded-lg bg-[#0B1120]/40 border border-white/5 font-body">
+                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#030712]/60 border border-white/5 font-body">
                       <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight">+91 7899120229</span>
                       <button
                         type="button"
                         onClick={handleCopyPhone}
-                        className="font-heading-space text-[11px] font-semibold text-[#84CC16] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
+                        className="font-heading-space text-[11px] font-semibold text-[#6366F1] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
                       >
-                        {copiedPhone ? 'Copied! 🌲' : 'Copy Phone'}
+                        {copiedPhone ? 'Copied! ✦' : 'Copy Phone'}
                       </button>
                     </div>
                   </div>
@@ -183,8 +180,8 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="John Muir"
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16]"
+                      placeholder="Alex Mercer"
+                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all"
                     />
                   </div>
 
@@ -203,8 +200,8 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="john.muir@parks.org"
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16]"
+                      placeholder="alex@acme.corp"
+                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all"
                     />
                   </div>
 
@@ -223,8 +220,8 @@ export default function Contact() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Briefly describe what you're working on..."
-                      className="w-full bg-[#0B1120]/60 border border-white/8 rounded-lg px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#84CC16] resize-none"
+                      placeholder="Briefly describe what you are looking to build or optimize..."
+                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all resize-none"
                     />
                   </div>
 
@@ -234,7 +231,7 @@ export default function Contact() {
                       type="button"
                       onClick={handleWhatsAppSubmit}
                       variant="primary"
-                      className="w-full sm:w-1/2 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-black border-none font-bold"
+                      className="w-full sm:w-1/2 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-black border-none font-bold shadow-[0_0_20px_rgba(37,211,102,0.3)]"
                     >
                       <MessageSquare className="w-4 h-4 fill-current" />
                       <span>WhatsApp Chat</span>
@@ -245,7 +242,7 @@ export default function Contact() {
                       variant="secondary"
                       className="w-full sm:w-1/2 flex items-center justify-center gap-2"
                     >
-                      <Mail className="w-4 h-4 text-[#84CC16]" />
+                      <Mail className="w-4 h-4 text-[#6366F1]" />
                       <span>Send via Email</span>
                     </Button>
                   </div>
@@ -253,7 +250,7 @@ export default function Contact() {
               )}
             </AnimatePresence>
           </GlassCard>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

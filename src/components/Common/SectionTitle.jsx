@@ -31,9 +31,12 @@ export default function SectionTitle({
       {subtitle && (
         <motion.span
           variants={fadeIn('up', 0.1)}
-          className="inline-flex items-center gap-2 font-heading-space text-xs font-semibold tracking-[0.2em] uppercase text-[#84CC16] mb-3"
+          className="inline-flex items-center gap-2 font-heading-space text-xs font-semibold tracking-[0.2em] uppercase text-[#00F5A0] mb-3"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#2D6A4F]" />
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5A0] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00F5A0]" />
+          </span>
           {subtitle}
         </motion.span>
       )}
