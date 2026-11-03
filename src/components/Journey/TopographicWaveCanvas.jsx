@@ -94,12 +94,12 @@ export default function TopographicWaveCanvas() {
         const lineProgress = i / NUM_LINES;
         const baseY = height * 0.15 + lineProgress * (height * 0.75);
 
-        // Refined gradient along the elevation lines
+        // Molten golden topography gradient along the elevation lines
         const grad = ctx.createLinearGradient(0, baseY, width, baseY);
         const lineAlpha = 0.08 + Math.sin(lineProgress * Math.PI) * 0.18;
-        grad.addColorStop(0, `rgba(16, 185, 129, ${lineAlpha * 0.5})`);
-        grad.addColorStop(0.5, `rgba(56, 189, 248, ${lineAlpha * 0.8})`);
-        grad.addColorStop(1, `rgba(99, 102, 241, ${lineAlpha * 0.5})`);
+        grad.addColorStop(0, `rgba(249, 115, 22, ${lineAlpha * 0.6})`);
+        grad.addColorStop(0.5, `rgba(251, 191, 36, ${lineAlpha * 0.85})`);
+        grad.addColorStop(1, `rgba(250, 204, 21, ${lineAlpha * 0.6})`);
 
         ctx.strokeStyle = grad;
         ctx.beginPath();
@@ -145,7 +145,7 @@ export default function TopographicWaveCanvas() {
         const sx = ((i * 137.5 + time * 40) % width);
         const sy = ((i * 219.3 + time * 20) % height);
         const pulse = 0.5 + 0.5 * Math.sin(time * 3 + i);
-        ctx.fillStyle = i % 2 === 0 ? `rgba(16, 185, 129, ${pulse * 0.35})` : `rgba(99, 102, 241, ${pulse * 0.35})`;
+        ctx.fillStyle = i % 2 === 0 ? `rgba(249, 115, 22, ${pulse * 0.4})` : `rgba(250, 204, 21, ${pulse * 0.4})`;
         ctx.beginPath();
         ctx.arc(sx, sy, 1.4, 0, Math.PI * 2);
         ctx.fill();
@@ -170,8 +170,8 @@ export default function TopographicWaveCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-65"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#10B981]/5 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-[#6366F1]/6 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#F97316]/5 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/4 w-[600px] h-[600px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
     </div>
   );
 }

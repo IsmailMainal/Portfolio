@@ -25,13 +25,13 @@ export default function Skills() {
   const totalTechs = skillsData.reduce((acc, cat) => acc + cat.technologies.length, 0);
 
   return (
-    <section id="skills" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+    <section id="skills" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
       {/* 3D Atomic Orbital Gyroscope Canvas */}
       <OrbitalRingsCanvas />
 
-      {/* Background Soft Vesper lighting */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[140px] pointer-events-none" />
+      {/* Background Soft lighting */}
+      <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -46,11 +46,11 @@ export default function Skills() {
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 sm:gap-3 glass px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border border-white/[0.08] font-heading-space text-xs font-semibold text-[#10B981] shadow-[0_0_20px_rgba(16,185,129,0.15)] text-center"
+            className="inline-flex items-center gap-2 sm:gap-3 glass px-4 sm:px-6 py-2 sm:py-2.5 rounded-full border border-white/[0.08] font-heading-space text-xs font-semibold text-[#FB923C] shadow-[0_0_20px_rgba(249,115,22,0.2)] text-center"
           >
             <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-80"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FACC15] opacity-80"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FACC15]"></span>
             </span>
             <span>Deploying {totalTechs} core full-stack technologies</span>
           </motion.div>

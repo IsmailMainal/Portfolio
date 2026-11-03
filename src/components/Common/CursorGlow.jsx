@@ -44,9 +44,9 @@ export default function CursorGlow() {
       className="pointer-events-none fixed inset-0 z-30 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Vesper Dual Emerald & Indigo chromatic aura */}
+      {/* Dual Electric Orange & Solar Yellow chromatic aura */}
       <div
-        className="absolute w-[460px] h-[460px] rounded-full bg-gradient-to-tr from-[#10B981]/10 via-[#6366F1]/10 to-transparent blur-[100px] transition-opacity duration-500 ease-out will-change-transform"
+        className="absolute w-[460px] h-[460px] rounded-full bg-gradient-to-tr from-[#F97316]/10 via-[#FACC15]/10 to-transparent blur-[100px] transition-opacity duration-500 ease-out will-change-transform"
         style={{
           transform: `translate3d(${position.x - 230}px, ${position.y - 230}px, 0)`,
           opacity: isVisible ? 1 : 0,

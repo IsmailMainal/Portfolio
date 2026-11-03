@@ -47,13 +47,13 @@ export default function QuantumMatrixCanvas() {
 
       for (let r = 0; r <= rows; r++) {
         for (let c = 0; c <= cols; c++) {
-          const isMint = (c + r) % 3 === 0;
+          const isOrange = (c + r) % 3 === 0;
           points.push({
             origX: c * step,
             origY: r * step,
             x: c * step,
             y: r * step,
-            color: isMint ? 'rgba(16, 185, 129, ' : 'rgba(99, 102, 241, ',
+            color: isOrange ? 'rgba(249, 115, 22, ' : 'rgba(250, 204, 21, ',
             baseAlpha: 0.12 + Math.random() * 0.15,
             size: 1.2 + Math.random() * 1.6,
           });
@@ -117,9 +117,9 @@ export default function QuantumMatrixCanvas() {
 
       // Horizontal Laser Beam
       const hGrad = ctx.createLinearGradient(0, laserScanY, width, laserScanY);
-      hGrad.addColorStop(0, 'rgba(16, 185, 129, 0)');
-      hGrad.addColorStop(0.5, 'rgba(16, 185, 129, 0.1)');
-      hGrad.addColorStop(1, 'rgba(99, 102, 241, 0)');
+      hGrad.addColorStop(0, 'rgba(249, 115, 22, 0)');
+      hGrad.addColorStop(0.5, 'rgba(249, 115, 22, 0.12)');
+      hGrad.addColorStop(1, 'rgba(250, 204, 21, 0)');
       ctx.strokeStyle = hGrad;
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -129,9 +129,9 @@ export default function QuantumMatrixCanvas() {
 
       // Vertical Laser Beam
       const vGrad = ctx.createLinearGradient(laserScanX, 0, laserScanX, height);
-      vGrad.addColorStop(0, 'rgba(99, 102, 241, 0)');
-      vGrad.addColorStop(0.5, 'rgba(99, 102, 241, 0.08)');
-      vGrad.addColorStop(1, 'rgba(56, 189, 248, 0)');
+      vGrad.addColorStop(0, 'rgba(250, 204, 21, 0)');
+      vGrad.addColorStop(0.5, 'rgba(250, 204, 21, 0.1)');
+      vGrad.addColorStop(1, 'rgba(251, 146, 60, 0)');
       ctx.strokeStyle = vGrad;
       ctx.beginPath();
       ctx.moveTo(laserScanX, 0);
@@ -180,7 +180,7 @@ export default function QuantumMatrixCanvas() {
 
         // Crosshairs on high-energy points near cursor
         if (extraAlpha > 0.4) {
-          ctx.strokeStyle = `rgba(16, 185, 129, ${extraAlpha * 0.4})`;
+          ctx.strokeStyle = `rgba(249, 115, 22, ${extraAlpha * 0.45})`;
           ctx.lineWidth = 0.5;
           ctx.beginPath();
           ctx.moveTo(p.x - 6, p.y);
@@ -210,8 +210,8 @@ export default function QuantumMatrixCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-55"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/4 right-1/4 w-[650px] h-[650px] rounded-full bg-[#10B981]/5 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[650px] h-[650px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[650px] h-[650px] rounded-full bg-[#F97316]/5 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[650px] h-[650px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
     </div>
   );
 }

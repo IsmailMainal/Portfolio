@@ -30,14 +30,14 @@ export default function Footer() {
       stars = [];
       const numStars = Math.floor((canvas.width * canvas.height) / 7000);
       for (let i = 0; i < numStars; i++) {
-        const isMint = Math.random() < 0.5;
+        const isOrange = Math.random() < 0.55;
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 1.6,
           alpha: Math.random(),
           speed: 0.01 + Math.random() * 0.02,
-          color: isMint ? 'rgba(16, 185, 129, ' : 'rgba(99, 102, 241, ',
+          color: isOrange ? 'rgba(249, 115, 22, ' : 'rgba(250, 204, 21, ',
         });
       }
     };
@@ -74,7 +74,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#030712] text-[#94A3B8] pt-16 pb-12 overflow-hidden border-t border-white/[0.08] transition-all duration-1000">
+    <footer className="relative bg-[#050507] text-[#94A3B8] pt-16 pb-12 overflow-hidden border-t border-white/[0.08] transition-all duration-1000">
       {/* Stars Canvas Backdrop Layer */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-50">
         <canvas ref={canvasRef} className="w-full h-full" />
@@ -83,14 +83,14 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
         {/* Brand Terminal Symbol */}
         <div className="flex flex-col items-center gap-3 mb-8">
-          <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 glass text-[#10B981] shadow-[0_0_25px_rgba(16,185,129,0.2)]">
+          <div className="flex items-center justify-center w-12 h-12 rounded-full border border-white/10 glass text-[#F97316] shadow-[0_0_25px_rgba(249,115,22,0.3)]">
             <Terminal className="w-6 h-6 animate-pulse-slow" />
           </div>
           <span className="font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC]">
             ISMAIL MAINAL
           </span>
-          <span className="font-heading-space text-[10px] uppercase tracking-[0.25em] text-[#10B981]">
-            Full Stack Developer • Vesper Architecture
+          <span className="font-heading-space text-[10px] uppercase tracking-[0.25em] text-[#F97316]">
+            Full Stack Developer • Cyber Obsidian System
           </span>
         </div>
 
@@ -100,7 +100,7 @@ export default function Footer() {
             href="https://github.com/IsmailMainal"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#10B981] hover:border-[#10B981]/40 transition-all"
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#F97316] hover:border-[#F97316]/40 transition-all"
             aria-label="GitHub profile"
           >
             <Github className="w-4.5 h-4.5" />
@@ -109,14 +109,14 @@ export default function Footer() {
             href="https://www.linkedin.com/in/ismail-mainal-187199215/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#6366F1] hover:border-[#6366F1]/40 transition-all"
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#FACC15] hover:border-[#FACC15]/40 transition-all"
             aria-label="LinkedIn profile"
           >
             <Linkedin className="w-4.5 h-4.5" />
           </a>
           <a
             href="mailto:ismailmanyal3@gmail.com"
-            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#10B981] hover:border-[#10B981]/40 transition-all"
+            className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 glass text-[#94A3B8] hover:text-[#F97316] hover:border-[#F97316]/40 transition-all"
             aria-label="Email contact"
           >
             <Mail className="w-4.5 h-4.5" />

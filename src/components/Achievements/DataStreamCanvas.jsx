@@ -40,14 +40,14 @@ export default function DataStreamCanvas() {
       const count = Math.min(32, Math.max(16, Math.floor(w / 60)));
 
       for (let i = 0; i < count; i++) {
-        const isMint = Math.random() < 0.52;
+        const isOrange = Math.random() < 0.52;
         beams.push({
           x: Math.random() * w,
           y: Math.random() * h,
           baseY: Math.random() * h,
           length: 60 + Math.random() * 140,
           speed: 2.5 + Math.random() * 4.5,
-          color: isMint ? 'rgba(16, 185, 129, ' : 'rgba(99, 102, 241, ',
+          color: isOrange ? 'rgba(249, 115, 22, ' : 'rgba(250, 204, 21, ',
           alpha: 0.15 + Math.random() * 0.35,
           lineWidth: 0.8 + Math.random() * 1.5,
         });
@@ -161,8 +161,8 @@ export default function DataStreamCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-60"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#10B981]/5 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#F97316]/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
     </div>
   );
 }

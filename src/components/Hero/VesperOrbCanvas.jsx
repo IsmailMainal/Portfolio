@@ -106,18 +106,18 @@ export default function VesperOrbCanvas({ currentMode = 'orb' }) {
         const brainY = rawY;
         const brainZ = rawZ;
 
-        // Professional aesthetic spectrum: Emerald Mint vs Tech Indigo vs Sky Cyan
+        // Cyber Industrial spectrum: Electric Orange vs Radiant Solar Yellow vs Amber Flame
         const colorType = Math.random();
         let color, glowColor;
         if (colorType < 0.52) {
-          color = 'rgba(16, 185, 129, ';
-          glowColor = '#10B981';
+          color = 'rgba(249, 115, 22, ';
+          glowColor = '#F97316';
         } else if (colorType < 0.88) {
-          color = 'rgba(99, 102, 241, ';
-          glowColor = '#6366F1';
+          color = 'rgba(250, 204, 21, ';
+          glowColor = '#FACC15';
         } else {
-          color = 'rgba(56, 189, 248, ';
-          glowColor = '#38BDF8';
+          color = 'rgba(251, 146, 60, ';
+          glowColor = '#FB923C';
         }
 
         particles.push({
@@ -330,8 +330,8 @@ export default function VesperOrbCanvas({ currentMode = 'orb' }) {
             const lineAlpha = (1 - dist / maxConnDist) * 0.3 * p1.alpha * p2.alpha;
             if (lineAlpha > 0.02) {
               const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
-              gradient.addColorStop(0, `rgba(16, 185, 129, ${lineAlpha})`);
-              gradient.addColorStop(1, `rgba(99, 102, 241, ${lineAlpha})`);
+              gradient.addColorStop(0, `rgba(249, 115, 22, ${lineAlpha})`);
+              gradient.addColorStop(1, `rgba(250, 204, 21, ${lineAlpha})`);
 
               ctx.strokeStyle = gradient;
               ctx.beginPath();
@@ -386,9 +386,9 @@ export default function VesperOrbCanvas({ currentMode = 'orb' }) {
         className="w-full h-full block"
       />
       {/* Volumetric Radial Glows (Responsive for Mobile & Desktop) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[650px] sm:h-[650px] lg:w-[1350px] lg:h-[1350px] 2xl:w-[1700px] 2xl:h-[1700px] rounded-full bg-gradient-to-tr from-[#10B981]/12 via-[#6366F1]/14 to-transparent blur-[80px] sm:blur-[140px] lg:blur-[220px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[250px] h-[250px] lg:w-[750px] lg:h-[750px] rounded-full bg-[#10B981]/8 blur-[90px] lg:blur-[140px] pointer-events-none animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-[280px] h-[280px] lg:w-[850px] lg:h-[850px] rounded-full bg-[#6366F1]/10 blur-[90px] lg:blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[650px] sm:h-[650px] lg:w-[1350px] lg:h-[1350px] 2xl:w-[1700px] 2xl:h-[1700px] rounded-full bg-gradient-to-tr from-[#F97316]/12 via-[#FACC15]/14 to-transparent blur-[80px] sm:blur-[140px] lg:blur-[220px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[250px] h-[250px] lg:w-[750px] lg:h-[750px] rounded-full bg-[#F97316]/8 blur-[90px] lg:blur-[140px] pointer-events-none animate-pulse-slow" />
+      <div className="absolute bottom-1/4 right-1/4 w-[280px] h-[280px] lg:w-[850px] lg:h-[850px] rounded-full bg-[#FACC15]/10 blur-[90px] lg:blur-[160px] pointer-events-none" />
     </div>
   );
 }

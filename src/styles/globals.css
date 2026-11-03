@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0A0E17;
-  --color-bg-surface: #0F1626;
+  --color-bg-primary: #050507;
+  --color-bg-surface: #0C0D12;
   --color-text-primary: #F8FAFC;
   --color-text-secondary: #94A3B8;
-  --color-accent: #10B981;
-  --color-accent-hover: #059669;
-  --color-highlight: #6366F1;
-  --color-highlight-hover: #4F46E5;
+  --color-accent: #F97316;
+  --color-accent-hover: #EA580C;
+  --color-highlight: #FACC15;
+  --color-highlight-hover: #EAB308;
   --color-border-custom: rgba(255, 255, 255, 0.08);
 
   --font-heading-sora: "Sora", sans-serif;
@@ -28,12 +28,12 @@
 
 :root {
   --hero-bg-filter: brightness(0.6) contrast(1.1) saturate(0.9);
-  --hero-overlay-color: rgba(10, 14, 23, 0.65);
-  --hero-bottom-fog: #0A0E17;
+  --hero-overlay-color: rgba(5, 5, 7, 0.7);
+  --hero-bottom-fog: #050507;
   
   --contact-bg-filter: brightness(0.55) saturate(0.85);
-  --contact-overlay-color: rgba(10, 14, 23, 0.75);
-  --contact-bottom-fog: #0A0E17;
+  --contact-overlay-color: rgba(5, 5, 7, 0.8);
+  --contact-bottom-fog: #050507;
   
   --global-transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -94,7 +94,7 @@ body, header, section, footer, .glass, .glass-hover, h1, h2, h3, h4, h5, h6, p, 
 /* Utility classes */
 @layer utilities {
   .glass {
-    background: rgba(15, 22, 38, 0.7);
+    background: rgba(12, 13, 18, 0.75);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -112,9 +112,9 @@ body, header, section, footer, .glass, .glass-hover, h1, h2, h3, h4, h5, h6, p, 
   }
   
   .glass-hover:hover {
-    background: rgba(18, 27, 46, 0.85);
-    border-color: rgba(16, 185, 129, 0.3); /* Sophisticated Emerald highlight */
-    box-shadow: 0 12px 35px -10px rgba(16, 185, 129, 0.12), 0 0 20px -5px rgba(99, 102, 241, 0.12);
+    background: rgba(18, 19, 26, 0.85);
+    border-color: rgba(249, 115, 22, 0.35); /* Electric Orange highlight */
+    box-shadow: 0 12px 35px -10px rgba(249, 115, 22, 0.16), 0 0 20px -5px rgba(250, 204, 21, 0.12);
     transform: translateY(-4px) scale(1.005);
   }
 
@@ -123,37 +123,37 @@ body, header, section, footer, .glass, .glass-hover, h1, h2, h3, h4, h5, h6, p, 
   }
 
   .text-glow-accent {
-    text-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.45);
   }
 
   .text-glow-violet {
-    text-shadow: 0 0 20px rgba(99, 102, 241, 0.45);
+    text-shadow: 0 0 20px rgba(250, 204, 21, 0.45);
   }
 
   .accent-gradient {
-    background: linear-gradient(135deg, #10B981 0%, #38BDF8 50%, #6366F1 100%);
+    background: linear-gradient(135deg, #F97316 0%, #F59E0B 50%, #FACC15 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .accent-gradient-bg {
-    background: linear-gradient(135deg, #10B981 0%, #38BDF8 50%, #6366F1 100%);
+    background: linear-gradient(135deg, #F97316 0%, #F59E0B 50%, #FACC15 100%);
   }
 
   .card-glow-green {
-    box-shadow: 0 0 45px -10px rgba(16, 185, 129, 0.18);
+    box-shadow: 0 0 45px -10px rgba(249, 115, 22, 0.18);
   }
 
   .card-glow-lime {
-    box-shadow: 0 0 45px -10px rgba(99, 102, 241, 0.16);
+    box-shadow: 0 0 45px -10px rgba(250, 204, 21, 0.16);
   }
 
   .vesper-glow-mint {
-    box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.22);
+    box-shadow: 0 0 50px -10px rgba(249, 115, 22, 0.22);
   }
 
   .vesper-glow-violet {
-    box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.22);
+    box-shadow: 0 0 50px -10px rgba(250, 204, 21, 0.22);
   }
 
   /* Vesper Cyber Grid Background */

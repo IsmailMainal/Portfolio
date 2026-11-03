@@ -44,13 +44,13 @@ export default function Button({
 
   const variants = {
     primary:
-      'relative bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white font-bold shadow-lg shadow-[#10B981]/20 hover:shadow-[#10B981]/35 border-0 hover:scale-[1.02]',
+      'relative bg-gradient-to-r from-[#F97316] via-[#F59E0B] to-[#FACC15] text-[#050507] font-bold shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40 border-0 hover:scale-[1.02]',
     secondary:
-      'bg-[#070B18]/80 text-[#F8FAFC] hover:bg-[#0F172A] border border-white/10 hover:border-[#6366F1]/50 shadow-md shadow-[#6366F1]/10',
+      'bg-[#0C0D12]/85 text-[#F8FAFC] hover:bg-[#161822] border border-white/10 hover:border-[#F97316]/40 shadow-md shadow-black/40',
     outline:
-      'bg-transparent border border-white/15 hover:border-[#10B981]/60 text-[#F8FAFC] hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]',
+      'bg-transparent border border-white/15 hover:border-[#F97316]/60 text-[#F8FAFC] hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]',
     ghost:
-      'bg-transparent text-[#94A3B8] hover:text-[#10B981] hover:bg-white/5',
+      'bg-transparent text-[#94A3B8] hover:text-[#F97316] hover:bg-white/5',
   };
 
   return (
@@ -60,7 +60,7 @@ export default function Button({
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={cn(
-        'group relative overflow-hidden rounded-full px-6 py-3 font-heading-space text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#10B981] focus:ring-offset-2 focus:ring-offset-[#030712] cursor-pointer inline-flex items-center justify-center gap-2 backdrop-blur-md',
+        'group relative overflow-hidden rounded-full px-6 py-3 font-heading-space text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:ring-offset-2 focus:ring-offset-[#050507] cursor-pointer inline-flex items-center justify-center gap-2 backdrop-blur-md',
         variants[variant],
         className
       )}

@@ -5,7 +5,6 @@ import { useTheme } from './hooks/useTheme';
 
 // Layout components
 import LoadingScreen from './components/Common/LoadingScreen';
-import CursorGlow from './components/Common/CursorGlow';
 import ScrollProgressBar from './components/Common/ScrollProgressBar';
 import Navbar from './components/Navbar/Navbar';
 import ScrollToTop from './components/Common/ScrollToTop';
@@ -40,9 +39,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Visual Ambient Spotlights */}
-      <CursorGlow />
-      
       {/* Top Page Scroll completion bar */}
       <ScrollProgressBar />
 
@@ -50,13 +46,13 @@ function App() {
       <LoadingScreen isLoading={isLoading} />
 
       {/* Main Container Layout */}
-      <div className="flex flex-col min-h-screen selection:bg-[#00F5A0] selection:text-[#030712]">
+      <div className="flex flex-col min-h-screen selection:bg-[#F97316] selection:text-[#050507]">
         {/* Sticky blur header */}
         <Navbar theme={theme} toggleTheme={toggleTheme} />
 
         {/* Dynamic Page Router */}
         <main className="flex-grow">
-          <Suspense fallback={<div className="min-h-screen bg-[#030712]" />}>
+          <Suspense fallback={<div className="min-h-screen bg-[#050507]" />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="*" element={<NotFound />} />

@@ -85,7 +85,7 @@ export default function Navbar({ theme, toggleTheme }) {
       className={cn(
         'fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 border-b border-transparent',
         isScrolled
-          ? 'bg-[#030712]/80 backdrop-blur-xl border-white/[0.08] py-3.5 shadow-2xl shadow-black/60'
+          ? 'bg-[#050507]/85 backdrop-blur-xl border-white/[0.08] py-3.5 shadow-2xl shadow-black/80'
           : 'bg-transparent py-6'
       )}
     >
@@ -95,11 +95,11 @@ export default function Navbar({ theme, toggleTheme }) {
           onClick={() => handleNavClick('home')}
           className="flex items-center gap-2.5 group font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC] cursor-pointer"
         >
-          <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:border-[#10B981]/50 transition-colors">
-            <Terminal className="w-4 h-4 text-[#10B981] group-hover:scale-110 transition-transform duration-300" />
+          <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:border-[#F97316]/50 transition-colors">
+            <Terminal className="w-4 h-4 text-[#F97316] group-hover:scale-110 transition-transform duration-300" />
           </div>
           <span>
-            ISMAIL MAINAL<span className="text-[#10B981]">.</span>
+            ISMAIL MAINAL<span className="text-[#F97316]">.</span>
           </span>
         </button>
 
@@ -113,7 +113,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   className={cn(
                     'relative py-1 text-sm font-heading-space font-medium tracking-wider transition-colors cursor-pointer',
                     activeSection === item.id
-                      ? 'text-[#10B981]'
+                      ? 'text-[#F97316]'
                       : 'text-[#94A3B8] hover:text-[#F8FAFC]'
                   )}
                 >
@@ -121,7 +121,7 @@ export default function Navbar({ theme, toggleTheme }) {
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#10B981] to-[#6366F1] shadow-[0_0_12px_rgba(16,185,129,0.7)]"
+                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#F97316] to-[#FACC15] shadow-[0_0_12px_rgba(249,115,22,0.8)]"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -170,7 +170,7 @@ export default function Navbar({ theme, toggleTheme }) {
                       onClick={() => handleNavClick(item.id)}
                       className={cn(
                         'w-full text-left py-2 font-heading-space text-lg font-semibold tracking-wider',
-                        activeSection === item.id ? 'text-[#10B981]' : 'text-[#94A3B8]'
+                        activeSection === item.id ? 'text-[#F97316]' : 'text-[#94A3B8]'
                       )}
                     >
                       {item.label}

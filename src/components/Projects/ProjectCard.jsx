@@ -22,7 +22,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
         ease: [0.16, 1, 0.3, 1],
       }}
     >
-      <GlassCard className="p-0 border-white/5 overflow-hidden group hover:border-[#10B981]/30 flex flex-col h-full transition-all duration-300">
+      <GlassCard className="p-0 border-white/5 overflow-hidden group hover:border-[#F97316]/35 flex flex-col h-full transition-all duration-300">
         {/* Project Thumbnail Image */}
         <div className="relative overflow-hidden aspect-video w-full bg-slate-950">
           <img
@@ -31,10 +31,10 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-[#030712]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[3px]">
+          <div className="absolute inset-0 bg-[#050507]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[3px]">
             <button
               onClick={() => onOpenDetails(project)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white font-heading-space text-xs font-bold shadow-lg shadow-[#10B981]/30 transition-all hover:scale-105 cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#F97316] to-[#FACC15] text-[#050507] font-heading-space text-xs font-bold shadow-lg shadow-[#F97316]/30 transition-all hover:scale-105 cursor-pointer"
             >
               <Plus className="w-4 h-4" />
               <span>Details</span>
@@ -43,7 +43,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
 
           {/* Project Category Tag */}
           <div className="absolute top-4 left-4 z-10">
-            <span className="bg-[#030712]/85 backdrop-blur-md border border-[#10B981]/30 px-3 py-1 rounded-full font-heading-space text-[10px] font-bold tracking-wider uppercase text-[#10B981] shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+            <span className="bg-[#050507]/90 backdrop-blur-md border border-[#F97316]/30 px-3 py-1 rounded-full font-heading-space text-[10px] font-bold tracking-wider uppercase text-[#FB923C] shadow-[0_0_15px_rgba(249,115,22,0.2)]">
               {project.category}
             </span>
           </div>
@@ -51,7 +51,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
 
         {/* Card Metadata info */}
         <div className="p-6 flex flex-col flex-grow">
-          <h3 className="font-heading-sora text-lg font-bold text-[#F8FAFC] group-hover:text-[#10B981] transition-colors mb-2">
+          <h3 className="font-heading-sora text-lg font-bold text-[#F8FAFC] group-hover:text-[#FB923C] transition-colors mb-2">
             {project.title}
           </h3>
           <p className="font-body text-sm text-[#94A3B8] leading-relaxed mb-6 flex-grow">
@@ -76,7 +76,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
           <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/5">
             <button
               onClick={() => onOpenDetails(project)}
-              className="font-heading-space text-xs font-semibold text-[#10B981] hover:text-white flex items-center gap-1 transition-colors cursor-pointer mr-auto"
+              className="font-heading-space text-xs font-semibold text-[#F97316] hover:text-[#FACC15] flex items-center gap-1 transition-colors cursor-pointer mr-auto"
             >
               Learn More
             </button>
@@ -86,7 +86,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#94A3B8] hover:text-[#10B981] transition-colors"
+                className="text-[#94A3B8] hover:text-[#F97316] transition-colors"
                 aria-label={`${project.title} GitHub repository`}
               >
                 <Github className="w-4.5 h-4.5" />
@@ -97,7 +97,7 @@ export default function ProjectCard({ project, index = 0, onOpenDetails }) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#94A3B8] hover:text-[#10B981] transition-colors"
+                className="text-[#94A3B8] hover:text-[#FACC15] transition-colors"
                 aria-label={`${project.title} live demo`}
               >
                 <ExternalLink className="w-4.5 h-4.5" />

@@ -30,13 +30,13 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+    <section id="projects" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
       {/* Interactive Cyber Warp Matrix Canvas */}
       <QuantumMatrixCanvas />
 
-      {/* Background Soft Vesper lighting */}
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[150px] pointer-events-none" />
+      {/* Background Soft lighting */}
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -46,7 +46,7 @@ export default function Projects() {
         />
 
         {/* Filters and Search Bar row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 p-3 sm:p-3.5 rounded-2xl border border-white/[0.08] bg-[#070B18]/70 backdrop-blur-xl">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 p-3 sm:p-3.5 rounded-2xl border border-white/[0.08] bg-[#0C0D12]/85 backdrop-blur-xl">
           {/* Tabs Filter */}
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
             {categories.map((cat) => (
@@ -55,7 +55,7 @@ export default function Projects() {
                 onClick={() => setFilter(cat)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-heading-space text-xs font-semibold tracking-wider transition-all cursor-pointer ${
                   filter === cat
-                    ? 'bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white shadow-lg shadow-[#10B981]/20'
+                    ? 'bg-gradient-to-r from-[#F97316] to-[#FACC15] text-[#050507] font-bold shadow-lg shadow-[#F97316]/25'
                     : 'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 border border-transparent'
                 }`}
               >
@@ -72,7 +72,7 @@ export default function Projects() {
               placeholder="Search technologies or titles..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#0B1120] border border-white/10 rounded-full pl-9 pr-4 py-2 font-body text-xs text-[#F8FAFC] placeholder-white/35 focus:outline-none focus:border-[#10B981] transition-colors"
+              className="w-full bg-[#050507] border border-white/10 rounded-full pl-9 pr-4 py-2 font-body text-xs text-[#F8FAFC] placeholder-white/35 focus:outline-none focus:border-[#F97316] transition-colors"
             />
           </div>
         </div>

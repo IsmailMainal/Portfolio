@@ -49,12 +49,12 @@ export default function Journey() {
     milestones.forEach((node) => {
       gsap.fromTo(
         node.querySelector('.milestone-circle'),
-        { scale: 0.6, borderColor: 'rgba(255, 255, 255, 0.1)', backgroundColor: '#070B18' },
+        { scale: 0.6, borderColor: 'rgba(255, 255, 255, 0.1)', backgroundColor: '#0C0D12' },
         {
           scale: 1.25,
-          borderColor: '#10B981',
-          backgroundColor: '#070B18',
-          boxShadow: '0 0 25px rgba(16, 185, 129, 0.6)',
+          borderColor: '#F97316',
+          backgroundColor: '#0C0D12',
+          boxShadow: '0 0 25px rgba(249, 115, 22, 0.7)',
           scrollTrigger: {
             trigger: node,
             start: 'top center+=100',
@@ -75,13 +75,13 @@ export default function Journey() {
   }, []);
 
   return (
-    <section ref={containerRef} id="journey" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+    <section ref={containerRef} id="journey" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
       {/* 3D Topographic Contour Waves Canvas */}
       <TopographicWaveCanvas />
 
-      {/* Visual Vesper Accent lighting */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#6366F1]/5 blur-[140px] pointer-events-none" />
+      {/* Visual Accent lighting */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -95,10 +95,10 @@ export default function Journey() {
           {/* Base Trail Line (Gray) */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/5 -translate-x-[1px]" />
 
-          {/* Active Trail Line (Vesper Gradient, scaled on scroll) */}
+          {/* Active Trail Line (Molten Flame Gradient, scaled on scroll) */}
           <div
             ref={lineRef}
-            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#10B981] via-[#38BDF8] to-[#6366F1] -translate-x-[1px] origin-top transform shadow-[0_0_15px_rgba(16,185,129,0.5)]"
+            className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#F97316] via-[#FBBF24] to-[#FACC15] -translate-x-[1px] origin-top transform shadow-[0_0_15px_rgba(249,115,22,0.6)]"
           />
 
           {/* Timeline Milestones */}
@@ -163,10 +163,10 @@ function JourneyCard({ milestone, align }) {
   return (
     <GlassCard className="border-white/[0.08] text-left">
       <div className={`flex items-center gap-3 mb-3 ${isRight ? 'md:justify-end md:flex-row-reverse' : 'justify-start'}`}>
-        <div className="p-2.5 rounded-xl bg-[#10B981]/10 border border-[#10B981]/25 text-[#10B981] flex items-center justify-center shrink-0">
+        <div className="p-2.5 rounded-xl bg-[#F97316]/10 border border-[#F97316]/25 text-[#F97316] flex items-center justify-center shrink-0">
           <IconComponent className="w-5 h-5" />
         </div>
-        <span className="font-heading-space text-xs font-bold text-[#10B981] bg-[#10B981]/10 px-2.5 py-1 rounded-full border border-[#10B981]/20">
+        <span className="font-heading-space text-xs font-bold text-[#F97316] bg-[#F97316]/10 px-2.5 py-1 rounded-full border border-[#F97316]/20">
           {milestone.date}
         </span>
       </div>

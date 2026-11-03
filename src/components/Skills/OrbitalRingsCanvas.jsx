@@ -73,11 +73,11 @@ export default function OrbitalRingsCanvas() {
 
     // Orbital Rings configuration
     const rings = [
-      { radiusX: 0.38, radiusY: 0.16, angle: 0.3, speed: 0.008, color: '#10B981', particleCount: 3 },
-      { radiusX: 0.48, radiusY: 0.22, angle: -0.5, speed: -0.006, color: '#6366F1', particleCount: 4 },
-      { radiusX: 0.32, radiusY: 0.14, angle: 0.8, speed: 0.011, color: '#38BDF8', particleCount: 3 },
-      { radiusX: 0.58, radiusY: 0.26, angle: -0.2, speed: 0.005, color: '#10B981', particleCount: 5 },
-      { radiusX: 0.25, radiusY: 0.11, angle: -0.9, speed: -0.013, color: '#818CF8', particleCount: 2 },
+      { radiusX: 0.38, radiusY: 0.16, angle: 0.3, speed: 0.008, color: '#F97316', particleCount: 3 },
+      { radiusX: 0.48, radiusY: 0.22, angle: -0.5, speed: -0.006, color: '#FACC15', particleCount: 4 },
+      { radiusX: 0.32, radiusY: 0.14, angle: 0.8, speed: 0.011, color: '#FB923C', particleCount: 3 },
+      { radiusX: 0.58, radiusY: 0.26, angle: -0.2, speed: 0.005, color: '#F97316', particleCount: 5 },
+      { radiusX: 0.25, radiusY: 0.11, angle: -0.9, speed: -0.013, color: '#FDE047', particleCount: 2 },
     ];
 
     const render = () => {
@@ -110,11 +110,11 @@ export default function OrbitalRingsCanvas() {
         ctx.rotate(currentAngle);
 
         // Draw elliptical orbital track
-        ctx.strokeStyle = ring.color === '#10B981'
-          ? 'rgba(16, 185, 129, 0.14)'
-          : ring.color === '#38BDF8'
-          ? 'rgba(56, 189, 248, 0.12)'
-          : 'rgba(99, 102, 241, 0.14)';
+        ctx.strokeStyle = ring.color === '#F97316'
+          ? 'rgba(249, 115, 22, 0.16)'
+          : ring.color === '#FB923C'
+          ? 'rgba(251, 146, 60, 0.15)'
+          : 'rgba(250, 204, 21, 0.16)';
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
@@ -181,8 +181,8 @@ export default function OrbitalRingsCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-60"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#10B981]/5 blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#F97316]/5 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
     </div>
   );
 }

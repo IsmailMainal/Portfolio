@@ -6,7 +6,7 @@ export const skillsData = [
   {
     category: 'Frontend',
     iconName: 'Layout',
-    color: '#3B82F6', // Blue-500
+    color: '#F97316', // Electric Orange
     description: 'Component-based frontend architecture and responsive web design.',
     technologies: [
       { name: 'React.js', level: 'Expert' },
@@ -20,7 +20,7 @@ export const skillsData = [
   {
     category: 'Backend',
     iconName: 'Server',
-    color: '#10B981', // Emerald-500
+    color: '#FACC15', // Solar Yellow
     description: 'Designing RESTful API endpoints, security, and backend modules.',
     technologies: [
       { name: 'Node.js', level: 'Expert' },
@@ -35,7 +35,7 @@ export const skillsData = [
   {
     category: 'Database',
     iconName: 'Database',
-    color: '#84CC16', // Lime-500
+    color: '#FB923C', // Warm Amber
     description: 'Structuring relational schemas, query tuning, and indexing.',
     technologies: [
       { name: 'MySQL', level: 'Expert' },
@@ -49,7 +49,7 @@ export const skillsData = [
   {
     category: 'Languages',
     iconName: 'Cpu',
-    color: '#8B5CF6', // Purple-500
+    color: '#F59E0B', // Solar Gold
     description: 'Core programming languages for modern web and application development.',
     technologies: [
       { name: 'JavaScript (ES6+)', level: 'Expert' },
@@ -61,7 +61,7 @@ export const skillsData = [
   {
     category: 'Tools & Workflow',
     iconName: 'Cloud',
-    color: '#F59E0B', // Amber-500
+    color: '#FDE047', // Radiant Gold
     description: 'Modern developer tooling, version control, and Agile delivery.',
     technologies: [
       { name: 'Git & GitHub', level: 'Expert' },

@@ -13,7 +13,7 @@ export default function ScrollProgressBar() {
       aria-hidden="true"
     >
       <div
-        className="h-full bg-gradient-to-r from-[#10B981] via-[#38BDF8] to-[#6366F1] shadow-[0_0_12px_rgba(16,185,129,0.7)] transition-all duration-75 ease-out"
+        className="h-full bg-gradient-to-r from-[#F97316] via-[#FBBF24] to-[#FACC15] shadow-[0_0_12px_rgba(249,115,22,0.8)] transition-all duration-75 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

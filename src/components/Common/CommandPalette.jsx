@@ -152,25 +152,25 @@ export default function CommandPalette({ theme, toggleTheme }) {
                         onMouseEnter={() => setSelectedIndex(idx)}
                         className={`flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-left transition-all ${
                           isSelected
-                            ? 'bg-gradient-to-r from-[#10B981]/15 to-[#6366F1]/15 text-[#10B981] border border-[#10B981]/35 shadow-[0_0_15px_rgba(16,185,129,0.15)]'
+                            ? 'bg-gradient-to-r from-[#F97316]/15 to-[#FACC15]/15 text-[#F97316] border border-[#F97316]/35 shadow-[0_0_15px_rgba(249,115,22,0.15)]'
                             : 'text-white/80 border border-transparent hover:bg-white/[0.03]'
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className={`p-1.5 rounded-lg ${isSelected ? 'bg-[#10B981]/20 text-[#10B981]' : 'bg-white/5 text-white/50'}`}>
+                          <div className={`p-1.5 rounded-lg ${isSelected ? 'bg-[#F97316]/20 text-[#F97316]' : 'bg-white/5 text-white/50'}`}>
                             <Icon className="w-4 h-4" />
                           </div>
                           <div>
                             <div className="text-sm font-medium">{cmd.title}</div>
-                            <div className={`text-xs ${isSelected ? 'text-[#10B981]/80' : 'text-white/45'}`}>
+                            <div className={`text-xs ${isSelected ? 'text-[#FB923C]/90' : 'text-white/45'}`}>
                               {cmd.subtitle}
                             </div>
                           </div>
                         </div>
                         {isSelected && (
-                          <div className="flex items-center gap-1 text-[10px] font-mono text-[#10B981]">
+                          <div className="flex items-center gap-1 text-[10px] font-mono text-[#F97316]">
                             <span>Select</span>
-                            <kbd className="rounded bg-[#10B981]/20 px-1.5 py-0.5 border border-[#10B981]/30">Enter</kbd>
+                            <kbd className="rounded bg-[#F97316]/20 px-1.5 py-0.5 border border-[#F97316]/30">Enter</kbd>
                           </div>
                         )}
                       </button>

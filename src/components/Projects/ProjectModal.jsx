@@ -120,7 +120,7 @@ export default function ProjectModal({ project, onClose }) {
                         setCurrentImageIndex(idx);
                       }}
                       className={`h-1.5 rounded-full transition-all duration-300 ${
-                        idx === currentImageIndex ? 'w-6 bg-[#10B981]' : 'w-1.5 bg-white/40 hover:bg-white/60'
+                        idx === currentImageIndex ? 'w-6 bg-[#F97316]' : 'w-1.5 bg-white/40 hover:bg-white/60'
                       }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
@@ -131,7 +131,7 @@ export default function ProjectModal({ project, onClose }) {
 
             {/* Banner Metadata overlay */}
             <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none">
-              <span className="bg-[#0B1120]/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full font-heading-space text-xs font-bold tracking-wider uppercase text-[#10B981]">
+              <span className="bg-[#0B1120]/80 backdrop-blur-md border border-white/10 px-3 py-1 rounded-full font-heading-space text-xs font-bold tracking-wider uppercase text-[#FB923C]">
                 {project.category}
               </span>
               <h2 className="font-heading-sora text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] mt-3">
@@ -181,7 +181,7 @@ export default function ProjectModal({ project, onClose }) {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#10B981] to-[#6366F1] text-white font-heading-space text-xs font-bold hover:scale-105 transition-all shadow-md shadow-[#10B981]/20"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#F97316] to-[#FACC15] text-[#050507] font-heading-space text-xs font-bold hover:scale-105 transition-all shadow-md shadow-[#F97316]/20"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>Live Demo</span>
@@ -204,8 +204,8 @@ export default function ProjectModal({ project, onClose }) {
                 </p>
               </div>
 
-              <div className="p-5 rounded-xl border border-white/5 bg-[#10B981]/5">
-                <div className="flex items-center gap-2 text-[#10B981] mb-3">
+              <div className="p-5 rounded-xl border border-white/5 bg-[#F97316]/5">
+                <div className="flex items-center gap-2 text-[#F97316] mb-3">
                   <ShieldCheck className="w-5 h-5" />
                   <h3 className="font-heading-sora font-bold text-base text-[#F8FAFC]">
                     The Core Solution
@@ -220,7 +220,7 @@ export default function ProjectModal({ project, onClose }) {
             {/* Architecture Details */}
             {project.architecture && (
               <div className="p-5 rounded-xl border border-white/5 bg-white/2">
-                <div className="flex items-center gap-2 text-[#10B981] mb-3">
+                <div className="flex items-center gap-2 text-[#F97316] mb-3">
                   <Database className="w-5 h-5" />
                   <h3 className="font-heading-sora font-bold text-base text-[#F8FAFC]">
                     System Architecture
@@ -246,7 +246,7 @@ export default function ProjectModal({ project, onClose }) {
 
               <div>
                 <h4 className="font-heading-sora font-bold text-sm text-[#F8FAFC] flex items-center gap-2 mb-2">
-                  <Settings className="w-4 h-4 text-[#10B981]" />
+                  <Settings className="w-4 h-4 text-[#FACC15]" />
                   Takeaways & Learnings
                 </h4>
                 <p className="font-body text-sm text-[#94A3B8] leading-relaxed">

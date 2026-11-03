@@ -58,7 +58,7 @@ export default function SynapseLatticeCanvas() {
           const offsetX = (Math.random() - 0.5) * spacingX * 0.45;
           const offsetY = (Math.random() - 0.5) * spacingY * 0.45;
 
-          const isMint = Math.random() < 0.55;
+          const isOrange = Math.random() < 0.55;
 
           nodes.push({
             x: baseX + offsetX,
@@ -68,7 +68,7 @@ export default function SynapseLatticeCanvas() {
             vx: (Math.random() - 0.5) * 0.3,
             vy: (Math.random() - 0.5) * 0.3,
             size: 1.5 + Math.random() * 2.2,
-            color: isMint ? 'rgba(16, 185, 129, ' : 'rgba(99, 102, 241, ',
+            color: isOrange ? 'rgba(249, 115, 22, ' : 'rgba(250, 204, 21, ',
             pulseOffset: Math.random() * Math.PI * 2,
             neighbors: [],
           });
@@ -153,7 +153,7 @@ export default function SynapseLatticeCanvas() {
             toY: nodes[targetNeighbor.index].y,
             progress: 0,
             speed: 0.02 + Math.random() * 0.02,
-            color: Math.random() < 0.5 ? '#10B981' : '#6366F1',
+            color: Math.random() < 0.5 ? '#F97316' : '#FACC15',
           });
         }
       }
@@ -206,8 +206,8 @@ export default function SynapseLatticeCanvas() {
 
             if (lineAlpha > 0.02) {
               const grad = ctx.createLinearGradient(n1.x, n1.y, n2.x, n2.y);
-              grad.addColorStop(0, `rgba(16, 185, 129, ${lineAlpha})`);
-              grad.addColorStop(1, `rgba(99, 102, 241, ${lineAlpha})`);
+              grad.addColorStop(0, `rgba(249, 115, 22, ${lineAlpha})`);
+              grad.addColorStop(1, `rgba(250, 204, 21, ${lineAlpha})`);
 
               ctx.strokeStyle = grad;
               ctx.beginPath();
@@ -270,8 +270,8 @@ export default function SynapseLatticeCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-60"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#10B981]/5 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#F97316]/5 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-[600px] h-[600px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
     </div>
   );
 }

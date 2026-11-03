@@ -47,13 +47,13 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="relative py-20 bg-[#030712] overflow-hidden transition-all duration-1000">
+    <section id="about" className="relative py-20 bg-[#050507] overflow-hidden transition-all duration-1000">
       {/* Bespoke Architectural Synapse Lattice Canvas */}
       <SynapseLatticeCanvas />
 
       {/* Background soft atmospheric lighting */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#10B981]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#6366F1]/6 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#F97316]/5 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#FACC15]/6 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <SectionTitle
@@ -72,21 +72,21 @@ export default function About() {
             className="lg:col-span-5 relative group max-w-sm mx-auto lg:max-w-none w-full"
           >
             {/* Vesper Holographic Frame Glow */}
-            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#10B981]/25 via-[#38BDF8]/15 to-[#6366F1]/25 blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-[#F97316]/25 via-[#FBBF24]/15 to-[#FACC15]/25 blur-xl opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
             
             {/* Main Picture Wrapper */}
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 aspect-square bg-[#070B18]">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 aspect-square bg-[#0C0D12]">
               <motion.img
                 src={avatarImage}
                 alt="Ismail Mainal Avatar Placeholder"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#030712] via-transparent to-transparent opacity-85" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050507] via-transparent to-transparent opacity-85" />
               
               {/* Bottom text overlay */}
               <div className="absolute bottom-6 left-6 right-6">
-                <span className="font-heading-space text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+                <span className="font-heading-space text-xs font-semibold uppercase tracking-wider text-[#F97316]">
                   Full Stack Developer
                 </span>
                 <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC]">
@@ -116,18 +116,18 @@ export default function About() {
               </p>
 
               {/* HR Value Highlights */}
-              <div className="border-l-2 border-[#10B981] pl-4 flex flex-col gap-3.5 mt-8 mb-2">
+              <div className="border-l-2 border-[#F97316] pl-4 flex flex-col gap-3.5 mt-8 mb-2">
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🚀 REST API Design:</strong> Built 15+ RESTful API endpoints with Express.js and real-time sync, improving response time by <span className="text-[#10B981] font-semibold">35%</span>.
+                  <strong className="text-[#F8FAFC]">🚀 REST API Design:</strong> Built 15+ RESTful API endpoints with Express.js and real-time sync, improving response time by <span className="text-[#F97316] font-semibold">35%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">⚡ Frontend Efficiency:</strong> Developed responsive React.js SPA modules using Hooks, Context API, and Tailwind CSS, boosting user task efficiency by <span className="text-[#10B981] font-semibold">40%</span>.
+                  <strong className="text-[#F8FAFC]">⚡ Frontend Efficiency:</strong> Developed responsive React.js SPA modules using Hooks, Context API, and Tailwind CSS, boosting user task efficiency by <span className="text-[#F97316] font-semibold">40%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🛡️ Production Reliability:</strong> Implemented JWT authentication, RBAC, and MySQL indexing to reduce critical production errors by <span className="text-[#10B981] font-semibold">50%</span>.
+                  <strong className="text-[#F8FAFC]">🛡️ Production Reliability:</strong> Implemented JWT authentication, RBAC, and MySQL indexing to reduce critical production errors by <span className="text-[#F97316] font-semibold">50%</span>.
                 </div>
                 <div className="text-sm text-[#94A3B8] leading-relaxed">
-                  <strong className="text-[#F8FAFC]">🛠️ Performance Tuning:</strong> Eliminated bottlenecks across frontend and backend, achieving a <span className="text-[#10B981] font-semibold">45% reduction</span> in React re-renders and MySQL execution time.
+                  <strong className="text-[#F8FAFC]">🛠️ Performance Tuning:</strong> Eliminated bottlenecks across frontend and backend, achieving a <span className="text-[#F97316] font-semibold">45% reduction</span> in React re-renders and MySQL execution time.
                 </div>
               </div>
             </div>
@@ -155,8 +155,8 @@ export default function About() {
                     >
                       <div className={`p-2.5 rounded-xl border ${
                         isEven 
-                          ? 'bg-[#10B981]/10 border-[#10B981]/25 text-[#10B981]' 
-                          : 'bg-[#6366F1]/10 border-[#6366F1]/25 text-[#6366F1]'
+                          ? 'bg-[#F97316]/10 border-[#F97316]/25 text-[#F97316]' 
+                          : 'bg-[#FACC15]/10 border-[#FACC15]/25 text-[#FACC15]'
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>

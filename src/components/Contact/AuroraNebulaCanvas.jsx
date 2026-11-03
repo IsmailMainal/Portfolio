@@ -94,13 +94,13 @@ export default function AuroraNebulaCanvas() {
 
         const grad = ctx.createLinearGradient(0, 0, width, height);
         if (r % 2 === 0) {
-          grad.addColorStop(0, 'rgba(16, 185, 129, 0.02)');
-          grad.addColorStop(0.5, 'rgba(16, 185, 129, 0.14)');
-          grad.addColorStop(1, 'rgba(56, 189, 248, 0.02)');
+          grad.addColorStop(0, 'rgba(249, 115, 22, 0.02)');
+          grad.addColorStop(0.5, 'rgba(249, 115, 22, 0.16)');
+          grad.addColorStop(1, 'rgba(251, 146, 60, 0.02)');
         } else {
-          grad.addColorStop(0, 'rgba(99, 102, 241, 0.02)');
-          grad.addColorStop(0.5, 'rgba(99, 102, 241, 0.16)');
-          grad.addColorStop(1, 'rgba(129, 140, 248, 0.02)');
+          grad.addColorStop(0, 'rgba(250, 204, 21, 0.02)');
+          grad.addColorStop(0.5, 'rgba(250, 204, 21, 0.16)');
+          grad.addColorStop(1, 'rgba(253, 224, 71, 0.02)');
         }
 
         ctx.fillStyle = grad;
@@ -161,8 +161,8 @@ export default function AuroraNebulaCanvas() {
       className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-75"
     >
       <canvas ref={canvasRef} className="w-full h-full block" />
-      <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full bg-[#10B981]/5 blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[750px] h-[750px] rounded-full bg-[#6366F1]/7 blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full bg-[#F97316]/5 blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[750px] h-[750px] rounded-full bg-[#FACC15]/6 blur-[180px] pointer-events-none" />
     </div>
   );
 }

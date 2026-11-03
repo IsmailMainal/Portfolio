@@ -36,16 +36,16 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="home"
-      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-[#030712] vesper-grid-bg pt-20 pb-16"
+      className="relative w-full min-h-screen overflow-hidden flex items-center justify-center bg-[#050507] vesper-grid-bg pt-20 pb-16"
     >
-      {/* 3D Living Mind Canvas Layer (Mint & Violet Particles) */}
+      {/* 3D Living Mind Canvas Layer (Molten Orange & Solar Yellow Particles) */}
       <VesperOrbCanvas currentMode={activeMode} />
 
       {/* Atmospheric Radial Shimmer Overlays */}
-      <div className="absolute inset-0 bg-radial from-transparent via-[#030712]/50 to-[#030712] pointer-events-none z-1" />
+      <div className="absolute inset-0 bg-radial from-transparent via-[#050507]/50 to-[#050507] pointer-events-none z-1" />
 
       {/* Bottom Fog Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#030712] via-[#030712]/80 to-transparent pointer-events-none z-2" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050507] via-[#050507]/80 to-transparent pointer-events-none z-2" />
 
       {/* Hero Content Container */}
       <div className="relative z-10 w-full max-w-5xl lg:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center">
@@ -54,13 +54,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl mb-4 sm:mb-6 shadow-[0_0_25px_-5px_rgba(16,185,129,0.2)] max-w-full"
+          className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl mb-4 sm:mb-6 shadow-[0_0_25px_-5px_rgba(249,115,22,0.25)] max-w-full"
         >
           <span className="relative flex h-2 w-2 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10B981] opacity-80" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#10B981]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FACC15] opacity-80" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FACC15]" />
           </span>
-          <span className="font-heading-space text-[10px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-[#10B981] uppercase truncate">
+          <span className="font-heading-space text-[10px] sm:text-xs font-semibold tracking-wider sm:tracking-widest text-[#F97316] uppercase truncate">
             Full Stack Developer • Bengaluru
           </span>
         </motion.div>
@@ -75,7 +75,7 @@ export default function Hero() {
           <span className="text-white drop-shadow-[0_0_40px_rgba(255,255,255,0.25)]">
             Ismail
           </span>{' '}
-          <span className="bg-gradient-to-r from-[#10B981] via-[#38BDF8] to-[#6366F1] bg-clip-text text-transparent drop-shadow-[0_0_50px_rgba(16,185,129,0.4)]">
+          <span className="bg-gradient-to-r from-[#F97316] via-[#FBBF24] to-[#FACC15] bg-clip-text text-transparent drop-shadow-[0_0_50px_rgba(249,115,22,0.45)]">
             Mainal
           </span>
         </motion.h1>
@@ -91,7 +91,7 @@ export default function Hero() {
           <span className="text-white font-medium">React.js</span>,{' '}
           <span className="text-white font-medium">Node.js</span>,{' '}
           <span className="text-white font-medium">Express.js</span>, and{' '}
-          <span className="text-[#10B981] font-medium">MySQL</span>.
+          <span className="text-[#F97316] font-medium">MySQL</span>.
         </motion.p>
 
         {/* Action Buttons */}
@@ -118,7 +118,7 @@ export default function Hero() {
             onClick={() => window.open('https://www.linkedin.com/in/ismail-mainal-187199215/', '_blank')}
             className="w-full sm:w-auto"
           >
-            LinkedIn <Linkedin className="w-4 h-4 text-[#6366F1]" />
+            LinkedIn <Linkedin className="w-4 h-4 text-[#FACC15]" />
           </Button>
         </motion.div>
 
@@ -127,7 +127,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-[#070B18]/80 border border-white/[0.08] backdrop-blur-xl max-w-full"
+          className="inline-flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-[#0C0D12]/85 border border-white/[0.08] backdrop-blur-xl max-w-full"
         >
           <span className="hidden sm:inline-block px-3 py-1 font-heading-space text-[11px] font-bold uppercase tracking-wider text-white/40">
             Vesper Core:
@@ -141,11 +141,11 @@ export default function Hero() {
                 onClick={() => setActiveMode(opt.id)}
                 className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-heading-space font-medium transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-[#10B981]/20 to-[#6366F1]/20 border border-[#10B981]/40 text-[#10B981] shadow-[0_0_15px_rgba(16,185,129,0.25)]'
+                    ? 'bg-gradient-to-r from-[#F97316]/20 to-[#FACC15]/20 border border-[#F97316]/40 text-[#F97316] shadow-[0_0_15px_rgba(249,115,22,0.3)]'
                     : 'text-[#94A3B8] hover:text-white hover:bg-white/5 border border-transparent'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#10B981]' : 'text-white/40'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#F97316]' : 'text-white/40'}`} />
                 <span>{opt.label}</span>
               </button>
             );
@@ -159,7 +159,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer text-white/40 hover:text-[#10B981] transition-colors focus:outline-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 cursor-pointer text-white/40 hover:text-[#F97316] transition-colors focus:outline-none"
       >
         <span className="font-heading-space text-[10px] uppercase tracking-[0.25em]">Scroll</span>
         <motion.div

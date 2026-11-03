@@ -64,14 +64,14 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 overflow-hidden bg-[#030712] flex items-center justify-center min-h-screen transition-all duration-1000 vesper-grid-bg"
+      className="relative py-20 overflow-hidden bg-[#050507] flex items-center justify-center min-h-screen transition-all duration-1000 vesper-grid-bg"
     >
       {/* Fluid Aurora Borealis Nebula Canvas */}
       <AuroraNebulaCanvas />
 
       {/* Vesper Ambient Volumetric Lighting */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-[#10B981]/5 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-[#6366F1]/7 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-[#F97316]/5 blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
         <SectionTitle
@@ -88,7 +88,7 @@ export default function Contact() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-lg"
         >
-          <GlassCard className="relative overflow-hidden p-8 border-white/[0.08] bg-[#070B18]/75 shadow-2xl">
+          <GlassCard className="relative overflow-hidden p-8 border-white/[0.08] bg-[#0C0D12]/80 shadow-2xl">
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 /* Success Screen Overlay */
@@ -109,7 +109,7 @@ export default function Contact() {
                         opacity: [1, 1, 0.8, 0],
                       }}
                       transition={{ duration: 1.8, ease: 'easeOut' }}
-                      className="text-[#10B981]"
+                      className="text-[#F97316]"
                     >
                       <Send className="w-12 h-12" />
                     </motion.div>
@@ -121,7 +121,7 @@ export default function Contact() {
                     transition={{ delay: 0.4 }}
                   >
                     <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC] mb-2 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#10B981]" /> App Launched
+                      <CheckCircle2 className="w-5 h-5 text-[#F97316]" /> App Launched
                     </h3>
                     <p className="font-body text-sm text-[#94A3B8] leading-relaxed">
                       Your message payload has been formatted and opened in your selected app (WhatsApp / Email Client).
@@ -139,26 +139,26 @@ export default function Contact() {
                   {/* Quick Copy Shortcuts Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Copy Email */}
-                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#030712]/60 border border-white/5 font-body">
+                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#050507]/70 border border-white/5 font-body">
                       <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight truncate max-w-[140px]">
                         ismailmanyal3@gmail.com
                       </span>
                       <button
                         type="button"
                         onClick={handleCopyEmail}
-                        className="font-heading-space text-[11px] font-semibold text-[#10B981] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
+                        className="font-heading-space text-[11px] font-semibold text-[#F97316] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
                       >
                         {copiedEmail ? 'Copied! ✦' : 'Copy Email'}
                       </button>
                     </div>
 
                     {/* Copy Phone */}
-                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#030712]/60 border border-white/5 font-body">
+                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#050507]/70 border border-white/5 font-body">
                       <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight">+91 7899120229</span>
                       <button
                         type="button"
                         onClick={handleCopyPhone}
-                        className="font-heading-space text-[11px] font-semibold text-[#6366F1] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
+                        className="font-heading-space text-[11px] font-semibold text-[#FACC15] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
                       >
                         {copiedPhone ? 'Copied! ✦' : 'Copy Phone'}
                       </button>
@@ -181,7 +181,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Alex Mercer"
-                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all"
+                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all"
                     />
                   </div>
 
@@ -201,7 +201,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="alex@acme.corp"
-                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all"
+                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all"
                     />
                   </div>
 
@@ -221,7 +221,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Briefly describe what you are looking to build or optimize..."
-                      className="w-full bg-[#030712]/70 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#10B981] focus:shadow-[0_0_15px_rgba(16,185,129,0.15)] transition-all resize-none"
+                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all resize-none"
                     />
                   </div>
 
@@ -242,7 +242,7 @@ export default function Contact() {
                       variant="secondary"
                       className="w-full sm:w-1/2 flex items-center justify-center gap-2"
                     >
-                      <Mail className="w-4 h-4 text-[#6366F1]" />
+                      <Mail className="w-4 h-4 text-[#FACC15]" />
                       <span>Send via Email</span>
                     </Button>
                   </div>
