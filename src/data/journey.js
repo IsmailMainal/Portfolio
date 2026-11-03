@@ -9,8 +9,8 @@ export const journeyData = [
     title: 'Full Stack Developer',
     subtitle: 'Aanirids Technologies Private Limited — Bengaluru, India',
     date: 'Jan 2026 – Present',
-    description: 'Developing and maintaining full stack modules for a live production ERP System using React.js, Node.js, Express.js, and MySQL. Built 15+ RESTful APIs, implemented JWT/RBAC, and optimized MySQL queries & React renders for high reliability.',
-    skills: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'JWT', 'REST APIs', 'Tailwind CSS']
+    description: 'Engineering live production ERP modules (Aanibiz ERP) and multi-tenant GST compliance & licensing platforms (Aanibiz Compliance Gateway). Built 15+ REST APIs, two-phase transactional credit ledgers with pessimistic locking, government GSP/NIC API integrations, and Razorpay billing.',
+    skills: ['TypeScript', 'Next.js', 'React.js', 'Node.js', 'Express.js', 'Prisma', 'MySQL', 'GSP APIs', 'Razorpay', 'Tailwind CSS']
   },
   {
     id: 'trail-vtu',

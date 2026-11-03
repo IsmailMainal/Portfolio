@@ -87,10 +87,11 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="max-w-2xl lg:max-w-3xl font-body text-sm sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] leading-relaxed mb-6 sm:mb-8 px-2"
         >
-          Engineering high-performance, production-grade applications with{' '}
+          Engineering high-performance, production-grade ERP and financial platforms with{' '}
+          <span className="text-white font-medium">TypeScript</span>,{' '}
           <span className="text-white font-medium">React.js</span>,{' '}
-          <span className="text-white font-medium">Node.js</span>,{' '}
-          <span className="text-white font-medium">Express.js</span>, and{' '}
+          <span className="text-white font-medium">Next.js</span>,{' '}
+          <span className="text-white font-medium">Node.js</span>, and{' '}
           <span className="text-[#F97316] font-medium">MySQL</span>.
         </motion.p>
 

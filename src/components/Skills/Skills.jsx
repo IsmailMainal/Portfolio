@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Server, Database, Cloud, Cpu } from 'lucide-react';
+import { Layout, Server, Database, Cloud, Cpu, Workflow, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SectionTitle from '../Common/SectionTitle';
 import GlassCard from '../Common/GlassCard';
@@ -14,6 +14,8 @@ const iconMap = {
   Database,
   Cloud,
   Cpu,
+  Workflow,
+  Layers,
 };
 
 /**

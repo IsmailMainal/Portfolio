@@ -16,11 +16,14 @@ export default function Projects() {
   const [search, setSearch] = useState('');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Full Stack', 'Backend', 'AI'];
+  const categories = ['All', 'Enterprise', 'Full Stack', 'Backend'];
 
   // Filter projects by category and search query
   const filteredProjects = projectsData.filter((project) => {
-    const matchesCategory = filter === 'All' || project.category === filter;
+    const matchesCategory =
+      filter === 'All' ||
+      project.category === filter ||
+      (filter === 'Enterprise' && (project.id === 'aanibiz-erp' || project.id === 'aanibiz-compliance'));
     const matchesSearch =
       project.title.toLowerCase().includes(search.toLowerCase()) ||
       project.shortDescription.toLowerCase().includes(search.toLowerCase()) ||

@@ -23,9 +23,9 @@ export default function About() {
     {
       id: 'metric-projects',
       icon: CheckSquare,
-      title: '4 Complete',
+      title: '6 Systems',
       subtitle: 'Projects Built',
-      description: 'Full stack web and database architectures.',
+      description: 'Enterprise ERP, compliance gateways & full stack platforms.',
       glowColor: 'card-glow-lime',
     },
     {
@@ -33,7 +33,7 @@ export default function About() {
       icon: Code2,
       title: 'Full Stack',
       subtitle: 'Core Tech',
-      description: 'Proficient across React.js, Node.js, Express.js, and MySQL.',
+      description: 'Proficient across TypeScript, React.js, Next.js, Node.js, and MySQL.',
       glowColor: 'card-glow-green',
     },
     {
@@ -41,7 +41,7 @@ export default function About() {
       icon: Target,
       title: 'ERP Platform',
       subtitle: 'Current Role',
-      description: 'Developing live ERP modules at Aanirids Technologies.',
+      description: 'Engineering ERP & statutory compliance gateways at Aanirids.',
       glowColor: 'card-glow-lime',
     },
   ];
