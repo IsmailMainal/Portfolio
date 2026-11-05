@@ -1,113 +1,243 @@
 import React, { useState } from 'react';
-import { Search, SlidersHorizontal } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import SectionTitle from '../Common/SectionTitle';
+import { ArrowUpRight, Github, CheckCircle2, ShieldCheck, Database, Layers, Terminal, Server } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 import ProjectModal from './ProjectModal';
-import QuantumMatrixCanvas from './QuantumMatrixCanvas';
+import Badge from '../Common/Badge';
 import { projectsData } from '../../data/projects';
 
-/**
- * Projects Section.
- * Implements search inputs, category filter tags, layout-animated responsive grids, and full details modal overlays.
- */
 export default function Projects() {
-  const [filter, setFilter] = useState('All');
-  const [search, setSearch] = useState('');
+  const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
-  const categories = ['All', 'Enterprise', 'Full Stack', 'Backend'];
+  const categories = ['All', 'Enterprise ERP', 'Full Stack', 'Backend'];
 
-  // Filter projects by category and search query
   const filteredProjects = projectsData.filter((project) => {
-    const matchesCategory =
-      filter === 'All' ||
-      project.category === filter ||
-      (filter === 'Enterprise' && (project.id === 'aanibiz-erp' || project.id === 'aanibiz-compliance'));
-    const matchesSearch =
-      project.title.toLowerCase().includes(search.toLowerCase()) ||
-      project.shortDescription.toLowerCase().includes(search.toLowerCase()) ||
-      project.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
-
-    return matchesCategory && matchesSearch;
+    if (activeCategory === 'All') return true;
+    if (activeCategory === 'Enterprise ERP') {
+      return project.id === 'aanibiz-erp' || project.id === 'aanibiz-compliance-gateway';
+    }
+    return project.category === activeCategory;
   });
 
+  const flagshipERP = projectsData.find((p) => p.id === 'aanibiz-erp');
+  const flagshipCompliance = projectsData.find((p) => p.id === 'aanibiz-compliance-gateway');
+  const gridProjects = filteredProjects.filter(
+    (p) => activeCategory !== 'All' || (p.id !== 'aanibiz-erp' && p.id !== 'aanibiz-compliance-gateway')
+  );
+
   return (
-    <section id="projects" className="relative py-20 bg-[#050507] transition-all duration-1000">
-      {/* Interactive Cyber Warp Matrix Canvas & Atmospheric Lights (safely isolated) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <QuantumMatrixCanvas />
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-[#F97316]/5 blur-[140px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FACC15]/5 blur-[150px]" />
+    <section id="work" className="py-12 sm:py-16 border-b border-[#E8E0D8]/60 mb-16 text-left">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#242424]">
+            Selected Work
+          </h2>
+          <p className="text-xs sm:text-sm text-[#6E6A66] mt-1">
+            Enterprise ERP platforms, statutory compliance gateways, and distributed web applications.
+          </p>
+        </div>
+
+        {/* Categories Bar */}
+        <div className="flex flex-wrap items-center gap-1.5">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3 py-1 rounded-md text-xs font-mono transition-colors cursor-pointer ${
+                activeCategory === cat
+                  ? 'bg-[#1A0A06] text-white font-medium shadow-xs'
+                  : 'bg-[#ECE5DD] text-[#6E6A66] hover:text-[#242424]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <SectionTitle
-          subtitle="Works"
-          title="Projects I've Built"
-          description="A selection of real-world management systems, databases, and client interfaces."
-        />
+      {/* FLAGSHIP SHOWCASE 1: Aanibiz ERP */}
+      {(activeCategory === 'All' || activeCategory === 'Enterprise ERP') && flagshipERP && (
+        <div className="mb-10">
+          <div className="rounded-2xl border border-[#E8E0D8] bg-white p-6 sm:p-8 shadow-sm transition-all hover:border-[#D5CCC3]">
+            <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-[#E8E0D8]">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs text-[#E65639] uppercase tracking-wider font-semibold">
+                  [ Flagship ERP ]
+                </span>
+                <span className="px-2 py-0.5 rounded-md bg-[#E65639]/10 text-[11px] font-mono text-[#E65639]">
+                  Live Production Platform
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                {flagshipERP.githubUrl && (
+                  <a
+                    href={flagshipERP.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-[#6E6A66] hover:text-[#242424] flex items-center gap-1 transition-colors"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">GitHub</span>
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelectedProject(flagshipERP)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#1A0A06] hover:bg-[#331B15] text-xs font-medium text-white transition-colors cursor-pointer shadow-xs"
+                >
+                  Technical Specs <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
 
-        {/* Filters and Search Bar row */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 p-3 sm:p-3.5 rounded-2xl border border-white/[0.08] bg-[#0C0D12]/85 backdrop-blur-xl">
-          {/* Tabs Filter */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-heading-space text-xs font-semibold tracking-wider transition-all cursor-pointer ${
-                  filter === cat
-                    ? 'bg-gradient-to-r from-[#F97316] to-[#FACC15] text-[#050507] font-bold shadow-lg shadow-[#F97316]/25'
-                    : 'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-white/5 border border-transparent'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-serif text-2xl font-normal text-[#242424] leading-tight">
+                  {flagshipERP.title}
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-[#6E6A66] leading-relaxed">
+                  {flagshipERP.shortDescription}
+                </p>
+              </div>
+
+              {/* Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#6E6A66]">
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Sales & Purchase:</strong> Multi-stage quote-to-invoice pipeline.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Multi-Warehouse:</strong> Real-time stock reservation & tracking.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>RBAC & JWT:</strong> Hierarchical roles across 15+ REST APIs.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Query Tuning:</strong> Composite indexing cutting latency by 35%.</span>
+                </div>
+              </div>
+
+              {/* Architecture strip */}
+              <div className="p-3.5 rounded-xl bg-[#FBF5EF] border border-[#E8E0D8] text-xs font-mono text-[#6E6A66] space-y-1">
+                <div className="flex items-center gap-2 text-[#E65639] font-semibold text-[11px]">
+                  <Terminal className="w-3.5 h-3.5" />
+                  <span>ARCHITECTURE & STACK</span>
+                </div>
+                <div>React.js SPA • Node.js/Express.js MVC • MySQL 3NF Schema • Composite Indexing</div>
+              </div>
+
+              {/* Tech stack */}
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {flagshipERP.tags.map((tag) => (
+                  <Badge key={tag} variant="default">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
           </div>
+        </div>
+      )}
 
-          {/* Search Inputs */}
-          <div className="relative flex items-center w-full md:max-w-xs">
-            <Search className="absolute left-3 w-4 h-4 text-white/40" />
-            <input
-              type="text"
-              placeholder="Search technologies or titles..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#050507] border border-white/10 rounded-full pl-9 pr-4 py-2 font-body text-xs text-[#F8FAFC] placeholder-white/35 focus:outline-none focus:border-[#F97316] transition-colors"
+      {/* FLAGSHIP SHOWCASE 2: Compliance Gateway */}
+      {(activeCategory === 'All' || activeCategory === 'Enterprise ERP') && flagshipCompliance && (
+        <div className="mb-10">
+          <div className="rounded-2xl border border-[#E8E0D8] bg-white p-6 sm:p-8 shadow-sm transition-all hover:border-[#D5CCC3]">
+            <div className="flex items-center justify-between gap-4 mb-5 pb-4 border-b border-[#E8E0D8]">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-xs text-[#E65639] uppercase tracking-wider font-semibold">
+                  [ Statutory Infrastructure ]
+                </span>
+                <span className="px-2 py-0.5 rounded-md bg-[#E65639]/10 text-[11px] font-mono text-[#E65639]">
+                  Statutory API Gateway
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                {flagshipCompliance.githubUrl && (
+                  <a
+                    href={flagshipCompliance.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-[#6E6A66] hover:text-[#242424] flex items-center gap-1 transition-colors"
+                  >
+                    <Github className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">GitHub</span>
+                  </a>
+                )}
+                <button
+                  onClick={() => setSelectedProject(flagshipCompliance)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#1A0A06] hover:bg-[#331B15] text-xs font-medium text-white transition-colors cursor-pointer shadow-xs"
+                >
+                  Technical Specs <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-5">
+              <div>
+                <h3 className="font-serif text-2xl font-normal text-[#242424] leading-tight">
+                  {flagshipCompliance.title}
+                </h3>
+                <p className="mt-1 text-xs sm:text-sm text-[#6E6A66] leading-relaxed">
+                  {flagshipCompliance.shortDescription}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#6E6A66]">
+                <div className="flex items-start gap-2">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Statutory Gateway:</strong> Automated E-Invoice IRN & E-Way Bills.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Database className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Credit Ledger:</strong> Pessimistic locking guaranteeing zero leaks.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Layers className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Licensing Engine:</strong> Device fingerprinting & background cron.</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Server className="w-3.5 h-3.5 text-[#E65639] shrink-0 mt-0.5" />
+                  <span><strong>Razorpay Subscriptions:</strong> Automated recurring renewals.</span>
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-[#FBF5EF] border border-[#E8E0D8] text-xs font-mono text-[#6E6A66] space-y-1">
+                <div className="flex items-center gap-2 text-[#E65639] font-semibold text-[11px]">
+                  <Terminal className="w-3.5 h-3.5" />
+                  <span>ARCHITECTURE & STACK</span>
+                </div>
+                <div>Next.js 16 • Prisma ORM • MySQL Pessimistic Locking • Government GSP/NIC APIs</div>
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {flagshipCompliance.tags.map((tag) => (
+                  <Badge key={tag} variant="default">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Grid Projects */}
+      {gridProjects.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {gridProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onOpenDetails={setSelectedProject}
             />
-          </div>
+          ))}
         </div>
+      )}
 
-        {/* Project responsive grid (Sticky overlapping deck on mobile | Multi-col grid on desktop) */}
-        <div className="flex flex-col gap-6 pb-12 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:pb-0">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, idx) => (
-              <ProjectCard
-                key={project.id}
-                index={idx}
-                project={project}
-                onOpenDetails={setSelectedProject}
-              />
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex flex-col items-center justify-center py-16 text-center text-[#94A3B8]"
-          >
-            <SlidersHorizontal className="w-10 h-10 mb-3 opacity-40" />
-            <h3 className="font-heading-sora text-lg font-bold">No Projects Found</h3>
-            <p className="text-sm mt-1">Try resetting the search terms or filters.</p>
-          </motion.div>
-        )}
-      </div>
-
-      {/* Full detail modal */}
+      {/* Detail Modal */}
       {selectedProject && (
         <ProjectModal
           project={selectedProject}

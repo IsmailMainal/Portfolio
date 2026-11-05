@@ -1,105 +1,49 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useMagneticButton } from '../../hooks/useMagneticButton';
+import React from 'react';
 import { cn } from '../../utils/cn';
 
 /**
- * Vesper Magnetic Shimmer Button.
- * Features an illuminated gradient border, frosted glass body, and spring micro-interactions.
+ * Editorial Button Component.
+ * Styled after Kozoriz: deep espresso `#1A0A06` or terracotta `#E65639` on warm cream.
  */
 export default function Button({
   children,
   className = '',
   variant = 'primary',
-  magnetic = true,
+  size = 'md',
   onClick,
+  type = 'button',
   ...rest
 }) {
-  const [ripples, setRipples] = useState([]);
-  const magneticRef = useMagneticButton();
+  const baseStyles =
+    'inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E65639] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBF5EF]';
 
-  // Create standard ripple nodes on click
-  const handleClick = (e) => {
-    const button = e.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    const x = e.clientX - rect.left - size / 2;
-    const y = e.clientY - rect.top - size / 2;
-
-    const newRipple = {
-      id: Date.now() + Math.random(),
-      x,
-      y,
-      size,
-    };
-
-    setRipples((prev) => [...prev, newRipple]);
-
-    setTimeout(() => {
-      setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
-    }, 600);
-
-    if (onClick) onClick(e);
+  const sizeStyles = {
+    sm: 'text-xs px-3.5 py-1.5 rounded-full',
+    md: 'text-sm px-5 py-2.5 rounded-full',
+    lg: 'text-base px-7 py-3 rounded-full'
   };
 
   const variants = {
     primary:
-      'relative bg-gradient-to-r from-[#F97316] via-[#F59E0B] to-[#FACC15] text-[#050507] font-bold shadow-lg shadow-[#F97316]/25 hover:shadow-[#F97316]/40 border-0 hover:scale-[1.02]',
+      'bg-[#1A0A06] text-white font-semibold hover:bg-[#331B15] shadow-sm',
+    accent:
+      'bg-[#E65639] text-white font-semibold hover:bg-[#D4492D] shadow-sm',
     secondary:
-      'bg-[#0C0D12]/85 text-[#F8FAFC] hover:bg-[#161822] border border-white/10 hover:border-[#F97316]/40 shadow-md shadow-black/40',
+      'bg-white text-[#242424] border border-[#E8E0D8] hover:border-[#D5CCC3] hover:bg-[#F3ECE3]',
     outline:
-      'bg-transparent border border-white/15 hover:border-[#F97316]/60 text-[#F8FAFC] hover:shadow-[0_0_20px_rgba(249,115,22,0.2)]',
+      'bg-transparent text-[#242424] border border-[#E8E0D8] hover:border-[#242424] hover:bg-black/[0.03]',
     ghost:
-      'bg-transparent text-[#94A3B8] hover:text-[#F97316] hover:bg-white/5',
+      'bg-transparent text-[#6E6A66] hover:text-[#242424] hover:bg-black/[0.04]'
   };
 
   return (
-    <motion.button
-      ref={magnetic ? magneticRef : null}
-      onClick={handleClick}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className={cn(
-        'group relative overflow-hidden rounded-full px-6 py-3 font-heading-space text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F97316] focus:ring-offset-2 focus:ring-offset-[#050507] cursor-pointer inline-flex items-center justify-center gap-2 backdrop-blur-md',
-        variants[variant],
-        className
-      )}
+    <button
+      type={type}
+      onClick={onClick}
+      className={cn(baseStyles, sizeStyles[size], variants[variant], className)}
       {...rest}
     >
-      {/* Subtle Inner Glow on Hover for primary */}
-      {variant === 'primary' && (
-        <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-      )}
-
-      {/* Ripples container */}
-      <span className="absolute inset-0 pointer-events-none overflow-hidden">
-        {ripples.map((ripple) => (
-          <span
-            key={ripple.id}
-            className="absolute bg-white/30 rounded-full animate-ping pointer-events-none"
-            style={{
-              width: ripple.size,
-              height: ripple.size,
-              left: ripple.x,
-              top: ripple.y,
-              transform: 'scale(0)',
-              animation: 'ripple 0.6s linear',
-            }}
-          />
-        ))}
-      </span>
-
-      {/* Button content */}
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
-
-      <style>{`
-        @keyframes ripple {
-          to {
-            transform: scale(3);
-            opacity: 0;
-          }
-        }
-      `}</style>
-    </motion.button>
+      {children}
+    </button>
   );
 }

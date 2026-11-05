@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ismailmainal.dev/sitemap.xml
+

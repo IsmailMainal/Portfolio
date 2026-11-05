@@ -2,28 +2,27 @@ import React from 'react';
 import { cn } from '../../utils/cn';
 
 /**
- * Technical Tag Badge.
- * @param {Object} props
- * @param {string} props.children - Text content
- * @param {string} props.variant - 'default' | 'accent' | 'highlight'
- * @param {string} props.className - Custom styles
+ * Editorial Technical Tag Badge.
  */
 export default function Badge({
   children,
   variant = 'default',
-  className = '',
+  className = ''
 }) {
   const styles = {
-    default: 'bg-white/[0.04] border border-white/[0.08] text-[#94A3B8] hover:border-[#F97316]/30 hover:text-white transition-colors',
-    accent: 'bg-[#F97316]/12 border border-[#F97316]/30 text-[#FB923C]',
-    highlight: 'bg-[#FACC15]/12 border border-[#FACC15]/30 text-[#FACC15]',
+    default:
+      'bg-black/[0.03] border border-[#E8E0D8] text-[#6E6A66] hover:text-[#242424] hover:border-[#D5CCC3] transition-colors',
+    accent:
+      'bg-[#E65639]/10 border border-[#E65639]/25 text-[#E65639]',
+    subtle:
+      'bg-black/[0.02] border border-transparent text-[#8C8681]'
   };
 
   return (
     <span
       className={cn(
-        'inline-flex items-center px-2.5 py-0.5 rounded-full font-code text-xs font-medium tracking-wide',
-        styles[variant],
+        'inline-flex items-center px-2.5 py-0.5 rounded-full font-mono text-[11px] font-medium tracking-wide transition-colors',
+        styles[variant] || styles.default,
         className
       )}
     >

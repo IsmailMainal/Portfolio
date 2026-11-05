@@ -1,109 +1,101 @@
 /**
- * Skills data categorized for Ismail Mainal.
- * 100% synchronized with Ismail Mainal's updated resume (Ismail mainal .pdf).
+ * Technical Skills for Ismail Mainal.
+ * Extracted directly from Ismail_Mainal_Resume_ATS.pdf.
  */
 export const skillsData = [
   {
     category: 'Frontend',
     iconName: 'Layout',
-    color: '#F97316', // Electric Orange
-    description: 'Modern component architectures, Next.js routing, and high-performance UI engineering.',
+    description: 'Component-driven architectures, modern styling, and high-performance user interfaces.',
     technologies: [
-      { name: 'React.js', level: 'Expert' },
-      { name: 'Next.js', level: 'Expert' },
-      { name: 'TypeScript', level: 'Expert' },
-      { name: 'Tailwind CSS', level: 'Expert' },
-      { name: 'React Hooks', level: 'Expert' },
-      { name: 'Context API', level: 'Expert' },
-      { name: 'State Management', level: 'Expert' },
-      { name: 'HTML5 & CSS3', level: 'Expert' },
-      { name: 'Responsive Web Design', level: 'Expert' }
+      { name: 'React.js', note: 'Component architecture, Hooks, Lifecycle' },
+      { name: 'Next.js', note: 'SSR, App Router, API routes' },
+      { name: 'TypeScript', note: 'Static typing, Generics, Contracts' },
+      { name: 'JavaScript (ES6+)', note: 'Async/Await, Closures, DOM' },
+      { name: 'Tailwind CSS', note: 'Design systems, Responsive layouts' },
+      { name: 'React Hooks & Context API', note: 'Modular state, Context providers' },
+      { name: 'State Management', note: 'Predictable data flows' },
+      { name: 'HTML5 & CSS3', note: 'Semantic markup, Flexbox, Grid' },
+      { name: 'Responsive Web Design', note: 'Mobile-first, Cross-browser' }
     ]
   },
   {
     category: 'Backend',
     iconName: 'Server',
-    color: '#FACC15', // Solar Yellow
-    description: 'High-reliability server systems, API security, and asynchronous queue processing.',
+    description: 'High-availability server runtimes, RESTful API design, and access control.',
     technologies: [
-      { name: 'Node.js', level: 'Expert' },
-      { name: 'Express.js', level: 'Expert' },
-      { name: 'RESTful API Design', level: 'Expert' },
-      { name: 'Prisma ORM', level: 'Expert' },
-      { name: 'MVC Architecture', level: 'Expert' },
-      { name: 'JWT & HMAC Auth', level: 'Expert' },
-      { name: 'API Key Authentication', level: 'Expert' },
-      { name: 'RBAC (Role Controls)', level: 'Expert' },
-      { name: 'Redis Queues', level: 'Proficient' }
+      { name: 'Node.js', note: 'Event-driven architecture, Async I/O' },
+      { name: 'Express.js', note: 'Middleware pipelines, Routing, MVC' },
+      { name: 'RESTful API Design', note: 'Resource contracts, Status codes, Error handling' },
+      { name: 'Prisma ORM', note: 'Schema modeling, Type-safe queries' },
+      { name: 'MVC Architecture', note: 'Separation of concerns, Scalable structure' },
+      { name: 'JWT & HMAC Auth', note: 'Stateless session tokens, Signature verification' },
+      { name: 'API Key Authentication', note: 'Hashed keys, Environment isolation' },
+      { name: 'Role-Based Access Control (RBAC)', note: 'Granular permissions, Route guards' },
+      { name: 'Redis Queues', note: 'Asynchronous background task processing' }
     ]
   },
   {
     category: 'Databases',
     iconName: 'Database',
-    color: '#FB923C', // Warm Amber
-    description: 'Relational data modeling, ACID transactions, and query performance optimization.',
+    description: 'Relational schema design, query optimization, and transactional safety.',
     technologies: [
-      { name: 'MySQL', level: 'Expert' },
-      { name: 'Schema Normalization', level: 'Expert' },
-      { name: 'Indexing Strategies', level: 'Expert' },
-      { name: 'Query Optimization', level: 'Expert' },
-      { name: 'Transactions & Locking', level: 'Expert' },
-      { name: 'Pessimistic Locking', level: 'Expert' }
+      { name: 'MySQL', note: 'Normalized relational schemas, Foreign keys' },
+      { name: 'Schema Design & Normalization', note: '3NF, Integrity constraints' },
+      { name: 'Indexing Strategies', note: 'Composite indexes, EXPLAIN profiling' },
+      { name: 'Query Optimization', note: 'Latency reduction, Query tuning' },
+      { name: 'Transactions & Locking', note: 'ACID guarantees, Isolation levels' },
+      { name: 'Pessimistic Locking', note: 'Concurrency control, Ledger balance integrity' }
     ]
   },
   {
     category: 'Languages',
     iconName: 'Cpu',
-    color: '#F59E0B', // Solar Gold
-    description: 'Core typed and dynamic programming languages for robust software engineering.',
+    description: 'Core programming languages for robust systems and client engineering.',
     technologies: [
-      { name: 'TypeScript', level: 'Expert' },
-      { name: 'JavaScript (ES6+)', level: 'Expert' },
-      { name: 'Java', level: 'Expert' },
-      { name: 'SQL', level: 'Expert' }
+      { name: 'TypeScript', note: 'Type safety, Scalable codebases' },
+      { name: 'JavaScript (ES6+)', note: 'Modern syntax, Promises, Functional utilities' },
+      { name: 'Java', note: 'OOP, DAO patterns, JDBC database connectors' },
+      { name: 'SQL', note: 'Complex joins, Aggregations, Performance queries' }
     ]
   },
   {
     category: 'DevOps & Tools',
-    iconName: 'Cloud',
-    color: '#FDE047', // Radiant Gold
-    description: 'Automated CI/CD workflows, reverse proxying, version control, and Agile delivery.',
+    iconName: 'Terminal',
+    description: 'CI/CD automation, cloud deployment, and collaborative version control.',
     technologies: [
-      { name: 'Git & GitHub', level: 'Expert' },
-      { name: 'GitHub Actions (CI/CD)', level: 'Expert' },
-      { name: 'Nginx Deployments', level: 'Expert' },
-      { name: 'Postman', level: 'Expert' },
-      { name: 'Production Debugging', level: 'Expert' },
-      { name: 'Code Review & QA', level: 'Expert' },
-      { name: 'Agile/Scrum', level: 'Expert' }
+      { name: 'Git & GitHub', note: 'Branching strategies, Pull requests, Code review' },
+      { name: 'GitHub Actions (CI/CD)', note: 'Automated test & build pipelines' },
+      { name: 'Nginx', note: 'Reverse proxying, SSL/TLS, Production deployments' },
+      { name: 'Postman', note: 'API contract testing, Collections, Mock servers' },
+      { name: 'Production Debugging', note: 'Log inspection, Profiling, Root cause analysis' },
+      { name: 'Code Review & QA', note: 'Engineering standards, Quality assurance' },
+      { name: 'Agile/Scrum', note: 'Sprint cycles, Standups, Iterative delivery' }
     ]
   },
   {
     category: 'Integrations & APIs',
     iconName: 'Workflow',
-    color: '#F97316', // Electric Orange
-    description: 'Statutory compliance gateways, payment orchestrations, and transactional email.',
+    description: 'Statutory compliance integrations, payment systems, and communications.',
     technologies: [
-      { name: 'GSP / NIC APIs (IRN)', level: 'Expert' },
-      { name: 'E-Way Bill Systems', level: 'Expert' },
-      { name: 'Razorpay Payments', level: 'Expert' },
-      { name: 'Razorpay Subscriptions', level: 'Expert' },
-      { name: 'Nodemailer', level: 'Expert' }
+      { name: 'GSP / NIC APIs', note: 'Government GST E-Invoice (IRN) generation' },
+      { name: 'E-Way Bill Systems', note: 'Statutory transport tax document automation' },
+      { name: 'Razorpay Payments', note: 'Payment checkout gateways, Webhook handlers' },
+      { name: 'Razorpay Subscriptions', note: 'Recurring license billing & lifecycle' },
+      { name: 'Nodemailer', note: 'Transactional email automation' }
     ]
   },
   {
     category: 'System Design',
     iconName: 'Layers',
-    color: '#FACC15', // Solar Yellow
-    description: 'Architecting resilient multi-tenant cloud platforms and scalable distributed services.',
+    description: 'Resilient multi-tenant architectures and distributed software design.',
     technologies: [
-      { name: 'Multi-Tenancy Isolation', level: 'Expert' },
-      { name: 'Scalability Design', level: 'Expert' },
-      { name: 'Caching Architecture', level: 'Expert' },
-      { name: 'Rate Limiting', level: 'Expert' },
-      { name: 'Load Balancing', level: 'Expert' },
-      { name: 'API Versioning', level: 'Expert' },
-      { name: 'Microservices', level: 'Proficient' }
+      { name: 'Multi-Tenancy', note: 'Isolated tenant data, Tenant-specific contexts' },
+      { name: 'Scalability', note: 'Horizontal scaling, Stateless services' },
+      { name: 'Caching', note: 'In-memory caching, Invalidation strategies' },
+      { name: 'Load Balancing & Rate Limiting', note: 'Traffic throttling, Abuse prevention' },
+      { name: 'API Versioning', note: 'Backward compatibility, Deprecation paths' },
+      { name: 'Microservices', note: 'Decoupled services, Independent deployment' }
     ]
   }
 ];

@@ -1,187 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Terminal } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ThemeToggle from '../Common/ThemeToggle';
-import CommandPalette from '../Common/CommandPalette';
-import { cn } from '../../utils/cn';
+import React from 'react';
+import { MessageSquare, User } from 'lucide-react';
 
-/**
- * Sticky Glassmorphism Header with Active Indicator and Responsive Drawer.
- */
-export default function Navbar({ theme, toggleTheme }) {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'About', id: 'about' },
-    { label: 'Journey', id: 'journey' },
-    { label: 'Projects', id: 'projects' },
-    { label: 'Skills', id: 'skills' },
-    { label: 'Contact', id: 'contact' },
-  ];
-
-  // Track scrolling to toggle glass background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Track active section using IntersectionObserver
-  useEffect(() => {
-    const elements = navItems.map((item) => document.getElementById(item.id));
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
-
-    const observerOptions = {
-      root: null,
-      rootMargin: '-50% 0px -50% 0px', // Trigger when section occupies the middle of the screen
-      threshold: 0,
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    elements.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => {
-      elements.forEach((el) => {
-        if (el) observer.unobserve(el);
-      });
-    };
-  }, []);
-
-  const handleNavClick = (id) => {
-    setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
+export default function Navbar() {
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
       if (window.lenis) {
-        window.lenis.scrollTo(element, { offset: -80 });
+        window.lenis.scrollTo(el, { offset: -30 });
       } else {
-        const yOffset = -80; // Offset for sticky navbar
-        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        const y = el.getBoundingClientRect().top + window.scrollY - 30;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
   };
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-40 w-full transition-all duration-500 border-b border-transparent',
-        isScrolled
-          ? 'bg-[#050507]/85 backdrop-blur-xl border-white/[0.08] py-3.5 shadow-2xl shadow-black/80'
-          : 'bg-transparent py-6'
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
+    <nav className="sticky top-0 z-30 flex items-center justify-between py-4 px-6 sm:px-10 lg:px-16 bg-[#FBF5EF]/95 backdrop-blur-md border-b border-[#E8E0D8]/60">
+      {/* Left: Avatar Outline & Nav Links */}
+      <div className="flex items-center gap-5 sm:gap-7">
         <button
-          onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 group font-heading-space text-lg font-bold tracking-wider text-[#F8FAFC] cursor-pointer"
+          onClick={() => scrollTo('about')}
+          className="w-8 h-8 rounded-full border border-[#E65639] flex items-center justify-center text-[#E65639] hover:bg-[#E65639]/10 transition-colors cursor-pointer"
+          title="About Ismail"
+          aria-label="About Ismail"
         >
-          <div className="w-8 h-8 rounded-lg bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:border-[#F97316]/50 transition-colors">
-            <Terminal className="w-4 h-4 text-[#F97316] group-hover:scale-110 transition-transform duration-300" />
-          </div>
-          <span>
-            ISMAIL MAINAL<span className="text-[#F97316]">.</span>
-          </span>
+          <User className="w-4 h-4 stroke-[1.75]" />
         </button>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-8">
-          <ul className="flex items-center gap-6">
-            {navItems.map((item) => (
-              <li key={item.id}>
-                <button
-                  onClick={() => handleNavClick(item.id)}
-                  className={cn(
-                    'relative py-1 text-sm font-heading-space font-medium tracking-wider transition-colors cursor-pointer',
-                    activeSection === item.id
-                      ? 'text-[#F97316]'
-                      : 'text-[#94A3B8] hover:text-[#F8FAFC]'
-                  )}
-                >
-                  {item.label}
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#F97316] to-[#FACC15] shadow-[0_0_12px_rgba(249,115,22,0.8)]"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        {/* Toolbar (Theme Toggle, Command Palette & Hamburger) */}
-        <div className="flex items-center gap-3">
-          <CommandPalette theme={theme} toggleTheme={toggleTheme} />
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-
-          {/* Hamburger button */}
+        <div className="flex items-center gap-5 sm:gap-7 text-xs sm:text-sm font-medium text-[#6E6A66]">
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex lg:hidden items-center justify-center w-10 h-10 rounded-full border border-white/8 glass text-[#F8FAFC]"
-            aria-label="Toggle mobile menu"
+            onClick={() => scrollTo('about')}
+            className="hover:text-[#242424] transition-colors cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            About
+          </button>
+          <button
+            onClick={() => scrollTo('experience')}
+            className="hover:text-[#242424] transition-colors cursor-pointer"
+          >
+            Experience
+          </button>
+          <button
+            onClick={() => scrollTo('skills')}
+            className="hover:text-[#242424] transition-colors cursor-pointer"
+          >
+            Skills
+          </button>
+          <button
+            onClick={() => scrollTo('work')}
+            className="hover:text-[#242424] transition-colors cursor-pointer"
+          >
+            Work
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden absolute top-full left-0 right-0 w-full bg-[#030712]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-black/80 overflow-hidden"
-          >
-            <nav className="px-6 py-8 flex flex-col gap-6">
-              <ul className="flex flex-col gap-4">
-                {navItems.map((item, idx) => (
-                  <motion.li
-                    key={item.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                  >
-                    <button
-                      onClick={() => handleNavClick(item.id)}
-                      className={cn(
-                        'w-full text-left py-2 font-heading-space text-lg font-semibold tracking-wider',
-                        activeSection === item.id ? 'text-[#F97316]' : 'text-[#94A3B8]'
-                      )}
-                    >
-                      {item.label}
-                    </button>
-                  </motion.li>
-                ))}
-              </ul>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+      {/* Right: Contact Me Button */}
+      <button
+        onClick={() => scrollTo('contact')}
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#1A0A06] hover:bg-[#331B15] text-white text-xs font-medium transition-colors cursor-pointer shadow-xs"
+      >
+        <MessageSquare className="w-3.5 h-3.5" />
+        <span>Contact Me</span>
+      </button>
+    </nav>
   );
 }

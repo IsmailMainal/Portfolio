@@ -1,109 +1,170 @@
-import {
-  erpHero,
-  erpSandbox,
-  erpFeatures,
-  petsmartHero,
-  petsmartProducts,
-  petsmartServices,
-  petsmartReports
-} from '../assets';
-
-/**
- * Detailed Projects data for Ismail Mainal.
- * Richly populated with technical specifics (ACID, GSP APIs, Prisma, Pessimistic Locking, JWT, RBAC, Rest APIs).
- */
 export const projectsData = [
   {
     id: 'aanibiz-erp',
-    title: 'Aanibiz ERP',
-    category: 'Full Stack',
-    shortDescription: 'Live production enterprise ERP platform covering invoicing, inventory, stock management, and financial ledgers.',
-    description: 'Developed and maintained full stack modules for a live production ERP covering invoicing, inventory, stock management, and financial ledger workflows at Aanirids Technologies. Designed and built 15+ RESTful API endpoints in Express.js with structured error handling, JWT authentication, and RBAC; optimized MySQL queries with indexing, improving API response time by 35% and reducing critical errors by 50%. Built responsive React.js SPA modules with TypeScript, Hooks, Context API, and Tailwind CSS, enabling real-time dashboard updates and improving user task efficiency by 40%. Implemented an enterprise-grade GST compliance and accounting gateway supporting real-time E-Invoicing (IRN) and E-Way Bill generation, plus a secure multi-tenant licensing system using device fingerprinting and Razorpay subscription billing.',
-    image: erpHero,
-    images: [erpHero, erpFeatures, erpSandbox],
-    tags: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MySQL', 'Tailwind CSS', 'REST APIs', 'JWT', 'RBAC', 'Razorpay'],
+    title: 'Aanibiz ERP System',
+    badge: 'Production Flagship',
+    category: 'Enterprise ERP',
+    tagline: 'High-throughput enterprise resource planning platform powering mission-critical commerce operations.',
+    shortDescription: 'Enterprise ERP platform handling sales and purchase workflows, multi-warehouse inventory management, invoicing, and real-time financial ledgers.',
+    description: 'Designed and developed mission-critical full stack modules for a live production enterprise ERP at Aanirids Technologies. Built comprehensive sales order and purchase order pipelines, automated stock deduction and multi-warehouse inventory management, and integrated double-entry financial ledgers. Optimized MySQL indexing and schema normalization to reduce API response latency by 35% and critical system errors by 50%. Implemented secure role-based access control (RBAC) and structured JWT sessions across 15+ Express.js endpoints.',
+    tags: ['React.js', 'TypeScript', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'Tailwind CSS', 'JWT & RBAC'],
     githubUrl: 'https://github.com/IsmailMainal',
-    problem: 'Growing enterprises require unified, zero-failure coordination between inventory management, multi-warehouse stock levels, automated invoicing, and statutory taxation ledgers without data inconsistency or slow response times.',
-    solution: 'Engineered robust full-stack ERP modules with 15+ Express.js endpoints, optimized MySQL query indexing, responsive TypeScript/React SPA views, and automated hardware-fingerprinted licensing with Razorpay subscriptions.',
-    architecture: 'Monolithic Express.js service following MVC architecture and RBAC middleware, backed by a normalized MySQL schema with composite indexing and connection pooling, paired with a modular React/TypeScript SPA frontend.',
-    challenges: 'Synchronizing multi-warehouse inventory deductions with ledger balances and GST IRN invoice generation while maintaining sub-100ms API response latency.',
-    learnings: 'Gained deep production mastery of complex ERP workflows, MySQL performance profiling, indexing strategies, and enterprise-grade multi-tenant architecture.'
+    liveUrl: null,
+    isFlagship: true,
+    keyFeatures: [
+      'End-to-end sales & purchase order lifecycle (Draft, Approved, Dispatched, Invoiced)',
+      'Multi-warehouse inventory synchronization with real-time stock allocation rules',
+      'Double-entry financial accounting ledgers and customer statement reconciliations',
+      'Granular Role-Based Access Control (RBAC) with hierarchical user permissions',
+      'Statutory GST calculations, tax breakdown tables, and printable invoice documents'
+    ],
+    technicalHighlights: [
+      '15+ secure RESTful API endpoints engineered with Express.js and centralized error handling',
+      'Composite indexing and query normalization cutting database query execution times by 35%',
+      'Single-page architecture built with React.js, TypeScript, Context API, and Tailwind CSS'
+    ],
+    metrics: [
+      { label: 'Latency Cut', value: '-35%' },
+      { label: 'Error Reduction', value: '-50%' },
+      { label: 'User Efficiency', value: '+40%' }
+    ]
   },
   {
-    id: 'aanibiz-compliance',
-    title: 'Aanibiz Compliance Gateway',
-    category: 'Full Stack',
-    shortDescription: 'Multi-tenant statutory GST compliance gateway & licensing platform integrating government GSP/NIC APIs.',
-    description: 'Engineered a secure statutory API gateway integrating government GSP / NIC APIs to automate statutory GST compliance (E-Invoice IRN & E-Way Bills) and GSTR reporting for enterprise ERP clients. Designed a transactional credit ledger with atomic two-phase reservation and rollback, guaranteeing zero data inconsistency during external government gateway failures. Automated the client license lifecycle with scheduled expiry cron jobs, activation tracking, telemetry, hashed API keys (test/live environments), and role-based access control for complete tenant isolation.',
-    image: erpSandbox,
-    images: [erpSandbox, erpFeatures, erpHero],
-    tags: ['Next.js 16', 'React 19', 'TypeScript', 'Prisma ORM', 'MySQL', 'GSP / NIC APIs', 'Razorpay', 'Tailwind CSS', 'Pessimistic Locking'],
+    id: 'aanibiz-compliance-gateway',
+    title: 'Aanibiz Compliance Gateway & Licensing Engine',
+    badge: 'Statutory Infrastructure',
+    category: 'API Gateway',
+    tagline: 'Statutory tax compliance gateway with two-phase transactional credit ledgers and device-fingerprinted licensing.',
+    shortDescription: 'Multi-tenant statutory GST compliance gateway automating real-time E-Invoicing (IRN) and E-Way Bill generation via government GSP/NIC APIs with Razorpay billing.',
+    description: 'Engineered an intermediate statutory API gateway that bridges enterprise ERP systems with government GSP and NIC endpoints. Integrated real-time E-Invoicing (IRN generation) and E-Way Bill workflows. Designed a resilient transactional credit ledger utilizing two-phase atomic reservation and automated rollback to prevent credit leaks during external tax portal timeouts. Automated hardware-fingerprinted license validation with background expiry jobs and Razorpay subscription billing.',
+    tags: ['Next.js', 'React.js', 'TypeScript', 'Node.js', 'Prisma ORM', 'MySQL', 'Government GSP APIs', 'Razorpay'],
     githubUrl: 'https://github.com/IsmailMainal',
-    problem: 'Government tax portals (NIC/GSP) experience periodic downtime and strict rate limits. Direct ERP requests risk losing invoices, generating duplicate bills, or corrupting client balance ledgers during gateway failures.',
-    solution: 'Engineered an intermediate statutory compliance gateway with a transactional credit ledger featuring atomic reservations and automated rollbacks, preventing loss of credits or duplicate invoice numbers. Integrated hardware-bound licensing telemetry and test/live API key environments.',
-    architecture: 'Next.js 16 / Node.js API gateway utilizing Prisma ORM with MySQL pessimistic locking for credit ledger operations, scheduled background cron tasks for license expiry lifecycle, and HMAC/hashed API key validation for multi-tenant isolation.',
-    challenges: 'Guaranteeing strict ACID consistency across distributed calls to government endpoints with unpredictable latency and sporadic timeout failures.',
-    learnings: 'Mastered two-phase credit ledger transactions, pessimistic locking, hardware-fingerprinted licensing engines, and resilient third-party API gateway engineering.'
+    liveUrl: null,
+    isFlagship: false,
+    keyFeatures: [
+      'Direct integration with statutory government GSP/NIC APIs for automated IRN generation',
+      'Two-phase transactional credit ledger with pessimistic locking to guarantee zero credit drift',
+      'Hardware-fingerprinted client license authentication and scheduled automated expiry lifecycles',
+      'Multi-tenant API isolation with hashed HMAC key authentication across test and live modes',
+      'Automated Razorpay recurring subscription billing and license renewal webhooks'
+    ],
+    technicalHighlights: [
+      'Zero ledger discrepancy guarantee during external government gateway rate limits and downtime',
+      'Scheduled background cron tasks for licensing lifecycle tracking and usage telemetry'
+    ],
+    metrics: [
+      { label: 'ACID Consistency', value: '100%' },
+      { label: 'Ledger Rollbacks', value: 'Automated' },
+      { label: 'Multi-Tenancy', value: 'Isolated' }
+    ]
+  },
+  {
+    id: 'online-examination',
+    title: 'Online Examination & Assessment Platform',
+    badge: 'Full Stack Web App',
+    category: 'Web Application',
+    tagline: 'Secure web assessment portal with real-time test timer sync, dynamic question banks, and instant grading.',
+    shortDescription: 'Full-stack online assessment application featuring candidate authorization, randomized exam generation, countdown timers, and automated score computation.',
+    description: 'Developed an interactive online examination system designed to conduct secure academic and corporate tests. Features role separation between instructors and candidates. Instructors can curate question banks, set category weightages, and configure time windows. Candidates experience a distraction-free test interface with client-side countdown clocks synchronized with server session timestamps, auto-save answer states, and instant automated grading upon submission.',
+    tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'REST APIs', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/IsmailMainal',
+    liveUrl: null,
+    isFlagship: false,
+    keyFeatures: [
+      'Candidate dashboard with registered tests, pending evaluations, and score reports',
+      'Real-time examination interface with countdown timer and question navigation grid',
+      'Instructor question bank manager supporting multiple-choice, true/false, and short answers',
+      'Automated answer grading engine with instant analytics and percentage score cards',
+      'Session tamper detection with auto-submission on timer expiration'
+    ],
+    technicalHighlights: [
+      'Optimized React state to prevent re-renders when updating rapid second-interval countdowns',
+      'Normalized relational database structure storing question relations, options, and candidate answer logs'
+    ],
+    metrics: [
+      { label: 'Grading Speed', value: 'Instant' },
+      { label: 'State Sync', value: 'Real-time' }
+    ]
   },
   {
     id: 'pet-shop-mgmt',
     title: 'Pet Shop Management System',
+    badge: 'Retail & Inventory',
     category: 'Full Stack',
-    shortDescription: 'Full stack web app for pet shop operations — listings, inventory, profiles, and orders.',
-    description: 'Full stack web app for pet shop operations — listings, inventory, customer profiles, and orders with REST API backend and React.js SPA frontend. Built 10+ Express.js CRUD endpoints, normalized MySQL schema, and responsive Tailwind CSS UI with input validation.',
-    image: petsmartHero,
-    images: [petsmartHero, petsmartProducts, petsmartServices, petsmartReports],
-    tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'REST APIs', 'Tailwind CSS'],
+    tagline: 'Comprehensive pet boutique operations suite — inventory controls, adoption profiles, and POS order management.',
+    shortDescription: 'Operational dashboard managing catalog listings, dry stock inventory thresholds, customer profiles, and point-of-sale orders with Express.js and MySQL.',
+    description: 'Built a full stack operational suite for commercial pet stores and adoption centers. Combines a public customer-facing catalog with an administrative back-office dashboard. Facilitates real-time inventory adjustments, pet vaccination records, and POS order checkout. Designed 10+ RESTful CRUD endpoints backed by a normalized MySQL relational schema.',
+    tags: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Tailwind CSS', 'REST APIs'],
     githubUrl: 'https://github.com/IsmailMainal/Pet-mart',
-    problem: 'Pet stores need unified inventory tracking, customer profiles, and rapid order processing in a modern SPA layout.',
-    solution: 'Engineered an Express.js backend with normalized MySQL database design and a responsive React.js SPA interface styled with Tailwind CSS.',
-    architecture: 'React.js SPA frontend connected to Node.js/Express.js REST API with normalized MySQL relational storage.',
-    challenges: 'Designing transactional inventory updates and synchronized order processing.',
-    learnings: 'Mastered component-based SPA architecture, Express API design, and Tailwind CSS styling.'
-  },
-  {
-    id: 'recruitment-mgmt',
-    title: 'Recruitment Management App',
-    category: 'Full Stack',
-    shortDescription: 'End-to-end recruitment pipeline — job postings, candidate tracking, and dashboards.',
-    description: 'End-to-end recruitment pipeline featuring job postings, candidate tracking, and review dashboards with REST API integration. Automated hiring workflows using async/await API calls, reducing manual HR effort by 30% and improving pipeline visibility.',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
-    tags: ['React.js', 'JavaScript ES6+', 'Node.js', 'REST APIs', 'MySQL'],
-    githubUrl: 'https://github.com/IsmailMainal',
-    problem: 'Manual HR applicant tracking is prone to errors, slow response times, and poor pipeline visibility.',
-    solution: 'Constructed an automated applicant tracking web app with async API integrations and modular component architecture.',
-    architecture: 'Modular JavaScript component-based frontend with asynchronous REST API integrations.',
-    challenges: 'Optimizing async request sequences to handle real-time status transitions smoothly.',
-    learnings: 'Deepened mastery of modern JavaScript ES6+, async/await flows, and component architecture.'
+    liveUrl: null,
+    isFlagship: false,
+    keyFeatures: [
+      'Interactive animal adoption catalog with medical records and photo galleries',
+      'Real-time pet care inventory tracking with low-stock alerts and supplier logs',
+      'Customer checkout pipeline with invoice generation and order history',
+      'Responsive administrative dashboard with sales summaries and category breakdown'
+    ],
+    technicalHighlights: [
+      '10+ Express.js CRUD endpoints with input validation and centralized error handling',
+      'Clean component modularity in React with reusable table grids and search filters'
+    ],
+    metrics: [
+      { label: 'CRUD Endpoints', value: '10+' },
+      { label: 'Schema State', value: 'Normalized' }
+    ]
   },
   {
     id: 'bank-mgmt',
     title: 'Bank Management System',
-    category: 'Backend',
-    shortDescription: 'Secure banking app with Registration, Login, Money Transfer, and Balance Enquiry.',
-    description: 'Secure banking app with Registration, Login, Money Transfer, and Balance Enquiry using Java, MySQL, JDBC, and OOP patterns. Applied JDBC transaction management, input validation, and exception handling for secure and reliable data operations.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-    tags: ['Java', 'MySQL', 'JDBC', 'OOP', 'Exception Handling'],
+    badge: 'Core Backend System',
+    category: 'Backend Architecture',
+    tagline: 'High-integrity Java backend simulating commercial banking with JDBC connection pooling and ACID transactional safety.',
+    shortDescription: 'Secure software application managing user registrations, deposits, atomic fund transfers, and balance audits using Java, MySQL, JDBC, and OOP design patterns.',
+    description: 'Constructed an OOP-based core banking application in Java using JDBC for MySQL persistent data access. Implemented strict exception-handling routines, database transaction controls (commit and rollback boundaries), and atomic balance validations before completing deposits and peer transfers. Applied the Data Access Object (DAO) pattern to maintain separation between business logic and database persistence.',
+    tags: ['Java', 'MySQL', 'JDBC', 'OOP', 'ACID Transactions', 'DAO Pattern'],
     githubUrl: 'https://github.com/IsmailMainal',
-    problem: 'Bank operations require strict atomic transaction controls. Inadequate balance checks before fund transfers lead to overdraft bugs.',
-    solution: 'Constructed an OOP-based banking engine in Java using JDBC for MySQL persistent connections. Implemented strict exception-handling routines and atomic checks before completing deposits/transfers.',
-    architecture: 'Object-oriented structure using design patterns (DAO pattern), separate presentation layers, and database connectors.',
-    challenges: 'Safeguarding transactions against crashes during intermediate stages of credit/debit cycles.',
-    learnings: 'Learned the importance of ACID properties, database index queries, and designing secure, exception-safe Java applications.'
+    liveUrl: null,
+    isFlagship: false,
+    keyFeatures: [
+      'Account creation, KYC detail logging, and authentication credentials hashing',
+      'Atomic fund transfers between accounts with strict precondition checks preventing overdrafts',
+      'Transaction history auditing with timestamped debit/credit statements',
+      'Comprehensive exception handling preventing corrupt database writes during mid-transfer failures'
+    ],
+    technicalHighlights: [
+      'ACID transaction guarantees using JDBC manual commit and rollback triggers',
+      'Robust DAO architecture isolating SQL query definitions from core business logic'
+    ],
+    metrics: [
+      { label: 'Integrity', value: '100% ACID' },
+      { label: 'Architecture', value: 'DAO Pattern' }
+    ]
   },
   {
-    id: 'food-order',
-    title: 'Food Order Website',
-    category: 'Full Stack',
-    shortDescription: 'Web app with user authentication, product browsing, and food ordering.',
-    description: 'Web app with user authentication, product browsing, and food ordering using Java, MySQL, and JDBC database integration. Implemented session management, input validation, and error handling for secure and reliable user transaction flows.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-    tags: ['Java', 'MySQL', 'JDBC', 'CRUD Operations'],
+    id: 'school-portal',
+    title: 'School Management & Information Portal',
+    badge: 'Institution Platform',
+    category: 'Web Platform',
+    tagline: 'Clean institutional platform streamlining admissions, academic calendars, notices, and department directories.',
+    shortDescription: 'Modern responsive school website and administrative portal connecting students, parents, and faculty with notice broadcasts and department directories.',
+    description: 'Designed and deployed a responsive educational institution platform. Built to replace paper notices and disjointed communication channels with a central web portal. Includes an interactive admissions enquiry system, department and faculty directories, academic calendar notifications, and event galleries. Structured for rapid page loading and clear legibility across desktop, tablet, and mobile browsers.',
+    tags: ['React.js', 'JavaScript ES6+', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive UI'],
     githubUrl: 'https://github.com/IsmailMainal',
-    problem: 'Customers need a seamless way to browse menus and place orders online securely.',
-    solution: 'Built a web-based ordering platform with secure user authentication, interactive product catalogs, and a robust Java backend for processing orders.',
-    architecture: 'Client-server architecture utilizing JavaScript for interactive frontend components and Java/JDBC for backend database transactions.',
-    challenges: 'Handling concurrent user sessions and validating inputs effectively to prevent erroneous orders.',
-    learnings: 'Gained solid expertise in session management, cross-layer communication, and robust data validation.'
+    liveUrl: null,
+    isFlagship: false,
+    keyFeatures: [
+      'Interactive online admissions enquiry form with validation and email triggers',
+      'Digital notice board with urgent alerts and downloadable academic schedules',
+      'Faculty directory organized by academic departments with contact details',
+      'High-performance responsive image gallery showcasing campus activities and achievements'
+    ],
+    technicalHighlights: [
+      'Zero layout shift (CLS) design with optimized responsive media queries',
+      'Accessible semantic HTML structure adhering to WCAG standards'
+    ],
+    metrics: [
+      { label: 'Accessibility', value: 'WCAG AA' },
+      { label: 'Mobile Score', value: '100%' }
+    ]
   }
 ];

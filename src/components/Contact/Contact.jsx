@@ -1,256 +1,238 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle2, MessageSquare, Mail } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import SectionTitle from '../Common/SectionTitle';
-import GlassCard from '../Common/GlassCard';
-import Button from '../Common/Button';
-import AuroraNebulaCanvas from './AuroraNebulaCanvas';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
-/**
- * Vesper Contact Section.
- * Implements cosmic obsidian aesthetics, glowing mint & violet spotlights,
- * fast clipboard copy, and direct WhatsApp / Email integrations.
- */
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('idle'); // 'idle' | 'success'
-  const [copiedEmail, setCopiedEmail] = useState(false);
-  const [copiedPhone, setCopiedPhone] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText('ismailmanyal3@gmail.com');
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2000);
-  };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText('+917899120229');
-    setCopiedPhone(true);
-    setTimeout(() => setCopiedPhone(false), 2000);
-  };
+  const [status, setStatus] = useState('idle');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleWhatsAppSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-    const text = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n${formData.message}\n\n-----------------------------------\nSent via Ismail Mainal Portfolio`;
-    const whatsappUrl = `https://wa.me/917899120229?text=${encodeURIComponent(text)}`;
-
-    window.open(whatsappUrl, '_blank');
-    setStatus('success');
-    setTimeout(() => setStatus('idle'), 5000);
-  };
-
-  const handleEmailSubmit = (e) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-
-    const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     const subject = `Portfolio Project Inquiry: ${formData.name}`;
-    const body = `New Project Inquiry for Ismail Mainal\n\nClient Name: ${formData.name}\nEmail: ${formData.email}\nDate: ${dateStr}\n\nProject Details:\n-----------------------------------\n${formData.message}\n-----------------------------------\n\nSent via Ismail Mainal Portfolio`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}\n\n---\nSent via Ismail Mainal Portfolio`;
     const mailtoUrl = `mailto:ismailmanyal3@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoUrl;
-    setStatus('success');
+    setStatus('sent');
     setTimeout(() => setStatus('idle'), 5000);
   };
 
   return (
-    <section
-      id="contact"
-      className="relative py-20 overflow-hidden bg-[#050507] flex items-center justify-center min-h-screen transition-all duration-1000 vesper-grid-bg"
-    >
-      {/* Fluid Aurora Borealis Nebula Canvas */}
-      <AuroraNebulaCanvas />
+    <section id="contact" className="py-12 sm:py-16 text-left">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        {/* Left Column: Heading + Form */}
+        <div className="lg:col-span-7 space-y-6">
+          <div>
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#242424] mb-3">
+              Let's Trade Ideas
+            </h2>
+            <p className="text-xs sm:text-sm text-[#6E6A66] leading-relaxed max-w-lg">
+              I'm always glad to hear about interesting collaborations, full stack roles, or a stubborn database or API problem worth thinking through together.
+            </p>
+          </div>
 
-      {/* Vesper Ambient Volumetric Lighting */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] rounded-full bg-[#F97316]/5 blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-[#FACC15]/6 blur-[160px] pointer-events-none" />
+          {/* Form with exact Kozoriz inputs */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="contact-name" className="block text-xs text-[#6E6A66] mb-1.5">
+                  Your name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Alex Henderson"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#ECE5DD] border-none text-xs sm:text-sm text-[#242424] placeholder-[#8C8681] focus:outline-none focus:ring-1 focus:ring-[#1A0A06]"
+                />
+              </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8 flex flex-col items-center">
-        <SectionTitle
-          subtitle="Get in Touch"
-          title="Let's Collaborate"
-          description="Have an ERP module, a database query bottleneck, or an AI & web project? Let's build together."
-        />
+              <div>
+                <label htmlFor="contact-email" className="block text-xs text-[#6E6A66] mb-1.5">
+                  Your email
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="you@company.com"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#ECE5DD] border-none text-xs sm:text-sm text-[#242424] placeholder-[#8C8681] focus:outline-none focus:ring-1 focus:ring-[#1A0A06]"
+                />
+              </div>
+            </div>
 
-        {/* Glass Form Wrapper */}
-        <motion.div
-          initial={{ opacity: 0, y: 35, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-50px' }}
-          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-lg"
-        >
-          <GlassCard className="relative overflow-hidden p-8 border-white/[0.08] bg-[#0C0D12]/80 shadow-2xl">
-            <AnimatePresence mode="wait">
-              {status === 'success' ? (
-                /* Success Screen Overlay */
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  className="flex flex-col items-center justify-center py-12 text-center"
-                >
-                  <div className="relative mb-6">
-                    <motion.div
-                      initial={{ x: 0, y: 0, scale: 1, opacity: 1 }}
-                      animate={{
-                        x: [0, 40, 100, 250],
-                        y: [0, -20, -60, -180],
-                        scale: [1, 0.9, 0.7, 0],
-                        opacity: [1, 1, 0.8, 0],
-                      }}
-                      transition={{ duration: 1.8, ease: 'easeOut' }}
-                      className="text-[#F97316]"
-                    >
-                      <Send className="w-12 h-12" />
-                    </motion.div>
-                  </div>
+            <div>
+              <label htmlFor="contact-message" className="block text-xs text-[#6E6A66] mb-1.5">
+                What's on your mind?
+              </label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows={4}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="An idea, a project, a question..."
+                className="w-full px-3.5 py-2.5 rounded-lg bg-[#ECE5DD] border-none text-xs sm:text-sm text-[#242424] placeholder-[#8C8681] focus:outline-none focus:ring-1 focus:ring-[#1A0A06] resize-none"
+              />
+            </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <h3 className="font-heading-sora text-xl font-bold text-[#F8FAFC] mb-2 flex items-center justify-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#F97316]" /> App Launched
-                    </h3>
-                    <p className="font-body text-sm text-[#94A3B8] leading-relaxed">
-                      Your message payload has been formatted and opened in your selected app (WhatsApp / Email Client).
-                    </p>
-                  </motion.div>
-                </motion.div>
-              ) : (
-                /* Interactive Form Fields */
-                <motion.form
-                  key="form"
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="flex flex-col gap-6 text-left"
-                >
-                  {/* Quick Copy Shortcuts Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Copy Email */}
-                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#050507]/70 border border-white/5 font-body">
-                      <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight truncate max-w-[140px]">
-                        ismailmanyal3@gmail.com
-                      </span>
-                      <button
-                        type="button"
-                        onClick={handleCopyEmail}
-                        className="font-heading-space text-[11px] font-semibold text-[#F97316] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
-                      >
-                        {copiedEmail ? 'Copied! ✦' : 'Copy Email'}
-                      </button>
-                    </div>
+            {status === 'sent' && (
+              <div className="p-3 rounded-lg bg-emerald-50 text-xs font-mono text-emerald-800">
+                Message formatted and opened in your email client!
+              </div>
+            )}
 
-                    {/* Copy Phone */}
-                    <div className="flex justify-between items-center p-3 rounded-xl bg-[#050507]/70 border border-white/5 font-body">
-                      <span className="text-[11px] text-[#94A3B8] font-mono tracking-tight">+91 7899120229</span>
-                      <button
-                        type="button"
-                        onClick={handleCopyPhone}
-                        className="font-heading-space text-[11px] font-semibold text-[#FACC15] hover:text-[#F8FAFC] transition-colors focus:outline-none cursor-pointer flex items-center gap-1 shrink-0"
-                      >
-                        {copiedPhone ? 'Copied! ✦' : 'Copy Phone'}
-                      </button>
-                    </div>
-                  </div>
+            <div className="pt-2">
+              <button
+                type="submit"
+                className="px-6 py-2.5 rounded-lg bg-[#1A0A06] hover:bg-[#331B15] text-white text-xs font-medium transition-colors cursor-pointer shadow-xs"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
 
-                  {/* Name field */}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="font-heading-space text-xs font-semibold tracking-wider text-[#94A3B8] uppercase block mb-2"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      required
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Alex Mercer"
-                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all"
-                    />
-                  </div>
+        {/* Right Column: Social Links & Kozoriz High-Five Illustration */}
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-start space-y-6 pt-4 lg:pt-0">
+          <div className="space-y-3 text-center lg:text-left">
+            <span className="text-xs font-mono text-[#8C8681] block">
+              Find me here:
+            </span>
+            <div className="flex items-center justify-center lg:justify-start gap-4 text-[#242424]">
+              <a
+                href="https://www.linkedin.com/in/ismail-mainal-187199215/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#E65639] transition-colors p-1"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com/IsmailMainal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#E65639] transition-colors p-1"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:ismailmanyal3@gmail.com"
+                className="hover:text-[#E65639] transition-colors p-1"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
 
-                  {/* Email field */}
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="font-heading-space text-xs font-semibold tracking-wider text-[#94A3B8] uppercase block mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      required
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="alex@acme.corp"
-                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all"
-                    />
-                  </div>
+          {/* Kozoriz High-Five Illustration in Terracotta #E65639 (matching Screenshot 1) */}
+          <div className="w-full max-w-[280px] sm:max-w-[320px] pt-4">
+            <svg
+              viewBox="0 0 320 340"
+              className="w-full h-auto text-[#E65639]"
+              fill="none"
+              stroke="#E65639"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {/* Spark lines between hands */}
+              <line x1="160" y1="65" x2="160" y2="45" strokeWidth="2.5" />
+              <line x1="145" y1="72" x2="135" y2="58" strokeWidth="2.5" />
+              <line x1="175" y1="72" x2="185" y2="58" strokeWidth="2.5" />
 
-                  {/* Message field */}
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="font-heading-space text-xs font-semibold tracking-wider text-[#94A3B8] uppercase block mb-2"
-                    >
-                      Project Description
-                    </label>
-                    <textarea
-                      required
-                      rows="4"
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Briefly describe what you are looking to build or optimize..."
-                      className="w-full bg-[#050507]/80 border border-white/10 rounded-xl px-4 py-3 font-body text-sm text-[#F8FAFC] placeholder-white/20 focus:outline-none focus:border-[#F97316] focus:shadow-[0_0_15px_rgba(249,115,22,0.2)] transition-all resize-none"
-                    />
-                  </div>
+              {/* Left Figure (Woman with bun & glasses) */}
+              {/* Head & Hair */}
+              <circle cx="95" cy="120" r="18" fill="#E65639" />
+              <circle cx="82" cy="122" r="14" fill="#E65639" />
+              <circle cx="106" cy="124" r="10" strokeWidth="2" fill="#FBF5EF" />
+              {/* Glasses */}
+              <circle cx="103" cy="122" r="4" strokeWidth="1.5" />
+              <path d="M107 122 L112 124" strokeWidth="1.5" />
 
-                  {/* Dual Channel Action Buttons */}
-                  <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
-                    <Button
-                      type="button"
-                      onClick={handleWhatsAppSubmit}
-                      variant="primary"
-                      className="w-full sm:w-1/2 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba5a] text-black border-none font-bold shadow-[0_0_20px_rgba(37,211,102,0.3)]"
-                    >
-                      <MessageSquare className="w-4 h-4 fill-current" />
-                      <span>WhatsApp Chat</span>
-                    </Button>
-                    <Button
-                      type="button"
-                      onClick={handleEmailSubmit}
-                      variant="secondary"
-                      className="w-full sm:w-1/2 flex items-center justify-center gap-2"
-                    >
-                      <Mail className="w-4 h-4 text-[#FACC15]" />
-                      <span>Send via Email</span>
-                    </Button>
-                  </div>
-                </motion.form>
-              )}
-            </AnimatePresence>
-          </GlassCard>
-        </motion.div>
+              {/* Left Body & Arm raising to high-five */}
+              <path
+                d="M102 138 C108 152 114 175 110 200 L76 215 C82 185 88 158 98 138 Z"
+                strokeWidth="2"
+                fill="#FBF5EF"
+              />
+              {/* High five arm */}
+              <path
+                d="M106 150 C125 130 142 98 154 75"
+                strokeWidth="2.5"
+              />
+              <path
+                d="M154 75 C156 70 162 70 160 78"
+                strokeWidth="2.5"
+              />
+
+              {/* Left Pants */}
+              <path
+                d="M76 215 C80 260 62 300 55 315 L78 320 C88 290 98 250 96 230 C96 255 102 285 110 320 L130 315 C122 280 114 240 110 200 Z"
+                strokeWidth="2"
+                fill="#E65639"
+              />
+              {/* Left Shoes */}
+              <path d="M50 315 C55 328 72 328 78 320" strokeWidth="2" fill="#E65639" />
+              <path d="M110 320 C116 328 132 328 138 320" strokeWidth="2" fill="#E65639" />
+
+              {/* Right Figure (Man high-fiving) */}
+              {/* Head & Hair */}
+              <path
+                d="M210 102 C218 100 230 108 226 122 C222 135 210 135 204 125 C200 118 202 105 210 102 Z"
+                strokeWidth="2"
+                fill="#FBF5EF"
+              />
+              <path
+                d="M214 100 C218 95 232 100 230 118 C225 112 216 110 214 100 Z"
+                fill="#E65639"
+              />
+              {/* Smile / Profile */}
+              <path d="M208 124 C212 126 216 124 216 122" strokeWidth="1.5" />
+
+              {/* Right Body & High-five arm */}
+              <path
+                d="M204 135 C196 150 190 175 194 205 L228 202 C234 175 230 152 218 135 Z"
+                strokeWidth="2"
+                fill="#FBF5EF"
+              />
+              {/* Raised arm */}
+              <path
+                d="M200 150 C185 125 172 98 160 76"
+                strokeWidth="2.5"
+              />
+              <path
+                d="M160 76 C158 72 164 70 162 78"
+                strokeWidth="2.5"
+              />
+
+              {/* Right Pants */}
+              <path
+                d="M194 205 C190 250 194 290 196 320 L218 320 C218 280 218 250 216 230 C220 250 226 280 236 315 L256 310 C246 270 238 235 228 202 Z"
+                strokeWidth="2"
+                fill="#E65639"
+              />
+              {/* Right Shoes */}
+              <path d="M192 320 C198 328 215 328 220 320" strokeWidth="2" fill="#E65639" />
+              <path d="M232 315 C238 324 254 324 258 312" strokeWidth="2" fill="#E65639" />
+            </svg>
+          </div>
+        </div>
       </div>
     </section>
   );
