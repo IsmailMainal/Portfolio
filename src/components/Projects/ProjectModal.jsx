@@ -5,13 +5,23 @@ import Badge from '../Common/Badge';
 
 export default function ProjectModal({ project, onClose }) {
   useEffect(() => {
+    // Pause Lenis smooth scroll while modal is active
+    if (window.lenis) {
+      window.lenis.stop();
+    }
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
+
     return () => {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = prevOverflow;
+      if (window.lenis) {
+        window.lenis.start();
+      }
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
@@ -20,7 +30,10 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div
+        data-lenis-prevent="true"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      >
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -32,11 +45,13 @@ export default function ProjectModal({ project, onClose }) {
 
         {/* Modal Window */}
         <motion.div
+          data-lenis-prevent="true"
+          onWheel={(e) => e.stopPropagation()}
           initial={{ opacity: 0, y: 20, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.98 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl border border-[#E8E0D8] bg-[#FBF5EF] shadow-2xl z-10 p-6 sm:p-8"
+          className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto overscroll-contain rounded-2xl border border-[#E8E0D8] bg-[#FBF5EF] shadow-2xl z-10 p-6 sm:p-8"
         >
           {/* Close button */}
           <button

@@ -6,6 +6,13 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     setMobileMenuOpen(false);
+    if (id === 'profile-top') {
+      if (window.innerWidth < 1024) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      id = 'about';
+    }
     const el = document.getElementById(id);
     if (el) {
       if (window.lenis) {
@@ -18,12 +25,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-40 bg-[#FBF5EF]/95 backdrop-blur-md border-b border-[#E8E0D8]/60">
+    <nav className="bg-[#FBF5EF]/95 backdrop-blur-md border-b border-[#E8E0D8]/60">
       <div className="flex items-center justify-between py-3 sm:py-4 px-4 sm:px-8 lg:px-16">
         {/* Left: User Avatar Outline */}
         <div className="flex items-center gap-6 min-w-0">
           <button
-            onClick={() => scrollTo('about')}
+            onClick={() => scrollTo('profile-top')}
             className="w-8 h-8 rounded-full border border-[#E65639] flex items-center justify-center text-[#E65639] hover:bg-[#E65639]/10 transition-colors cursor-pointer shrink-0"
             title="About Ismail"
             aria-label="About Ismail"

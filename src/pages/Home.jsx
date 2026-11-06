@@ -12,12 +12,20 @@ import Footer from '../components/Footer/Footer';
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#FBF5EF] text-[#242424] flex flex-col lg:flex-row">
-      {/* Fixed/Sticky Left Sidebar */}
+      {/* Mobile Sticky Navbar at top of viewport (< lg) */}
+      <div className="block lg:hidden sticky top-0 z-40">
+        <Navbar />
+      </div>
+
+      {/* Sidebar: on mobile sits under Navbar; on desktop is left sticky column */}
       <Sidebar />
 
       {/* Scrollable Right Main Column */}
       <div className="flex-1 min-w-0 flex flex-col bg-[#FBF5EF]">
-        <Navbar />
+        {/* Desktop Sticky Navbar (>= lg) */}
+        <div className="hidden lg:block sticky top-0 z-40">
+          <Navbar />
+        </div>
 
         <main className="flex-1 px-3 sm:px-8 lg:px-16 py-6 sm:py-8 max-w-4xl w-full">
           <Hero />

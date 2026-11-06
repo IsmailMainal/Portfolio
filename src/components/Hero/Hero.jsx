@@ -16,7 +16,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="py-10 sm:py-16 flex flex-col items-center text-center border-b border-[#E8E0D8]/60 mb-16">
+    <section id="hero" className="py-8 sm:py-10 flex flex-col items-center text-center border-b border-[#E8E0D8]/60">
       {/* Official Kozoriz Developer Illustration */}
       <div className="w-[290px] sm:w-[380px] md:w-[440px] max-w-[85vw] h-auto mb-6 flex items-center justify-center">
         <img

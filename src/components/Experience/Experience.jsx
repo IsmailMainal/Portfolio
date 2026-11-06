@@ -12,7 +12,7 @@ export default function Experience() {
   const workOnly = experienceData.filter((item) => item.type !== 'Degree');
 
   return (
-    <section id="experience" className="py-12 sm:py-16 border-b border-[#E8E0D8]/60 mb-16 text-left">
+    <section id="experience" className="py-8 sm:py-10 border-b border-[#E8E0D8]/60 text-left">
       <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#242424] mb-8">
         Experience
       </h2>

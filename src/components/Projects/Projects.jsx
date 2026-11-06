@@ -18,7 +18,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="work" className="py-12 sm:py-16 border-b border-[#E8E0D8]/60 mb-16 text-left">
+    <section id="work" className="py-8 sm:py-10 border-b border-[#E8E0D8]/60 text-left">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#242424]">
