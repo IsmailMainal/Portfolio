@@ -3,7 +3,7 @@ import { experienceData } from '../../data/experience';
 
 export default function Experience() {
   const badgeLabels = {
-    'exp-aanirids': 'BK',
+    'exp-aanirids': 'AT',
     'exp-salesforce': 'SF',
     'exp-techciti': 'TC',
     'edu-vtu': 'CIT'

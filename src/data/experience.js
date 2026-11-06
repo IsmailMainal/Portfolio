@@ -5,7 +5,7 @@ export const experienceData = [
   {
     id: 'exp-aanirids',
     role: 'Full Stack Developer',
-    company: 'BillKarr / Aanibiz (Aanirids Technologies Private Limited)',
+    company: "Aanirids Technologies Private Limited",
     location: 'Bengaluru, India',
     period: 'Jan 2026 – Present',
     type: 'Full-time',

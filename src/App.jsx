@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLenis } from './hooks/useLenis';
 
 // Global Layout Components
-import ScrollProgressBar from './components/Common/ScrollProgressBar';
 import ScrollToTop from './components/Common/ScrollToTop';
 
 // Lazy Loaded Pages
@@ -16,9 +15,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* Top reading progress */}
-      <ScrollProgressBar />
-
       {/* Main App */}
       <Suspense fallback={<div className="min-h-screen bg-[#FBF5EF]" />}>
         <Routes>
