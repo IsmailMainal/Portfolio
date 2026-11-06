@@ -19,7 +19,7 @@ export default function Home() {
       <div className="flex-1 min-w-0 flex flex-col bg-[#FBF5EF]">
         <Navbar />
 
-        <main className="flex-1 px-6 sm:px-10 lg:px-16 py-8 max-w-4xl w-full">
+        <main className="flex-1 px-3 sm:px-8 lg:px-16 py-6 sm:py-8 max-w-4xl w-full">
           <Hero />
           <About />
           <Experience />

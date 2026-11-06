@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { contactHighFiveImage } from '../../assets';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -141,96 +142,14 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Kozoriz High-Five Illustration in Terracotta #E65639 (matching Screenshot 1) */}
-          <div className="w-full max-w-[280px] sm:max-w-[320px] pt-4">
-            <svg
-              viewBox="0 0 320 340"
-              className="w-full h-auto text-[#E65639]"
-              fill="none"
-              stroke="#E65639"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              {/* Spark lines between hands */}
-              <line x1="160" y1="65" x2="160" y2="45" strokeWidth="2.5" />
-              <line x1="145" y1="72" x2="135" y2="58" strokeWidth="2.5" />
-              <line x1="175" y1="72" x2="185" y2="58" strokeWidth="2.5" />
-
-              {/* Left Figure (Woman with bun & glasses) */}
-              {/* Head & Hair */}
-              <circle cx="95" cy="120" r="18" fill="#E65639" />
-              <circle cx="82" cy="122" r="14" fill="#E65639" />
-              <circle cx="106" cy="124" r="10" strokeWidth="2" fill="#FBF5EF" />
-              {/* Glasses */}
-              <circle cx="103" cy="122" r="4" strokeWidth="1.5" />
-              <path d="M107 122 L112 124" strokeWidth="1.5" />
-
-              {/* Left Body & Arm raising to high-five */}
-              <path
-                d="M102 138 C108 152 114 175 110 200 L76 215 C82 185 88 158 98 138 Z"
-                strokeWidth="2"
-                fill="#FBF5EF"
-              />
-              {/* High five arm */}
-              <path
-                d="M106 150 C125 130 142 98 154 75"
-                strokeWidth="2.5"
-              />
-              <path
-                d="M154 75 C156 70 162 70 160 78"
-                strokeWidth="2.5"
-              />
-
-              {/* Left Pants */}
-              <path
-                d="M76 215 C80 260 62 300 55 315 L78 320 C88 290 98 250 96 230 C96 255 102 285 110 320 L130 315 C122 280 114 240 110 200 Z"
-                strokeWidth="2"
-                fill="#E65639"
-              />
-              {/* Left Shoes */}
-              <path d="M50 315 C55 328 72 328 78 320" strokeWidth="2" fill="#E65639" />
-              <path d="M110 320 C116 328 132 328 138 320" strokeWidth="2" fill="#E65639" />
-
-              {/* Right Figure (Man high-fiving) */}
-              {/* Head & Hair */}
-              <path
-                d="M210 102 C218 100 230 108 226 122 C222 135 210 135 204 125 C200 118 202 105 210 102 Z"
-                strokeWidth="2"
-                fill="#FBF5EF"
-              />
-              <path
-                d="M214 100 C218 95 232 100 230 118 C225 112 216 110 214 100 Z"
-                fill="#E65639"
-              />
-              {/* Smile / Profile */}
-              <path d="M208 124 C212 126 216 124 216 122" strokeWidth="1.5" />
-
-              {/* Right Body & High-five arm */}
-              <path
-                d="M204 135 C196 150 190 175 194 205 L228 202 C234 175 230 152 218 135 Z"
-                strokeWidth="2"
-                fill="#FBF5EF"
-              />
-              {/* Raised arm */}
-              <path
-                d="M200 150 C185 125 172 98 160 76"
-                strokeWidth="2.5"
-              />
-              <path
-                d="M160 76 C158 72 164 70 162 78"
-                strokeWidth="2.5"
-              />
-
-              {/* Right Pants */}
-              <path
-                d="M194 205 C190 250 194 290 196 320 L218 320 C218 280 218 250 216 230 C220 250 226 280 236 315 L256 310 C246 270 238 235 228 202 Z"
-                strokeWidth="2"
-                fill="#E65639"
-              />
-              {/* Right Shoes */}
-              <path d="M192 320 C198 328 215 328 220 320" strokeWidth="2" fill="#E65639" />
-              <path d="M232 315 C238 324 254 324 258 312" strokeWidth="2" fill="#E65639" />
-            </svg>
+          {/* Official Kozoriz High-Five Illustration */}
+          <div className="w-full max-w-[300px] sm:max-w-[340px] pt-4">
+            <img
+              src={contactHighFiveImage}
+              alt="High five collaboration"
+              className="w-full h-auto object-contain select-none"
+              draggable="false"
+            />
           </div>
         </div>
       </div>

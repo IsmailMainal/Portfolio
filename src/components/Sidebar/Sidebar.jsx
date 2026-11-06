@@ -8,7 +8,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-full lg:w-[320px] xl:w-[350px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#E8E0D8] bg-[#FBF5EF] p-6 sm:p-8 flex flex-col justify-between lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto z-20">
+    <aside className="w-full lg:w-[320px] xl:w-[350px] shrink-0 border-b lg:border-b-0 lg:border-r border-[#E8E0D8] bg-[#FBF5EF] p-4 sm:p-8 flex flex-col justify-between lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto z-20">
       <div className="space-y-6">
         {/* Profile Avatar matching Kozoriz */}
         <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-[#E8E0D8] bg-white shadow-2xs">
